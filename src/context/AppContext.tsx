@@ -177,8 +177,29 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     })
 
     const { data: { subscription } } = supabase!.auth.onAuthStateChange(
-      async (event) => {
-        if (event === 'SIGNED_OUT') {
+      async (event, session) => {
+        if (event === 'SIGNED_IN' && session?.user) {
+          // Fires on new logins (not initial page load — getSession handles that)
+          const uid = session.user.id
+          const { data: userData } = await supabase!
+            .from('users').select('*').eq('id', uid).single()
+          if (userData) {
+            setUser(userData as User)
+            const { data: prog } = await supabase!
+              .from('user_progress').select('*').eq('user_id', uid)
+            if (prog) applyProgress(prog as UserProgress[])
+            await loadSupabaseSession(uid, (userData as User).level)
+          } else {
+            const { data: newUser } = await supabase!
+              .from('users')
+              .insert({ id: uid, email: session.user.email, level: 'B1', streak: 0 })
+              .select().single()
+            if (newUser) {
+              setUser(newUser as User)
+              await loadSupabaseSession(uid, 'B1')
+            }
+          }
+        } else if (event === 'SIGNED_OUT') {
           setUser(null); setProgress({}); setTodaySession(null)
           setTodayWords([]); setLeafCount(0)
         }
@@ -193,25 +214,17 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setLeafCount(prev => prev + 1)
   }, [])
 
-  // ── changeLevel — saves new level and rebuilds today's session ──────────────
+  // ── changeLevel — saves level only; today's 5 words are unchanged ────────────
 
   const changeLevel = useCallback(async (newLevel: ESLLevel) => {
     if (!user) return
-    const today = getTodayStr()
     if (demo) {
       localUpdateUser(user.id, { level: newLevel })
-      localDeleteDailySession(user.id, today)
-      const prog = localGetProgress(user.id)
-      setUser(prev => prev ? { ...prev, level: newLevel } : null)
-      loadSession(user.id, prog, newLevel)
     } else {
       await supabase!.from('users').update({ level: newLevel }).eq('id', user.id)
-      await supabase!.from('daily_sessions').delete()
-        .eq('user_id', user.id).eq('date', today)
-      setUser(prev => prev ? { ...prev, level: newLevel } : null)
-      await loadSupabaseSession(user.id, newLevel)
     }
-  }, [user, demo, supabase, loadSession, loadSupabaseSession])
+    setUser(prev => prev ? { ...prev, level: newLevel } : null)
+  }, [user, demo, supabase])
 
   // ── saveProfile — first-time onboarding: save name + level ─────────────────
 

@@ -150,7 +150,7 @@ export default function ProfilePage() {
       <div className="bg-white border border-bodhi-border rounded-2xl p-5 mb-4">
         <h2 className="text-sm font-bold text-bodhi-text mb-1">Choose Your Level</h2>
         <p className="text-xs text-bodhi-text-muted mb-4">
-          Select your grade — you will get 5 words per day from that level
+          5 words per day from your level. Changes take effect from tomorrow.
         </p>
         <div className="space-y-3">
           {GRADE_BLOCKS.map(block => (

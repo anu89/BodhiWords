@@ -40,25 +40,25 @@ export default function LoginPage() {
 
     // ── DEMO MODE (localStorage) ────────────────────────────────────────────
     if (isDemo) {
-      await new Promise(r => setTimeout(r, 300))   // tiny delay for UX feel
+      await new Promise(r => setTimeout(r, 300))
       if (mode === 'signup') {
         const { error } = localSignUp(email, password)
         if (error) {
           setMessage({ type: 'error', text: error.message })
+          setLoading(false)
         } else {
-          setMessage({ type: 'success', text: 'Account created! Logging you in…' })
-          setTimeout(() => { router.push('/'); router.refresh() }, 600)
+          // Hard reload so AppContext re-reads the new session from localStorage
+          window.location.href = '/'
         }
       } else {
         const { error } = localSignIn(email, password)
         if (error) {
           setMessage({ type: 'error', text: error.message })
+          setLoading(false)
         } else {
-          router.push('/')
-          router.refresh()
+          window.location.href = '/'
         }
       }
-      setLoading(false)
       return
     }
 
@@ -66,14 +66,20 @@ export default function LoginPage() {
     const supabase = createClient()
     try {
       if (mode === 'signup') {
-        const { error } = await supabase.auth.signUp({ email, password })
+        const { data, error } = await supabase.auth.signUp({ email, password })
         if (error) throw error
-        setMessage({ type: 'success', text: 'Account created! Check your email to confirm, then log in.' })
+        if (data.session) {
+          // Email confirmation is disabled — user is immediately signed in.
+          // onAuthStateChange SIGNED_IN fires and loads user; just navigate.
+          router.push('/')
+        } else {
+          setMessage({ type: 'success', text: 'Account created! Check your email to confirm, then log in.' })
+        }
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password })
         if (error) throw error
+        // onAuthStateChange SIGNED_IN fires and loads user data into AppContext
         router.push('/')
-        router.refresh()
       }
     } catch (err: unknown) {
       setMessage({ type: 'error', text: err instanceof Error ? err.message : 'An error occurred' })
