@@ -7,7 +7,7 @@ import { useApp } from '@/context/AppContext'
 import TestQuestionComponent from '@/components/TestQuestion'
 import LeafParticle from '@/components/LeafParticle'
 import BodhiTree from '@/components/BodhiTree'
-import { generateTestQuestions } from '@/lib/utils'
+import { generateTestQuestions, getTodayStr } from '@/lib/utils'
 import { WORDS } from '@/lib/words'
 import { createClient } from '@/lib/supabase'
 import {
@@ -15,14 +15,16 @@ import {
   localSaveDailySession, localUpdateUser, localAddTestResult,
 } from '@/lib/localStore'
 import type { TestQuestion, UserProgress } from '@/types'
-import { CheckCircle2, XCircle, RotateCcw, Home } from 'lucide-react'
+import { CheckCircle2, XCircle, RotateCcw, Home, ChevronLeft, ChevronRight } from 'lucide-react'
+
+type AnswerRecord = { answer: string; correct: boolean }
 
 export default function TestPage() {
   const { user, todayWords, todaySession, leafCount, addLeaf, refreshProgress, isLoading, isDemo } = useApp()
   const router = useRouter()
   const [questions, setQuestions] = useState<TestQuestion[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [results, setResults] = useState<Record<string, boolean>>({})
+  const [results, setResults] = useState<Record<string, AnswerRecord>>({})
   const [finished, setFinished] = useState(false)
   const [leafTrigger, setLeafTrigger] = useState(false)
   const [localLeafCount, setLocalLeafCount] = useState(leafCount)
@@ -39,15 +41,17 @@ export default function TestPage() {
 
   useEffect(() => { setLocalLeafCount(leafCount) }, [leafCount])
 
-  // ── record one answer ──────────────────────────────────────────────────────
+  // ── record one answer (no auto-advance — parent navigation handles that) ───
   const handleAnswer = useCallback(async (answer: string, correct: boolean) => {
     const q = questions[currentIndex]
     if (!q || !user) return
 
-    setResults(prev => ({ ...prev, [q.id]: correct }))
+    // Already answered this question — ignore (shouldn't happen but guard it)
+    if (results[q.id]) return
+
+    setResults(prev => ({ ...prev, [q.id]: { answer, correct } }))
 
     if (isDemo) {
-      // localStore path
       localAddTestResult(user.id, q.word.id, correct)
       const all = localGetProgress(user.id)
       const existing = all.find(p => p.word_id === q.word.id)
@@ -65,12 +69,11 @@ export default function TestPage() {
       }
       localUpsertProgress(updated)
     } else {
-      // Supabase path
       const supabase = createClient()
-      await supabase.from('test_results').insert({
+      supabase.from('test_results').insert({
         user_id: user.id, word_id: q.word.id,
         question_type: q.type, correct,
-        session_date: new Date().toISOString().split('T')[0],
+        session_date: getTodayStr(),
       })
       const { data: existing } = await supabase
         .from('user_progress').select('*')
@@ -84,10 +87,9 @@ export default function TestPage() {
         status, last_seen: new Date().toISOString(),
       }
       if (existing) {
-        await supabase.from('user_progress').update(payload)
-          .eq('user_id', user.id).eq('word_id', q.word.id)
+        supabase.from('user_progress').update(payload).eq('user_id', user.id).eq('word_id', q.word.id)
       } else {
-        await supabase.from('user_progress').insert(payload)
+        supabase.from('user_progress').insert(payload)
       }
     }
 
@@ -96,43 +98,73 @@ export default function TestPage() {
       addLeaf()
       setLocalLeafCount(c => c + 1)
     }
-
-    setTimeout(() => {
-      if (currentIndex < questions.length - 1) {
-        setCurrentIndex(i => i + 1)
-      } else {
-        finishTest()
-      }
-    }, 1000)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [questions, currentIndex, user, isDemo, addLeaf])
+  }, [questions, currentIndex, results, user, isDemo, addLeaf])
 
-  // ── finish session ─────────────────────────────────────────────────────────
+  // ── finish test ────────────────────────────────────────────────────────────
   const finishTest = useCallback(async () => {
     if (!user || !todaySession) return
+    const today = getTodayStr()
+    // Only increment streak if not already counted today
+    const newStreak = user.last_active_date === today ? user.streak : user.streak + 1
 
     if (isDemo) {
       const completed = { ...todaySession, completed: true }
       localSaveDailySession(completed)
-      localUpdateUser(user.id, {
-        streak: user.streak + 1,
-        last_active_date: new Date().toISOString().split('T')[0],
-      })
+      localUpdateUser(user.id, { streak: newStreak, last_active_date: today })
     } else {
       const supabase = createClient()
       await supabase.from('daily_sessions').update({ completed: true }).eq('id', todaySession.id)
-      await supabase.from('users').update({
-        streak: user.streak + 1,
-        last_active_date: new Date().toISOString().split('T')[0],
-      }).eq('id', user.id)
+      await supabase.from('users').update({ streak: newStreak, last_active_date: today }).eq('id', user.id)
     }
     await refreshProgress()
     setFinished(true)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, todaySession, isDemo, refreshProgress])
 
+  // ── navigation ─────────────────────────────────────────────────────────────
+  const handleNext = useCallback(() => {
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex(i => i + 1)
+    } else {
+      finishTest()
+    }
+  }, [currentIndex, questions.length, finishTest])
+
+  const handlePrev = useCallback(() => {
+    if (currentIndex > 0) setCurrentIndex(i => i - 1)
+  }, [currentIndex])
+
   // ── guards ─────────────────────────────────────────────────────────────────
   if (isLoading || !user) return null
+
+  // Test already taken today (and we're not in the middle of finishing it)
+  if (!finished && todaySession?.completed) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center">
+        <p className="text-4xl mb-4">✅</p>
+        <h2 className="text-xl font-bold text-bodhi-text mb-2">Test done for today</h2>
+        <p className="text-bodhi-text-muted text-sm mb-6">
+          Your Sadhana is complete. Come back tomorrow for new words.
+        </p>
+        <div className="flex gap-3">
+          <button
+            onClick={() => router.push('/learn')}
+            className="px-5 py-3 rounded-xl border border-bodhi-green text-bodhi-green font-medium text-sm"
+          >
+            Review Words
+          </button>
+          <button
+            onClick={() => router.push('/')}
+            className="px-5 py-3 rounded-xl text-white font-medium text-sm"
+            style={{ background: 'linear-gradient(135deg, #1B5E20, #2E7D32)' }}
+          >
+            Go Home
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   if (questions.length === 0) {
     return (
@@ -147,8 +179,9 @@ export default function TestPage() {
     )
   }
 
-  const correctCount = Object.values(results).filter(Boolean).length
-  const totalAnswered = Object.values(results).length
+  const correctCount = Object.values(results).filter(r => r.correct).length
+  const answeredCount = Object.keys(results).length
+  const currentAnswered = !!results[questions[currentIndex]?.id]
 
   // ── results screen ─────────────────────────────────────────────────────────
   if (finished) {
@@ -166,7 +199,6 @@ export default function TestPage() {
           <h1 className="text-2xl font-bold text-bodhi-text mb-1">Sadhana Complete!</h1>
           <p className="text-bodhi-text-muted text-sm mb-6">Your tree has grown today</p>
 
-          {/* Score card */}
           <div className="bg-white border border-bodhi-border rounded-2xl p-6 mb-4">
             <div
               className="text-5xl font-bold mb-1"
@@ -185,7 +217,7 @@ export default function TestPage() {
             <div className="space-y-2">
               {questions.map(q => (
                 <div key={q.id} className="flex items-center gap-3 text-sm">
-                  {results[q.id]
+                  {results[q.id]?.correct
                     ? <CheckCircle2 size={16} className="text-green-500 shrink-0" />
                     : <XCircle size={16} className="text-red-400 shrink-0" />
                   }
@@ -233,7 +265,7 @@ export default function TestPage() {
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-lg font-bold text-bodhi-text">Daily Test</h1>
-          <p className="text-xs text-bodhi-text-muted">{correctCount}/{totalAnswered} correct so far</p>
+          <p className="text-xs text-bodhi-text-muted">{correctCount}/{answeredCount} correct so far</p>
         </div>
         <div className="flex items-center gap-1.5 text-sm">
           <span className="text-bodhi-green">🍃</span>
@@ -248,8 +280,30 @@ export default function TestPage() {
           index={currentIndex + 1}
           total={questions.length}
           onAnswer={handleAnswer}
+          preAnswered={results[questions[currentIndex]?.id]}
         />
       </AnimatePresence>
+
+      {/* Navigation */}
+      <div className="flex gap-3 mt-6">
+        <button
+          onClick={handlePrev}
+          disabled={currentIndex === 0}
+          className="flex items-center gap-1.5 px-5 py-3 rounded-xl border border-bodhi-border text-sm font-medium text-bodhi-text-muted disabled:opacity-30 hover:bg-bodhi-bg-card transition-all"
+        >
+          <ChevronLeft size={16} /> Previous
+        </button>
+
+        <button
+          onClick={handleNext}
+          disabled={!currentAnswered}
+          className="flex-1 flex items-center justify-center gap-1.5 py-3 rounded-xl text-sm font-semibold text-white transition-all disabled:opacity-30"
+          style={{ background: 'linear-gradient(135deg, #1B5E20, #2E7D32)' }}
+        >
+          {currentIndex === questions.length - 1 ? 'Finish' : 'Next'}
+          {currentIndex < questions.length - 1 && <ChevronRight size={16} />}
+        </button>
+      </div>
     </div>
   )
 }

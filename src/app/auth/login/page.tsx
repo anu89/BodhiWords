@@ -1,98 +1,42 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { createClient } from '@/lib/supabase'
-import {
-  isDemoMode, seedTestUser,
-  localSignIn, localSignUp, localGetSession,
-  localGetUser,
-} from '@/lib/localStore'
 import BodhiTree from '@/components/BodhiTree'
 
 export default function LoginPage() {
-  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [mode, setMode] = useState<'login' | 'signup'>('login')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: 'error' | 'success'; text: string } | null>(null)
-  const [isDemo, setIsDemo] = useState(false)
-
-  useEffect(() => {
-    const demo = isDemoMode()
-    setIsDemo(demo)
-    if (demo) {
-      seedTestUser()
-      // If already logged in locally, redirect home
-      const session = localGetSession()
-      if (session && localGetUser(session.userId)) {
-        router.replace('/')
-      }
-    }
-  }, [router])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setMessage(null)
 
-    // ── DEMO MODE (localStorage) ────────────────────────────────────────────
-    if (isDemo) {
-      await new Promise(r => setTimeout(r, 300))
-      if (mode === 'signup') {
-        const { error } = localSignUp(email, password)
-        if (error) {
-          setMessage({ type: 'error', text: error.message })
-          setLoading(false)
-        } else {
-          // Hard reload so AppContext re-reads the new session from localStorage
-          window.location.href = '/'
-        }
-      } else {
-        const { error } = localSignIn(email, password)
-        if (error) {
-          setMessage({ type: 'error', text: error.message })
-          setLoading(false)
-        } else {
-          window.location.href = '/'
-        }
-      }
-      return
-    }
-
-    // ── SUPABASE MODE ──────────────────────────────────────────────────────
     const supabase = createClient()
     try {
       if (mode === 'signup') {
         const { data, error } = await supabase.auth.signUp({ email, password })
         if (error) throw error
         if (data.session) {
-          // Email confirmation is disabled — user is immediately signed in.
-          // onAuthStateChange SIGNED_IN fires and loads user; just navigate.
-          router.push('/')
+          window.location.href = '/'
         } else {
           setMessage({ type: 'success', text: 'Account created! Check your email to confirm, then log in.' })
+          setLoading(false)
         }
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password })
         if (error) throw error
-        // onAuthStateChange SIGNED_IN fires and loads user data into AppContext
-        router.push('/')
+        window.location.href = '/'
       }
     } catch (err: unknown) {
       setMessage({ type: 'error', text: err instanceof Error ? err.message : 'An error occurred' })
-    } finally {
       setLoading(false)
     }
-  }
-
-  const fillTestCreds = () => {
-    setEmail('student@test.com')
-    setPassword('olympiad2026')
-    setMode('login')
-    setMessage(null)
   }
 
   return (
@@ -109,23 +53,6 @@ export default function LoginPage() {
           <h1 className="text-2xl font-bold text-bodhi-text mt-3">BodhiWords</h1>
           <p className="text-bodhi-text-muted text-sm mt-1">Daily vocabulary. Daily growth.</p>
         </div>
-
-        {/* Demo mode banner */}
-        {isDemo && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-center"
-          >
-            <p className="text-xs font-semibold text-amber-800 mb-1">Demo Mode — No backend needed</p>
-            <button
-              onClick={fillTestCreds}
-              className="text-xs text-amber-700 underline underline-offset-2 hover:text-amber-900"
-            >
-              Use test account: student@test.com / olympiad2026
-            </button>
-          </motion.div>
-        )}
 
         {/* Card */}
         <div className="bg-white border border-bodhi-border rounded-2xl p-6 shadow-sm">

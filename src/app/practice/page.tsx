@@ -1,14 +1,14 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useApp } from '@/context/AppContext'
 import { WORDS } from '@/lib/words'
-import { generateTestQuestions, getTodayStr } from '@/lib/utils'
+import { generateMCQQuestions, generateFillQuestions, getTodayStr } from '@/lib/utils'
 import TestQuestionComponent from '@/components/TestQuestion'
 import type { Word, TestQuestion } from '@/types'
-import { SlidersHorizontal, Layers, FileQuestion, PenLine, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react'
+import { Layers, FileQuestion, PenLine, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react'
 import { subDays, format } from 'date-fns'
 import { createClient } from '@/lib/supabase'
 
@@ -16,8 +16,10 @@ type FilterType = 'today' | 'yesterday' | 'week' | 'all'
 type ModeType = 'flashcard' | 'mcq' | 'fill'
 
 export default function PracticePage() {
-  const { user, progress, isLoading } = useApp()
+  const { user, isLoading } = useApp()
   const router = useRouter()
+  const supabase = useMemo(() => createClient(), [])
+
   const [filter, setFilter] = useState<FilterType>('today')
   const [mode, setMode] = useState<ModeType>('flashcard')
   const [words, setWords] = useState<Word[]>([])
@@ -27,7 +29,6 @@ export default function PracticePage() {
   const [quizResults, setQuizResults] = useState<Record<string, boolean>>({})
   const [flashFlipped, setFlashFlipped] = useState(false)
   const [sessionDone, setSessionDone] = useState(false)
-  const supabase = createClient()
 
   useEffect(() => {
     if (!isLoading && !user) router.push('/auth/login')
@@ -40,12 +41,15 @@ export default function PracticePage() {
     const weekAgo = format(subDays(new Date(), 7), 'yyyy-MM-dd')
 
     if (filter === 'all') {
-      setWords(WORDS)
+      // Words the user has a progress record for
+      const { data } = await supabase
+        .from('user_progress')
+        .select('word_id')
+        .eq('user_id', user.id)
+      const ids = new Set((data ?? []).map((r: { word_id: string }) => r.word_id))
+      setWords(WORDS.filter(w => ids.has(w.id)))
       return
     }
-
-    let dateFilter = today
-    if (filter === 'yesterday') dateFilter = yesterday
 
     if (filter === 'week') {
       const { data } = await supabase
@@ -55,54 +59,56 @@ export default function PracticePage() {
         .gte('date', weekAgo)
       const ids = new Set((data ?? []).flatMap((s: { word_ids: string[] }) => s.word_ids))
       setWords(WORDS.filter(w => ids.has(w.id)))
-    } else {
-      const { data } = await supabase
-        .from('daily_sessions')
-        .select('word_ids')
-        .eq('user_id', user.id)
-        .eq('date', dateFilter)
-        .single()
-      if (data?.word_ids) {
-        setWords(WORDS.filter(w => data.word_ids.includes(w.id)))
-      } else {
-        setWords([])
-      }
+      return
     }
+
+    const dateFilter = filter === 'yesterday' ? yesterday : today
+    const { data } = await supabase
+      .from('daily_sessions')
+      .select('word_ids')
+      .eq('user_id', user.id)
+      .eq('date', dateFilter)
+      .single()
+    setWords(data?.word_ids ? WORDS.filter(w => data.word_ids.includes(w.id)) : [])
   }, [user, filter, supabase])
 
   useEffect(() => { loadWords() }, [loadWords])
 
+  // Regenerate questions when words or mode changes
   useEffect(() => {
     setFlashIndex(0)
     setQuizIndex(0)
     setQuizResults({})
     setFlashFlipped(false)
     setSessionDone(false)
-    if (words.length > 0 && mode !== 'flashcard') {
-      setQuestions(generateTestQuestions(words, WORDS))
+    if (words.length > 0) {
+      if (mode === 'mcq') setQuestions(generateMCQQuestions(words, WORDS))
+      else if (mode === 'fill') setQuestions(generateFillQuestions(words))
     }
   }, [words, mode])
 
-  const handleAnswer = (answer: string, correct: boolean) => {
+  // Record answer (no auto-advance — Next button handles that)
+  const handleAnswer = (_answer: string, correct: boolean) => {
     const q = questions[quizIndex]
-    if (!q) return
+    if (!q || quizResults[q.id] !== undefined) return
     setQuizResults(prev => ({ ...prev, [q.id]: correct }))
-    setTimeout(() => {
-      if (quizIndex < questions.length - 1) {
-        setQuizIndex(i => i + 1)
-      } else {
-        setSessionDone(true)
-      }
-    }, 1000)
+  }
+
+  const handleQuizNext = () => {
+    if (quizIndex < questions.length - 1) {
+      setQuizIndex(i => i + 1)
+    } else {
+      setSessionDone(true)
+    }
   }
 
   if (isLoading || !user) return null
 
   const FILTER_OPTS: { key: FilterType; label: string }[] = [
-    { key: 'today', label: "Today" },
-    { key: 'yesterday', label: "Yesterday" },
-    { key: 'week', label: "Last 7 days" },
-    { key: 'all', label: "All words" },
+    { key: 'today', label: 'Today' },
+    { key: 'yesterday', label: 'Yesterday' },
+    { key: 'week', label: 'Last 7 days' },
+    { key: 'all', label: 'All words' },
   ]
 
   const MODE_OPTS: { key: ModeType; label: string; icon: React.ReactNode }[] = [
@@ -112,6 +118,7 @@ export default function PracticePage() {
   ]
 
   const correctCount = Object.values(quizResults).filter(Boolean).length
+  const currentAnswered = quizResults[questions[quizIndex]?.id] !== undefined
 
   return (
     <div className="max-w-lg mx-auto px-4 py-8 md:py-12">
@@ -120,12 +127,8 @@ export default function PracticePage() {
         <p className="text-sm text-bodhi-text-muted mt-0.5">Unlimited revision — anytime</p>
       </div>
 
-      {/* Filters */}
+      {/* Filter */}
       <div className="bg-white border border-bodhi-border rounded-2xl p-4 mb-4">
-        <div className="flex items-center gap-2 mb-3">
-          <SlidersHorizontal size={13} className="text-bodhi-text-muted" />
-          <span className="text-xs font-semibold text-bodhi-text-muted uppercase tracking-wider">Filter</span>
-        </div>
         <div className="flex gap-2 flex-wrap">
           {FILTER_OPTS.map(f => (
             <button
@@ -224,7 +227,7 @@ export default function PracticePage() {
             </div>
           )}
 
-          {/* Quiz / Fill session done */}
+          {/* Quiz / Fill — session done */}
           {(mode === 'mcq' || mode === 'fill') && sessionDone && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -245,7 +248,8 @@ export default function PracticePage() {
                   setQuizIndex(0)
                   setQuizResults({})
                   setSessionDone(false)
-                  setQuestions(generateTestQuestions(words, WORDS))
+                  if (mode === 'mcq') setQuestions(generateMCQQuestions(words, WORDS))
+                  else setQuestions(generateFillQuestions(words))
                 }}
                 className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-bodhi-green text-white font-semibold text-sm"
               >
@@ -254,21 +258,31 @@ export default function PracticePage() {
             </motion.div>
           )}
 
-          {/* Quiz active */}
+          {/* Quiz / Fill — active */}
           {(mode === 'mcq' || mode === 'fill') && !sessionDone && questions.length > 0 && (
-            <AnimatePresence mode="wait">
-              <TestQuestionComponent
-                key={questions[quizIndex].id}
-                question={{
-                  ...questions[quizIndex],
-                  // enforce mode
-                  type: mode === 'fill' ? 'fill_blank' : questions[quizIndex].type === 'fill_blank' ? 'mcq_meaning' : questions[quizIndex].type,
-                }}
-                index={quizIndex + 1}
-                total={questions.length}
-                onAnswer={handleAnswer}
-              />
-            </AnimatePresence>
+            <div>
+              <AnimatePresence mode="wait">
+                <TestQuestionComponent
+                  key={questions[quizIndex].id}
+                  question={questions[quizIndex]}
+                  index={quizIndex + 1}
+                  total={questions.length}
+                  onAnswer={handleAnswer}
+                />
+              </AnimatePresence>
+
+              {/* Next button — shown after answering */}
+              <div className="mt-4">
+                <button
+                  onClick={handleQuizNext}
+                  disabled={!currentAnswered}
+                  className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-all disabled:opacity-30"
+                  style={{ background: 'linear-gradient(135deg, #1B5E20, #2E7D32)' }}
+                >
+                  {quizIndex === questions.length - 1 ? 'Finish' : 'Next →'}
+                </button>
+              </div>
+            </div>
           )}
         </>
       )}

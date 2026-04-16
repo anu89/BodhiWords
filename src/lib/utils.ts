@@ -7,7 +7,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getTodayStr(): string {
-  return new Date().toISOString().split('T')[0]
+  // Use IST (UTC+5:30) for day boundaries — midnight in India starts a new day
+  const now = new Date()
+  const istDate = new Date(now.getTime() + 5.5 * 60 * 60 * 1000)
+  return istDate.toISOString().split('T')[0]
 }
 
 export function generateTestQuestions(words: Word[], allWords: Word[]): TestQuestion[] {
@@ -62,6 +65,51 @@ export function generateTestQuestions(words: Word[], allWords: Word[]): TestQues
     }
   })
 
+  return shuffle(questions)
+}
+
+// Only MCQ questions (alternates meaning / reverse) — for Practice quiz mode
+export function generateMCQQuestions(words: Word[], allWords: Word[]): TestQuestion[] {
+  const questions: TestQuestion[] = words.map((word, i) => {
+    const type: QuestionType = i % 2 === 0 ? 'mcq_meaning' : 'mcq_reverse'
+    const distractors = allWords
+      .filter(w => w.id !== word.id)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3)
+    if (type === 'mcq_meaning') {
+      return {
+        id: `q_${word.id}_mcq_meaning`,
+        type,
+        word,
+        prompt: `Which is the correct meaning of "${word.word}"?`,
+        options: shuffle([word.meaning_en, ...distractors.map(d => d.meaning_en)]),
+        answer: word.meaning_en,
+      }
+    }
+    return {
+      id: `q_${word.id}_mcq_reverse`,
+      type,
+      word,
+      prompt: `Which word means: "${word.meaning_en}"?`,
+      options: shuffle([word.word, ...distractors.map(d => d.word)]),
+      answer: word.word,
+    }
+  })
+  return shuffle(questions)
+}
+
+// Only fill-in-the-blank questions — for Practice fill mode
+export function generateFillQuestions(words: Word[]): TestQuestion[] {
+  const questions: TestQuestion[] = words.map(word => {
+    const blanked = word.example.replace(new RegExp(word.word, 'gi'), '________')
+    return {
+      id: `q_${word.id}_fill_blank`,
+      type: 'fill_blank' as QuestionType,
+      word,
+      prompt: `Fill in the blank:\n"${blanked}"`,
+      answer: word.word,
+    }
+  })
   return shuffle(questions)
 }
 

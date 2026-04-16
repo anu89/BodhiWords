@@ -15,12 +15,6 @@ export default function LearnPage() {
     if (!isLoading && !user) router.push('/auth/login')
   }, [user, isLoading, router])
 
-  useEffect(() => {
-    if (!isLoading && todaySession?.completed) {
-      router.push('/test')
-    }
-  }, [isLoading, todaySession, router])
-
   if (isLoading || !user) return null
 
   if (todayWords.length === 0) {
@@ -36,6 +30,9 @@ export default function LearnPage() {
   const handleNext = () => {
     if (currentIndex < todayWords.length - 1) {
       setCurrentIndex(i => i + 1)
+    } else if (todaySession?.completed) {
+      // Test already done — loop back to first word or go home
+      router.push('/')
     } else {
       router.push('/test')
     }
@@ -43,10 +40,11 @@ export default function LearnPage() {
 
   return (
     <div className="max-w-lg mx-auto px-4 py-8 md:py-12">
-      {/* Header */}
       <div className="mb-6 text-center">
         <h1 className="text-lg font-bold text-bodhi-text">Today&apos;s Words</h1>
-        <p className="text-sm text-bodhi-text-muted mt-0.5">Read carefully — a test follows</p>
+        <p className="text-sm text-bodhi-text-muted mt-0.5">
+          {todaySession?.completed ? 'Review mode — test already done today' : 'Read carefully — a test follows'}
+        </p>
       </div>
 
       <AnimatePresence mode="wait">
