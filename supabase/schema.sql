@@ -10,6 +10,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE IF NOT EXISTS public.users (
   id          UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   email       TEXT,
+  name        TEXT,
   level       TEXT NOT NULL DEFAULT 'B1',
   streak      INTEGER NOT NULL DEFAULT 0,
   last_active_date DATE,

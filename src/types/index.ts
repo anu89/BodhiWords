@@ -15,6 +15,7 @@ export interface Word {
 export interface User {
   id: string
   email: string
+  name?: string
   level: ESLLevel
   streak: number
   last_active_date: string | null

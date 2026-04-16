@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useApp } from '@/context/AppContext'
-import { createClient } from '@/lib/supabase'
-import { localUpdateUser } from '@/lib/localStore'
 import type { ESLLevel } from '@/types'
 import { Flame, BookOpen, Layers, LogOut, ChevronRight, Check } from 'lucide-react'
 
@@ -49,7 +47,7 @@ const GRADE_BLOCKS: {
 ]
 
 export default function ProfilePage() {
-  const { user, progress, leafCount, isLoading, isDemo, signOut, refreshProgress } = useApp()
+  const { user, progress, leafCount, isLoading, signOut, changeLevel } = useApp()
   const router = useRouter()
   const [selectedLevel, setSelectedLevel] = useState<ESLLevel | null>(null)
   const [saving, setSaving] = useState(false)
@@ -65,15 +63,9 @@ export default function ProfilePage() {
   const weakCount = Object.values(progress).filter(p => p.status === 'weak').length
 
   const handleSaveLevel = async () => {
-    if (!user || !selectedLevel) return
+    if (!selectedLevel) return
     setSaving(true)
-    if (isDemo) {
-      localUpdateUser(user.id, { level: selectedLevel })
-    } else {
-      const supabase = createClient()
-      await supabase.from('users').update({ level: selectedLevel }).eq('id', user.id)
-    }
-    await refreshProgress()
+    await changeLevel(selectedLevel)
     setSaving(false)
     setSaved(true)
     setTimeout(() => setSaved(false), 2000)

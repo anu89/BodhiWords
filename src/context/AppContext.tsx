@@ -8,7 +8,7 @@ import { getTodayStr } from '@/lib/utils'
 import {
   isDemoMode, seedTestUser,
   localGetSession, localSignOut, localGetUser, localUpdateUser,
-  localGetDailySession, localSaveDailySession,
+  localGetDailySession, localSaveDailySession, localDeleteDailySession,
   localGetProgress, localUpsertProgress,
 } from '@/lib/localStore'
 
@@ -20,9 +20,12 @@ interface AppContextValue {
   leafCount: number
   isLoading: boolean
   isDemo: boolean
+  needsOnboarding: boolean
   refreshProgress: () => Promise<void>
   addLeaf: () => void
   signOut: () => Promise<void>
+  changeLevel: (level: ESLLevel) => Promise<void>
+  saveProfile: (name: string, level: ESLLevel) => Promise<void>
 }
 
 const AppContext = createContext<AppContextValue | null>(null)
@@ -190,6 +193,46 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setLeafCount(prev => prev + 1)
   }, [])
 
+  // ── changeLevel — saves new level and rebuilds today's session ──────────────
+
+  const changeLevel = useCallback(async (newLevel: ESLLevel) => {
+    if (!user) return
+    const today = getTodayStr()
+    if (demo) {
+      localUpdateUser(user.id, { level: newLevel })
+      localDeleteDailySession(user.id, today)
+      const prog = localGetProgress(user.id)
+      setUser(prev => prev ? { ...prev, level: newLevel } : null)
+      loadSession(user.id, prog, newLevel)
+    } else {
+      await supabase!.from('users').update({ level: newLevel }).eq('id', user.id)
+      await supabase!.from('daily_sessions').delete()
+        .eq('user_id', user.id).eq('date', today)
+      setUser(prev => prev ? { ...prev, level: newLevel } : null)
+      await loadSupabaseSession(user.id, newLevel)
+    }
+  }, [user, demo, supabase, loadSession, loadSupabaseSession])
+
+  // ── saveProfile — first-time onboarding: save name + level ─────────────────
+
+  const saveProfile = useCallback(async (name: string, newLevel: ESLLevel) => {
+    if (!user) return
+    const today = getTodayStr()
+    if (demo) {
+      localUpdateUser(user.id, { name, level: newLevel })
+      localDeleteDailySession(user.id, today)
+      const prog = localGetProgress(user.id)
+      setUser(prev => prev ? { ...prev, name, level: newLevel } : null)
+      loadSession(user.id, prog, newLevel)
+    } else {
+      await supabase!.from('users').update({ name, level: newLevel }).eq('id', user.id)
+      await supabase!.from('daily_sessions').delete()
+        .eq('user_id', user.id).eq('date', today)
+      setUser(prev => prev ? { ...prev, name, level: newLevel } : null)
+      await loadSupabaseSession(user.id, newLevel)
+    }
+  }, [user, demo, supabase, loadSession, loadSupabaseSession])
+
   const signOut = useCallback(async () => {
     if (demo) {
       localSignOut()
@@ -224,7 +267,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     <AppContext.Provider value={{
       user, progress, todaySession, todayWords,
       leafCount, isLoading, isDemo: demo,
+      needsOnboarding: !!user && !user.name,
       refreshProgress, addLeaf, signOut,
+      changeLevel, saveProfile,
       // @ts-expect-error — extra helpers accessed via useApp()
       updateTodaySession, updateUserData, upsertProgressEntry,
     }}>

@@ -120,6 +120,11 @@ export function localSaveDailySession(session: DailySession): void {
   set(`sessions_${session.user_id}`, sessions)
 }
 
+export function localDeleteDailySession(userId: string, date: string): void {
+  const sessions = get<DailySession[]>(`sessions_${userId}`) ?? []
+  set(`sessions_${userId}`, sessions.filter(s => s.date !== date))
+}
+
 export function localGetSessionsByDateRange(userId: string, fromDate: string): DailySession[] {
   const sessions = get<DailySession[]>(`sessions_${userId}`) ?? []
   return sessions.filter(s => s.date >= fromDate)
@@ -166,6 +171,7 @@ export function seedTestUser(): void {
   const user: User = {
     id: userId,
     email: TEST_EMAIL,
+    name: 'Test Student',
     level: 'B1',
     streak: 3,
     last_active_date: null,

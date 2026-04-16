@@ -10,14 +10,14 @@ import { getStreakMessage } from '@/lib/utils'
 import { Flame, BookOpen, Sparkles, ArrowRight } from 'lucide-react'
 
 export default function HomePage() {
-  const { user, todaySession, todayWords, leafCount, isLoading } = useApp()
+  const { user, todaySession, todayWords, leafCount, isLoading, needsOnboarding } = useApp()
   const router = useRouter()
 
   useEffect(() => {
-    if (!isLoading && !user) {
-      router.push('/auth/login')
-    }
-  }, [user, isLoading, router])
+    if (isLoading) return
+    if (!user) router.push('/auth/login')
+    else if (needsOnboarding) router.push('/onboarding')
+  }, [user, isLoading, needsOnboarding, router])
 
   if (isLoading) {
     return (
@@ -46,7 +46,7 @@ export default function HomePage() {
       >
         <p className="text-bodhi-text-muted text-sm">Welcome back,</p>
         <h1 className="text-2xl font-bold text-bodhi-text">
-          {user.email?.split('@')[0]}
+          {user.name ?? user.email?.split('@')[0]}
         </h1>
         <p className="text-bodhi-text-muted text-sm mt-1 italic">
           {getStreakMessage(user.streak)}
