@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Word } from '@/types'
 import { getLevelColor } from '@/lib/utils'
-import { ChevronDown, ChevronUp, Lightbulb, Languages, BookOpen, ArrowLeftRight } from 'lucide-react'
+import { ChevronDown, ChevronUp, Lightbulb, Languages, BookOpen, ArrowLeftRight, Volume2 } from 'lucide-react'
 
 interface WordCardProps {
   word: Word
@@ -12,6 +12,15 @@ interface WordCardProps {
   total: number        // 5
   onNext: () => void
   isLast: boolean
+}
+
+function speakWord(word: string) {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return
+  window.speechSynthesis.cancel()
+  const u = new SpeechSynthesisUtterance(word)
+  u.lang = 'en-US'
+  u.rate = 0.75
+  window.speechSynthesis.speak(u)
 }
 
 export default function WordCard({ word, index, total, onNext, isLast }: WordCardProps) {
@@ -54,9 +63,18 @@ export default function WordCard({ word, index, total, onNext, isLast }: WordCar
             </span>
           </div>
 
-          <h1 className="text-4xl font-bold text-bodhi-text tracking-tight mt-2">
-            {word.word}
-          </h1>
+          <div className="flex items-center gap-3 mt-2">
+            <h1 className="text-4xl font-bold text-bodhi-text tracking-tight">
+              {word.word}
+            </h1>
+            <button
+              onClick={() => speakWord(word.word)}
+              className="p-2 rounded-full bg-bodhi-bg-card hover:bg-green-50 transition-colors"
+              title="Hear pronunciation"
+            >
+              <Volume2 size={18} className="text-bodhi-green" />
+            </button>
+          </div>
           <p className="text-bodhi-text-muted text-sm mt-1 italic">
             Chapter {word.chapter_id}
           </p>
