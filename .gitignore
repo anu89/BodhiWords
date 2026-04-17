@@ -33,6 +33,11 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+
+# MCP Configuration
+.mcp.json
+mcp-servers/
+
 # vercel
 .vercel
 
@@ -40,3 +45,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 graphify-out/
+.graphify*
+
+# Claude / Anthropic
+.claude/
+.claude.json
+claude_config.json
+.claude_session
+.agents/
+skills-lock.json
+
+CLAUDE.md
+AGENTS.md
+mempalace.yaml

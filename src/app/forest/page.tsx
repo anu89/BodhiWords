@@ -42,8 +42,15 @@ export default function ForestPage() {
   if (isLoading || !user) return null
 
   const totalMastered = trees.reduce((a, t) => a + t.mastered, 0)
-  const totalWords = trees.reduce((a, t) => a + t.total, 0)
   const completeTrees = trees.filter(t => t.stage === 'complete').length
+
+  // Overall progress is scoped to the user's current level
+  const levelWords = WORDS.filter(w => w.level === user.level)
+  const levelTotal = levelWords.length
+  const levelMastered = levelWords.filter(w => {
+    const p = progress[w.id]
+    return p && (p.status === 'mastered' || p.status === 'learning')
+  }).length
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
@@ -82,19 +89,19 @@ export default function ForestPage() {
       <div className="bg-white border border-bodhi-border rounded-2xl p-5 mb-6">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-semibold text-bodhi-text">Overall Progress</span>
-          <span className="text-sm text-bodhi-text-muted">{totalMastered}/{totalWords}</span>
+          <span className="text-sm text-bodhi-text-muted">{levelMastered}/{levelTotal} {user.level} words</span>
         </div>
         <div className="h-2 bg-bodhi-bg-card rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: `${totalWords ? (totalMastered / totalWords) * 100 : 0}%` }}
+            animate={{ width: `${levelTotal ? (levelMastered / levelTotal) * 100 : 0}%` }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
             className="h-full rounded-full"
             style={{ background: 'linear-gradient(90deg, #1B5E20, #C8A24A)' }}
           />
         </div>
         <p className="text-xs text-bodhi-text-muted mt-2">
-          {totalWords > 0 ? Math.round((totalMastered / totalWords) * 100) : 0}% of total vocabulary mastered
+          {levelTotal > 0 ? Math.round((levelMastered / levelTotal) * 100) : 0}% of {user.level} vocabulary mastered
         </p>
       </div>
 

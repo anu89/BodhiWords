@@ -7,7 +7,7 @@ import { useApp } from '@/context/AppContext'
 import { WORDS } from '@/lib/words'
 import { generateMCQQuestions, generateFillQuestions, getTodayStr } from '@/lib/utils'
 import TestQuestionComponent from '@/components/TestQuestion'
-import type { Word, TestQuestion } from '@/types'
+import type { Word, TestQuestion, UserProgress } from '@/types'
 import { Layers, FileQuestion, PenLine, Volume2, ChevronLeft, ChevronRight, RotateCcw, CheckCircle2, XCircle } from 'lucide-react'
 import { subDays, format } from 'date-fns'
 import { createClient } from '@/lib/supabase'
@@ -16,8 +16,13 @@ import { cn } from '@/lib/utils'
 type FilterType = 'today' | 'yesterday' | 'week' | 'all'
 type ModeType = 'flashcard' | 'mcq' | 'fill' | 'dictation'
 
+// Words are promoted from 'learning' → 'mastered' after this many total correct answers
+const MASTERY_THRESHOLD = 3
+
 export default function PracticePage() {
-  const { user, isLoading } = useApp()
+  const appCtx = useApp()
+  const { user, isLoading, progress, isDemo } = appCtx
+  const upsertProgressEntry = (appCtx as unknown as { upsertProgressEntry: (e: UserProgress) => void }).upsertProgressEntry
   const router = useRouter()
   const supabase = useMemo(() => createClient(), [])
 
@@ -42,6 +47,9 @@ export default function PracticePage() {
   const [dictResults, setDictResults] = useState<Record<string, boolean>>({})
   const [dictDone, setDictDone] = useState(false)
   const dictInputRef = useRef<HTMLInputElement>(null)
+
+  // Words promoted to mastered in the current session
+  const [promoted, setPromoted] = useState<string[]>([])
 
   useEffect(() => {
     if (!isLoading && !user) router.push('/auth/login')
@@ -111,6 +119,50 @@ export default function PracticePage() {
     window.speechSynthesis.speak(u)
   }
 
+  // Saves correctly-answered words to user_progress, returns names of newly mastered words
+  const savePracticeResults = useCallback(async (correctWordIds: string[]): Promise<string[]> => {
+    if (!user || correctWordIds.length === 0) return []
+    const now = new Date().toISOString()
+    const newlyMastered: string[] = []
+
+    for (const wordId of correctWordIds) {
+      const existing = progress[wordId]
+      const prevCount = existing?.correct_count ?? 0
+      const newCount = prevCount + 1
+      const prevStatus = existing?.status ?? 'learning'
+      const newStatus: UserProgress['status'] = newCount >= MASTERY_THRESHOLD ? 'mastered' : prevStatus
+
+      const entry: UserProgress = {
+        user_id: user.id,
+        word_id: wordId,
+        correct_count: newCount,
+        incorrect_count: existing?.incorrect_count ?? 0,
+        status: newStatus,
+        last_seen: now,
+        next_review: existing?.next_review ?? null,
+      }
+
+      if (!isDemo) {
+        if (existing) {
+          await supabase.from('user_progress')
+            .update({ correct_count: newCount, status: newStatus, last_seen: now })
+            .eq('user_id', user.id).eq('word_id', wordId)
+        } else {
+          await supabase.from('user_progress').insert(entry)
+        }
+      }
+
+      upsertProgressEntry(entry)
+
+      if (prevStatus !== 'mastered' && newStatus === 'mastered') {
+        const w = words.find(wd => wd.id === wordId)
+        if (w) newlyMastered.push(w.word)
+      }
+    }
+
+    return newlyMastered
+  }, [user, progress, isDemo, supabase, upsertProgressEntry, words])
+
   // Quiz handlers
   const handleAnswer = (_answer: string, correct: boolean) => {
     const q = questions[quizIndex]
@@ -118,9 +170,17 @@ export default function PracticePage() {
     setQuizResults(prev => ({ ...prev, [q.id]: correct }))
   }
 
-  const handleQuizNext = () => {
-    if (quizIndex < questions.length - 1) setQuizIndex(i => i + 1)
-    else setSessionDone(true)
+  const handleQuizNext = async () => {
+    if (quizIndex < questions.length - 1) {
+      setQuizIndex(i => i + 1)
+    } else {
+      const correctWordIds = questions
+        .filter(q => quizResults[q.id] === true)
+        .map(q => q.word.id)
+      const p = await savePracticeResults(correctWordIds)
+      setPromoted(p)
+      setSessionDone(true)
+    }
   }
 
   // Dictation handlers
@@ -132,9 +192,17 @@ export default function PracticePage() {
     setDictRevealed(true)
   }
 
-  const handleDictNext = () => {
-    if (dictIndex < words.length - 1) setDictIndex(i => i + 1)
-    else setDictDone(true)
+  const handleDictNext = async () => {
+    if (dictIndex < words.length - 1) {
+      setDictIndex(i => i + 1)
+    } else {
+      const correctWordIds = Object.entries(dictResults)
+        .filter(([, ok]) => ok)
+        .map(([wordId]) => wordId)
+      const p = await savePracticeResults(correctWordIds)
+      setPromoted(p)
+      setDictDone(true)
+    }
   }
 
   if (isLoading || !user) return null
@@ -276,10 +344,20 @@ export default function PracticePage() {
               <p className="text-2xl font-bold text-bodhi-text mb-1">
                 {Math.round((quizCorrect / questions.length) * 100)}%
               </p>
-              <p className="text-sm text-bodhi-text-muted mb-6">{quizCorrect} of {questions.length} correct</p>
+              <p className="text-sm text-bodhi-text-muted mb-4">{quizCorrect} of {questions.length} correct</p>
+              {promoted.length > 0 && (
+                <div className="mb-5 px-4 py-3 bg-green-50 border border-green-200 rounded-xl text-left">
+                  <p className="text-xs font-semibold text-green-700 mb-1.5">Mastered this session</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {promoted.map(w => (
+                      <span key={w} className="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-medium rounded-full">{w}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
               <button
                 onClick={() => {
-                  setQuizIndex(0); setQuizResults({}); setSessionDone(false)
+                  setQuizIndex(0); setQuizResults({}); setSessionDone(false); setPromoted([])
                   if (mode === 'mcq') setQuestions(generateMCQQuestions(words, WORDS))
                   else setQuestions(generateFillQuestions(words))
                 }}
@@ -328,11 +406,21 @@ export default function PracticePage() {
               <p className="text-2xl font-bold text-bodhi-text mb-1">
                 {Math.round((dictCorrect / words.length) * 100)}%
               </p>
-              <p className="text-sm text-bodhi-text-muted mb-6">{dictCorrect} of {words.length} spelled correctly</p>
+              <p className="text-sm text-bodhi-text-muted mb-4">{dictCorrect} of {words.length} spelled correctly</p>
+              {promoted.length > 0 && (
+                <div className="mb-5 px-4 py-3 bg-green-50 border border-green-200 rounded-xl text-left">
+                  <p className="text-xs font-semibold text-green-700 mb-1.5">Mastered this session</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {promoted.map(w => (
+                      <span key={w} className="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-medium rounded-full">{w}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
               <button
                 onClick={() => {
                   setDictIndex(0); setDictInput(''); setDictRevealed(false)
-                  setDictResults({}); setDictDone(false)
+                  setDictResults({}); setDictDone(false); setPromoted([])
                 }}
                 className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-bodhi-green text-white font-semibold text-sm"
               >

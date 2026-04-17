@@ -53,43 +53,6 @@ export function localGetSession(): LocalSessionData | null {
   return get<LocalSessionData>('session')
 }
 
-export function localSignIn(
-  email: string,
-  password: string
-): { data: LocalSessionData | null; error: Error | null } {
-  const creds = getCredentials()
-  const found = creds.find(c => c.email === email && c.passwordHash === hashPwd(password))
-  if (!found) return { data: null, error: new Error('Invalid email or password') }
-  const session: LocalSessionData = { userId: found.userId, email }
-  set('session', session)
-  return { data: session, error: null }
-}
-
-export function localSignUp(
-  email: string,
-  password: string
-): { data: LocalSessionData | null; error: Error | null } {
-  const creds = getCredentials()
-  if (creds.find(c => c.email === email)) {
-    return { data: null, error: new Error('Email already registered') }
-  }
-  const userId = `demo_${Date.now()}_${Math.random().toString(36).slice(2)}`
-  saveCredential(email, password, userId)
-  // Create user record
-  const user: User = {
-    id: userId,
-    email,
-    level: 'B1',
-    streak: 0,
-    last_active_date: null,
-    created_at: new Date().toISOString(),
-  }
-  set(`user_${userId}`, user)
-  const session: LocalSessionData = { userId, email }
-  set('session', session)
-  return { data: session, error: null }
-}
-
 export function localSignOut(): void {
   remove('session')
 }
@@ -123,11 +86,6 @@ export function localSaveDailySession(session: DailySession): void {
 export function localDeleteDailySession(userId: string, date: string): void {
   const sessions = get<DailySession[]>(`sessions_${userId}`) ?? []
   set(`sessions_${userId}`, sessions.filter(s => s.date !== date))
-}
-
-export function localGetSessionsByDateRange(userId: string, fromDate: string): DailySession[] {
-  const sessions = get<DailySession[]>(`sessions_${userId}`) ?? []
-  return sessions.filter(s => s.date >= fromDate)
 }
 
 // ── user progress ─────────────────────────────────────────────────────────────
@@ -183,6 +141,7 @@ export function seedTestUser(): void {
 // ── demo mode detection ───────────────────────────────────────────────────────
 
 export function isDemoMode(): boolean {
+  if (process.env.NODE_ENV === 'production') return false
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? ''
   return url.includes('placeholder') || url === '' || url.includes('your-project')
 }

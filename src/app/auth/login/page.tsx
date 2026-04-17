@@ -5,6 +5,16 @@ import { motion } from 'framer-motion'
 import { createClient } from '@/lib/supabase'
 import BodhiTree from '@/components/BodhiTree'
 
+function validate(email: string, password: string, isSignup: boolean): string | null {
+  const e = email.trim().toLowerCase()
+  if (!e || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) return 'Please enter a valid email address.'
+  if (!password) return 'Password is required.'
+  if (isSignup && password.length < 8) return 'Password must be at least 8 characters.'
+  if (isSignup && !/[A-Z]/.test(password)) return 'Password must contain at least one uppercase letter.'
+  if (isSignup && !/[0-9]/.test(password)) return 'Password must contain at least one number.'
+  return null
+}
+
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -12,26 +22,39 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: 'error' | 'success'; text: string } | null>(null)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setLoading(true)
     setMessage(null)
 
+    const err = validate(email, password, mode === 'signup')
+    if (err) { setMessage({ type: 'error', text: err }); return }
+
+    setLoading(true)
     const supabase = createClient()
     try {
       if (mode === 'signup') {
-        const { data, error } = await supabase.auth.signUp({ email, password })
+        const { data, error } = await supabase.auth.signUp({
+          email: email.trim().toLowerCase(),
+          password,
+        })
         if (error) throw error
         if (data.session) {
-          window.location.href = '/'
+          window.location.href = '/onboarding'
         } else {
           setMessage({ type: 'success', text: 'Account created! Check your email to confirm, then log in.' })
           setLoading(false)
         }
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password })
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: email.trim().toLowerCase(),
+          password,
+        })
         if (error) throw error
-        window.location.href = '/'
+        const uid = data.user?.id
+        const { data: profile } = uid
+          ? await supabase.from('users').select('name').eq('id', uid).maybeSingle()
+          : { data: null }
+        window.location.href = profile?.name ? '/' : '/onboarding'
       }
     } catch (err: unknown) {
       setMessage({ type: 'error', text: err instanceof Error ? err.message : 'An error occurred' })
@@ -47,20 +70,18 @@ export default function LoginPage() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-sm"
       >
-        {/* Logo */}
         <div className="flex flex-col items-center mb-8">
           <BodhiTree leafCount={8} size={100} animate={false} />
           <h1 className="text-2xl font-bold text-bodhi-text mt-3">BodhiWords</h1>
           <p className="text-bodhi-text-muted text-sm mt-1">Daily vocabulary. Daily growth.</p>
         </div>
 
-        {/* Card */}
         <div className="bg-white border border-bodhi-border rounded-2xl p-6 shadow-sm">
-          {/* Mode tabs */}
           <div className="flex rounded-xl bg-bodhi-bg-card p-1 mb-5">
             {(['login', 'signup'] as const).map(m => (
               <button
                 key={m}
+                type="button"
                 onClick={() => { setMode(m); setMessage(null) }}
                 className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
                   mode === m
@@ -98,9 +119,11 @@ export default function LoginPage() {
                 onChange={e => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                minLength={6}
                 className="w-full px-4 py-3 rounded-xl border border-bodhi-border outline-none text-sm transition-all focus:border-bodhi-green focus:ring-2 focus:ring-green-100"
               />
+              {mode === 'signup' && (
+                <p className="text-xs text-bodhi-text-muted mt-1">Min 8 chars, 1 uppercase, 1 number</p>
+              )}
             </div>
 
             {message && (

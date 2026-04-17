@@ -70,27 +70,22 @@ export default function TestPage() {
       localUpsertProgress(updated)
     } else {
       const supabase = createClient()
-      supabase.from('test_results').insert({
+      await supabase.from('test_results').insert({
         user_id: user.id, word_id: q.word.id,
         question_type: q.type, correct,
         session_date: getTodayStr(),
       })
       const { data: existing } = await supabase
-        .from('user_progress').select('*')
-        .eq('user_id', user.id).eq('word_id', q.word.id).single()
+        .from('user_progress').select('correct_count, incorrect_count')
+        .eq('user_id', user.id).eq('word_id', q.word.id).maybeSingle()
       const newCorrect   = (existing?.correct_count   ?? 0) + (correct ? 1 : 0)
       const newIncorrect = (existing?.incorrect_count ?? 0) + (correct ? 0 : 1)
       const status = newCorrect >= 3 ? 'mastered' : correct ? 'learning' : 'weak'
-      const payload = {
+      await supabase.from('user_progress').upsert({
         user_id: user.id, word_id: q.word.id,
         correct_count: newCorrect, incorrect_count: newIncorrect,
         status, last_seen: new Date().toISOString(),
-      }
-      if (existing) {
-        await supabase.from('user_progress').update(payload).eq('user_id', user.id).eq('word_id', q.word.id)
-      } else {
-        await supabase.from('user_progress').insert(payload)
-      }
+      }, { onConflict: 'user_id,word_id' })
     }
 
     if (correct) {

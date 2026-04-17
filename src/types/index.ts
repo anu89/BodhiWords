@@ -70,14 +70,6 @@ export interface TestQuestion {
   answer: string
 }
 
-export interface TestState {
-  questions: TestQuestion[]
-  current: number
-  answers: Record<string, string>
-  results: Record<string, boolean>
-  finished: boolean
-}
-
 export type TreeStage = 'seed' | 'sapling' | 'growing' | 'full' | 'complete'
 
 export interface ChapterTree {

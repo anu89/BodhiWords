@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="h-full">
-      <body className="min-h-full bg-bodhi-bg text-bodhi-text antialiased">
+      <body className="min-h-full bg-bodhi-bg text-bodhi-text antialiased" suppressHydrationWarning>
         <AppProvider>
           <Navbar />
           <main className="md:pt-14 pb-16 md:pb-0 min-h-screen">

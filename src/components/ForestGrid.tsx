@@ -29,7 +29,7 @@ export default function ForestGrid({ trees }: ForestGridProps) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       {trees.map((tree, i) => {
-        const leafCount = Math.round((tree.mastered / tree.total) * 25)
+        const leafCount = Math.round((tree.mastered / tree.total) * 30)
         const levelColor = getLevelColor(tree.level)
         return (
           <motion.div
