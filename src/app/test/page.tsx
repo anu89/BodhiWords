@@ -7,7 +7,7 @@ import { useApp } from '@/context/AppContext'
 import TestQuestionComponent from '@/components/TestQuestion'
 import LeafParticle from '@/components/LeafParticle'
 import BodhiTree from '@/components/BodhiTree'
-import { generateTestQuestions, getTodayStr } from '@/lib/utils'
+import { generateTestQuestions, getTodayStr, getYesterdayStr } from '@/lib/utils'
 import { WORDS } from '@/lib/words'
 import { createClient } from '@/lib/supabase'
 import {
@@ -20,7 +20,7 @@ import { CheckCircle2, XCircle, RotateCcw, Home, ChevronLeft, ChevronRight } fro
 type AnswerRecord = { answer: string; correct: boolean }
 
 export default function TestPage() {
-  const { user, todayWords, todaySession, leafCount, addLeaf, refreshProgress, isLoading, isDemo } = useApp()
+  const { user, todayWords, todaySession, leafCount, addLeaf, refreshProgress, isLoading, isDemo, updateTodaySession, updateUserData } = useApp()
   const router = useRouter()
   const [questions, setQuestions] = useState<TestQuestion[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -87,9 +87,9 @@ export default function TestPage() {
         status, last_seen: new Date().toISOString(),
       }
       if (existing) {
-        supabase.from('user_progress').update(payload).eq('user_id', user.id).eq('word_id', q.word.id)
+        await supabase.from('user_progress').update(payload).eq('user_id', user.id).eq('word_id', q.word.id)
       } else {
-        supabase.from('user_progress').insert(payload)
+        await supabase.from('user_progress').insert(payload)
       }
     }
 
@@ -105,8 +105,20 @@ export default function TestPage() {
   const finishTest = useCallback(async () => {
     if (!user || !todaySession) return
     const today = getTodayStr()
-    // Only increment streak if not already counted today
-    const newStreak = user.last_active_date === today ? user.streak : user.streak + 1
+    const yesterday = getYesterdayStr()
+
+    // Compute streak:
+    //   - same day → no change (defensive guard against double-submit)
+    //   - last_active_date = yesterday → consecutive day, increment
+    //   - anything else (missed days, first test ever) → fresh start at 1
+    let newStreak: number
+    if (user.last_active_date === today) {
+      newStreak = user.streak
+    } else if (user.last_active_date === yesterday) {
+      newStreak = user.streak + 1
+    } else {
+      newStreak = 1
+    }
 
     if (isDemo) {
       const completed = { ...todaySession, completed: true }
@@ -117,10 +129,15 @@ export default function TestPage() {
       await supabase.from('daily_sessions').update({ completed: true }).eq('id', todaySession.id)
       await supabase.from('users').update({ streak: newStreak, last_active_date: today }).eq('id', user.id)
     }
+
+    // Sync local AppContext state so home page and test gate are correct immediately
+    updateTodaySession({ completed: true })
+    updateUserData({ streak: newStreak, last_active_date: today })
+
     await refreshProgress()
     setFinished(true)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, todaySession, isDemo, refreshProgress])
+  }, [user, todaySession, isDemo, refreshProgress, updateTodaySession, updateUserData])
 
   // ── navigation ─────────────────────────────────────────────────────────────
   const handleNext = useCallback(() => {

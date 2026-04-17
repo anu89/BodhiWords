@@ -1,10 +1,10 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState, useCallback } from 'react'
+import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react'
 import type { User, UserProgress, DailySession, ESLLevel } from '@/types'
 import { createClient } from '@/lib/supabase'
 import { WORDS } from '@/lib/words'
-import { getTodayStr } from '@/lib/utils'
+import { getTodayStr, getYesterdayStr } from '@/lib/utils'
 import {
   isDemoMode, seedTestUser,
   localGetSession, localSignOut, localGetUser, localUpdateUser,
@@ -21,11 +21,14 @@ interface AppContextValue {
   isLoading: boolean
   isDemo: boolean
   needsOnboarding: boolean
+  streakLost: boolean
   refreshProgress: () => Promise<void>
   addLeaf: () => void
   signOut: () => Promise<void>
   changeLevel: (level: ESLLevel) => Promise<void>
   saveProfile: (name: string, level: ESLLevel) => Promise<void>
+  updateTodaySession: (updates: Partial<DailySession>) => void
+  updateUserData: (updates: Partial<User>) => void
 }
 
 const AppContext = createContext<AppContextValue | null>(null)
@@ -40,7 +43,7 @@ function buildTodaySession(userId: string, progressData: UserProgress[], level: 
       .map(p => p.word_id)
   )
   const available = WORDS.filter(w => !masteredIds.has(w.id) && w.level === level)
-  const picked = available.slice(0, 5).map(w => w.id)
+  const picked = [...available].sort(() => Math.random() - 0.5).slice(0, 5).map(w => w.id)
   const session: DailySession = {
     id: `local_${userId}_${today}`,
     user_id: userId,
@@ -61,9 +64,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [todayWords, setTodayWords] = useState<typeof WORDS>([])
   const [leafCount, setLeafCount] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
+  const [streakLost, setStreakLost] = useState(false)
   const [demo] = useState(() => isDemoMode())
 
-  const supabase = demo ? null : createClient()
+  const supabase = useMemo(() => demo ? null : createClient(), [demo])
 
   // ── progress helpers ────────────────────────────────────────────────────────
 
@@ -87,6 +91,23 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       if (data) applyProgress(data as UserProgress[])
     }
   }, [user, demo, supabase, applyProgress])
+
+  // ── streak check on login ──────────────────────────────────────────────────
+  // Resets streak to 0 if the user missed at least one day (last_active_date < yesterday IST)
+
+  const checkStreakOnLogin = useCallback(async (userData: User): Promise<User> => {
+    if (!userData.last_active_date || userData.streak === 0) return userData
+    const yesterday = getYesterdayStr()
+    if (userData.last_active_date < yesterday) {
+      // Streak broken — reset in DB and set flag for home page message
+      if (supabase) {
+        await supabase.from('users').update({ streak: 0 }).eq('id', userData.id)
+      }
+      setStreakLost(true)
+      return { ...userData, streak: 0 }
+    }
+    return userData
+  }, [supabase])
 
   // ── session loader ─────────────────────────────────────────────────────────
 
@@ -116,7 +137,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           .filter((p: { word_id: string; status: string }) => p.status === 'mastered')
           .map((p: { word_id: string; status: string }) => p.word_id)
       )
-      const picked = WORDS.filter(w => !masteredIds.has(w.id) && w.level === level).slice(0, 5).map(w => w.id)
+      const picked = [...WORDS.filter(w => !masteredIds.has(w.id) && w.level === level)].sort(() => Math.random() - 0.5).slice(0, 5).map(w => w.id)
       if (picked.length > 0) {
         const { data: ns } = await supabase!
           .from('daily_sessions')
@@ -157,8 +178,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         const { data: userData } = await supabase!
           .from('users').select('*').eq('id', uid).single()
         if (userData) {
-          setUser(userData as User)
-          await loadSupabaseSession(uid, (userData as User).level)
+          // Check streak on login — reset if user missed a day
+          const checkedUser = await checkStreakOnLogin(userData as User)
+          setUser(checkedUser)
+          await loadSupabaseSession(uid, checkedUser.level)
           const { data: prog } = await supabase!
             .from('user_progress').select('*').eq('user_id', uid)
           if (prog) applyProgress(prog as UserProgress[])
@@ -184,11 +207,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           const { data: userData } = await supabase!
             .from('users').select('*').eq('id', uid).single()
           if (userData) {
-            setUser(userData as User)
+            // Check streak on login — reset if user missed a day
+            const checkedUser = await checkStreakOnLogin(userData as User)
+            setUser(checkedUser)
             const { data: prog } = await supabase!
               .from('user_progress').select('*').eq('user_id', uid)
             if (prog) applyProgress(prog as UserProgress[])
-            await loadSupabaseSession(uid, (userData as User).level)
+            await loadSupabaseSession(uid, checkedUser.level)
           } else {
             const { data: newUser } = await supabase!
               .from('users')
@@ -201,18 +226,36 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           }
         } else if (event === 'SIGNED_OUT') {
           setUser(null); setProgress({}); setTodaySession(null)
-          setTodayWords([]); setLeafCount(0)
+          setTodayWords([]); setLeafCount(0); setStreakLost(false)
         }
       }
     )
     return () => subscription.unsubscribe()
-  }, [demo, supabase, applyProgress, loadSession, loadSupabaseSession])
+  }, [demo, supabase, applyProgress, loadSession, loadSupabaseSession, checkStreakOnLogin])
 
   // ── actions ────────────────────────────────────────────────────────────────
 
   const addLeaf = useCallback(() => {
     setLeafCount(prev => prev + 1)
   }, [])
+
+  const updateTodaySession = useCallback((updates: Partial<DailySession>) => {
+    setTodaySession(prev => {
+      if (!prev) return prev
+      const updated = { ...prev, ...updates }
+      if (demo) localSaveDailySession(updated)
+      return updated
+    })
+  }, [demo])
+
+  const updateUserData = useCallback((updates: Partial<User>) => {
+    setUser(prev => {
+      if (!prev) return prev
+      const updated = { ...prev, ...updates }
+      if (demo) localUpdateUser(prev.id, updates)
+      return updated
+    })
+  }, [demo])
 
   // ── changeLevel — saves level only; today's 5 words are unchanged ────────────
 
@@ -253,23 +296,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       await supabase!.auth.signOut()
     }
     setUser(null); setProgress({}); setTodaySession(null)
-    setTodayWords([]); setLeafCount(0)
+    setTodayWords([]); setLeafCount(0); setStreakLost(false)
   }, [demo, supabase])
-
-  // Expose updateUser and updateSession for test/practice pages
-  const updateTodaySession = useCallback((updates: Partial<DailySession>) => {
-    if (!todaySession) return
-    const updated = { ...todaySession, ...updates }
-    setTodaySession(updated)
-    if (demo) localSaveDailySession(updated)
-  }, [todaySession, demo])
-
-  const updateUserData = useCallback((updates: Partial<User>) => {
-    if (!user) return
-    const updated = { ...user, ...updates }
-    setUser(updated)
-    if (demo) localUpdateUser(user.id, updates)
-  }, [user, demo])
 
   const upsertProgressEntry = useCallback((entry: UserProgress) => {
     setProgress(prev => ({ ...prev, [entry.word_id]: entry }))
@@ -281,10 +309,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       user, progress, todaySession, todayWords,
       leafCount, isLoading, isDemo: demo,
       needsOnboarding: !!user && !user.name,
+      streakLost,
       refreshProgress, addLeaf, signOut,
       changeLevel, saveProfile,
-      // @ts-expect-error — extra helpers accessed via useApp()
-      updateTodaySession, updateUserData, upsertProgressEntry,
+      updateTodaySession, updateUserData,
+      // @ts-expect-error — internal helper, not in public interface
+      upsertProgressEntry,
     }}>
       {children}
     </AppContext.Provider>

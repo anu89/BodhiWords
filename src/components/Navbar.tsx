@@ -1,10 +1,11 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { useApp } from '@/context/AppContext'
-import { Home, BookOpen, FlaskConical, Repeat2, Trees, User, Flame } from 'lucide-react'
+import { Home, BookOpen, FlaskConical, Repeat2, Trees, User, Flame, ChevronDown, LogOut } from 'lucide-react'
 
 const NAV_ITEMS = [
   { href: '/',          label: 'Home',     icon: Home },
@@ -17,9 +18,30 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const pathname = usePathname()
-  const { user, leafCount } = useApp()
+  const { user, leafCount, signOut } = useApp()
+  const [open, setOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [])
+
+  const handleSignOut = async () => {
+    setOpen(false)
+    await signOut()
+    window.location.href = '/auth/login'
+  }
 
   if (!user) return null
+
+  const displayName = user.name ?? user.email?.split('@')[0] ?? 'Account'
 
   return (
     <>
@@ -53,7 +75,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right — streak + leaves */}
+        {/* Right — streak + leaves + user dropdown */}
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1 text-sm text-bodhi-text-muted">
             <Flame size={14} className="text-orange-500" />
@@ -64,7 +86,32 @@ export default function Navbar() {
             <span className="font-medium text-bodhi-text">{leafCount}</span>
           </div>
           <div className="h-4 w-px bg-bodhi-border" />
-          <span className="text-xs text-bodhi-text-muted">{user.email?.split('@')[0]}</span>
+
+          {/* User dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setOpen(o => !o)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-bodhi-text hover:bg-bodhi-bg-card transition-all"
+            >
+              <span className="font-medium">{displayName}</span>
+              <ChevronDown size={13} className={cn('text-bodhi-text-muted transition-transform', open && 'rotate-180')} />
+            </button>
+
+            {open && (
+              <div className="absolute right-0 top-full mt-1.5 w-44 bg-white border border-bodhi-border rounded-xl shadow-lg py-1 z-50">
+                <div className="px-3 py-2 border-b border-bodhi-border">
+                  <p className="text-xs text-bodhi-text-muted truncate">{user.email}</p>
+                </div>
+                <button
+                  onClick={handleSignOut}
+                  className="w-full flex items-center gap-2 px-3 py-2.5 text-sm text-red-500 hover:bg-red-50 transition-colors"
+                >
+                  <LogOut size={14} />
+                  Sign out
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 

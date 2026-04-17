@@ -13,6 +13,14 @@ export function getTodayStr(): string {
   return istDate.toISOString().split('T')[0]
 }
 
+export function getYesterdayStr(): string {
+  // IST yesterday's date string
+  const now = new Date()
+  const istDate = new Date(now.getTime() + 5.5 * 60 * 60 * 1000)
+  istDate.setUTCDate(istDate.getUTCDate() - 1)
+  return istDate.toISOString().split('T')[0]
+}
+
 export function generateTestQuestions(words: Word[], allWords: Word[]): TestQuestion[] {
   const questions: TestQuestion[] = []
   const types: QuestionType[] = ['mcq_meaning', 'mcq_reverse', 'fill_blank']
