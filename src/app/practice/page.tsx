@@ -20,9 +20,7 @@ type ModeType = 'flashcard' | 'mcq' | 'fill' | 'dictation'
 const MASTERY_THRESHOLD = 3
 
 export default function PracticePage() {
-  const appCtx = useApp()
-  const { user, isLoading, progress } = appCtx
-  const upsertProgressEntry = (appCtx as unknown as { upsertProgressEntry: (e: UserProgress) => void }).upsertProgressEntry
+  const { user, isLoading, progress, upsertProgressEntry } = useApp()
   const router = useRouter()
   const supabase = useMemo(() => createClient(), [])
 
