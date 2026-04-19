@@ -173,30 +173,33 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     // Supabase mode
     supabase!.auth.getSession().then(async ({ data: { session } }) => {
-      if (session?.user) {
-        const uid = session.user.id
-        const { data: userData } = await supabase!
-          .from('users').select('*').eq('id', uid).single()
-        if (userData) {
-          // Check streak on login — reset if user missed a day
-          const checkedUser = await checkStreakOnLogin(userData as User)
-          setUser(checkedUser)
-          await loadSupabaseSession(uid, checkedUser.level)
-          const { data: prog } = await supabase!
-            .from('user_progress').select('*').eq('user_id', uid)
-          if (prog) applyProgress(prog as UserProgress[])
-        } else {
-          const { data: newUser } = await supabase!
-            .from('users')
-            .insert({ id: uid, email: session.user.email, level: 'B1', streak: 0 })
-            .select().single()
-          if (newUser) {
-            setUser(newUser as User)
-            await loadSupabaseSession(uid, (newUser as User).level)
+      try {
+        if (session?.user) {
+          const uid = session.user.id
+          const { data: userData } = await supabase!
+            .from('users').select('*').eq('id', uid).single()
+          if (userData) {
+            // Check streak on login — reset if user missed a day
+            const checkedUser = await checkStreakOnLogin(userData as User)
+            setUser(checkedUser)
+            await loadSupabaseSession(uid, checkedUser.level)
+            const { data: prog } = await supabase!
+              .from('user_progress').select('*').eq('user_id', uid)
+            if (prog) applyProgress(prog as UserProgress[])
+          } else {
+            const { data: newUser } = await supabase!
+              .from('users')
+              .insert({ id: uid, email: session.user.email, level: 'B1', streak: 0 })
+              .select().single()
+            if (newUser) {
+              setUser(newUser as User)
+              await loadSupabaseSession(uid, (newUser as User).level)
+            }
           }
         }
+      } finally {
+        setIsLoading(false)
       }
-      setIsLoading(false)
     })
 
     const { data: { subscription } } = supabase!.auth.onAuthStateChange(
