@@ -10,17 +10,13 @@ import BodhiTree from '@/components/BodhiTree'
 import { generateTestQuestions, getTodayStr, getYesterdayStr } from '@/lib/utils'
 import { WORDS } from '@/lib/words'
 import { createClient } from '@/lib/supabase'
-import {
-  localGetProgress, localUpsertProgress,
-  localSaveDailySession, localUpdateUser, localAddTestResult,
-} from '@/lib/localStore'
-import type { TestQuestion, UserProgress } from '@/types'
+import type { TestQuestion } from '@/types'
 import { CheckCircle2, XCircle, RotateCcw, Home, ChevronLeft, ChevronRight } from 'lucide-react'
 
 type AnswerRecord = { answer: string; correct: boolean }
 
 export default function TestPage() {
-  const { user, todayWords, todaySession, leafCount, addLeaf, refreshProgress, isLoading, isDemo, updateTodaySession, updateUserData } = useApp()
+  const { user, todayWords, todaySession, leafCount, refreshProgress, isLoading, updateTodaySession, updateUserData } = useApp()
   const router = useRouter()
   const [questions, setQuestions] = useState<TestQuestion[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -51,50 +47,30 @@ export default function TestPage() {
 
     setResults(prev => ({ ...prev, [q.id]: { answer, correct } }))
 
-    if (isDemo) {
-      localAddTestResult(user.id, q.word.id, correct)
-      const all = localGetProgress(user.id)
-      const existing = all.find(p => p.word_id === q.word.id)
-      const newCorrect   = (existing?.correct_count   ?? 0) + (correct ? 1 : 0)
-      const newIncorrect = (existing?.incorrect_count ?? 0) + (correct ? 0 : 1)
-      const status = newCorrect >= 3 ? 'mastered' : correct ? 'learning' : 'weak'
-      const updated: UserProgress = {
-        user_id: user.id,
-        word_id: q.word.id,
-        correct_count: newCorrect,
-        incorrect_count: newIncorrect,
-        status,
-        last_seen: new Date().toISOString(),
-        next_review: null,
-      }
-      localUpsertProgress(updated)
-    } else {
-      const supabase = createClient()
-      await supabase.from('test_results').insert({
-        user_id: user.id, word_id: q.word.id,
-        question_type: q.type, correct,
-        session_date: getTodayStr(),
-      })
-      const { data: existing } = await supabase
-        .from('user_progress').select('correct_count, incorrect_count')
-        .eq('user_id', user.id).eq('word_id', q.word.id).maybeSingle()
-      const newCorrect   = (existing?.correct_count   ?? 0) + (correct ? 1 : 0)
-      const newIncorrect = (existing?.incorrect_count ?? 0) + (correct ? 0 : 1)
-      const status = newCorrect >= 3 ? 'mastered' : correct ? 'learning' : 'weak'
-      await supabase.from('user_progress').upsert({
-        user_id: user.id, word_id: q.word.id,
-        correct_count: newCorrect, incorrect_count: newIncorrect,
-        status, last_seen: new Date().toISOString(),
-      }, { onConflict: 'user_id,word_id' })
-    }
+    const supabase = createClient()
+    await supabase.from('test_results').insert({
+      user_id: user.id, word_id: q.word.id,
+      question_type: q.type, correct,
+      session_date: getTodayStr(),
+    })
+    const { data: existing } = await supabase
+      .from('user_progress').select('correct_count, incorrect_count')
+      .eq('user_id', user.id).eq('word_id', q.word.id).maybeSingle()
+    const newCorrect   = (existing?.correct_count   ?? 0) + (correct ? 1 : 0)
+    const newIncorrect = (existing?.incorrect_count ?? 0) + (correct ? 0 : 1)
+    const status = newCorrect >= 3 ? 'mastered' : correct ? 'learning' : 'weak'
+    await supabase.from('user_progress').upsert({
+      user_id: user.id, word_id: q.word.id,
+      correct_count: newCorrect, incorrect_count: newIncorrect,
+      status, last_seen: new Date().toISOString(),
+    }, { onConflict: 'user_id,word_id' })
 
     if (correct) {
       setLeafTrigger(t => !t)
-      addLeaf()
       setLocalLeafCount(c => c + 1)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [questions, currentIndex, results, user, isDemo, addLeaf])
+  }, [questions, currentIndex, results, user])
 
   // ── finish test ────────────────────────────────────────────────────────────
   const finishTest = useCallback(async () => {
@@ -115,24 +91,17 @@ export default function TestPage() {
       newStreak = 1
     }
 
-    if (isDemo) {
-      const completed = { ...todaySession, completed: true }
-      localSaveDailySession(completed)
-      localUpdateUser(user.id, { streak: newStreak, last_active_date: today })
-    } else {
-      const supabase = createClient()
-      await supabase.from('daily_sessions').update({ completed: true }).eq('id', todaySession.id)
-      await supabase.from('users').update({ streak: newStreak, last_active_date: today }).eq('id', user.id)
-    }
+    const supabase = createClient()
+    await supabase.from('daily_sessions').update({ completed: true }).eq('id', todaySession.id)
+    await supabase.from('users').update({ streak: newStreak, last_active_date: today }).eq('id', user.id)
 
-    // Sync local AppContext state so home page and test gate are correct immediately
     updateTodaySession({ completed: true })
     updateUserData({ streak: newStreak, last_active_date: today })
 
     await refreshProgress()
     setFinished(true)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, todaySession, isDemo, refreshProgress, updateTodaySession, updateUserData])
+  }, [user, todaySession, refreshProgress, updateTodaySession, updateUserData])
 
   // ── navigation ─────────────────────────────────────────────────────────────
   const handleNext = useCallback(() => {

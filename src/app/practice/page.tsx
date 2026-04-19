@@ -21,7 +21,7 @@ const MASTERY_THRESHOLD = 3
 
 export default function PracticePage() {
   const appCtx = useApp()
-  const { user, isLoading, progress, isDemo } = appCtx
+  const { user, isLoading, progress } = appCtx
   const upsertProgressEntry = (appCtx as unknown as { upsertProgressEntry: (e: UserProgress) => void }).upsertProgressEntry
   const router = useRouter()
   const supabase = useMemo(() => createClient(), [])
@@ -142,14 +142,12 @@ export default function PracticePage() {
         next_review: existing?.next_review ?? null,
       }
 
-      if (!isDemo) {
-        if (existing) {
-          await supabase.from('user_progress')
-            .update({ correct_count: newCount, status: newStatus, last_seen: now })
-            .eq('user_id', user.id).eq('word_id', wordId)
-        } else {
-          await supabase.from('user_progress').insert(entry)
-        }
+      if (existing) {
+        await supabase.from('user_progress')
+          .update({ correct_count: newCount, status: newStatus, last_seen: now })
+          .eq('user_id', user.id).eq('word_id', wordId)
+      } else {
+        await supabase.from('user_progress').insert(entry)
       }
 
       upsertProgressEntry(entry)
@@ -161,7 +159,7 @@ export default function PracticePage() {
     }
 
     return newlyMastered
-  }, [user, progress, isDemo, supabase, upsertProgressEntry, words])
+  }, [user, progress, supabase, upsertProgressEntry, words])
 
   // Quiz handlers
   const handleAnswer = (_answer: string, correct: boolean) => {
