@@ -171,7 +171,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       return
     }
 
-    // Supabase mode
+    const loadingTimeout = setTimeout(() => {
+      console.warn('[AppContext] loading timeout — forcing setIsLoading(false)')
+      setIsLoading(false)
+    }, 8000)
+
+    // Supabase mode — runs in parallel with onAuthStateChange
     ;(async () => {
       try {
         const { data: { session } } = await supabase!.auth.getSession()
@@ -202,6 +207,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       } catch (err) {
         console.error('[AppContext] init error:', err)
       } finally {
+        clearTimeout(loadingTimeout)
         setIsLoading(false)
       }
     })()
@@ -210,29 +216,35 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       async (event, session) => {
         console.log('[onAuthStateChange]', event, session?.user?.id ?? 'no-user')
         if (event === 'SIGNED_IN' && session?.user) {
-          const uid = session.user.id
-          const { data: userData, error: userErr } = await supabase!
-            .from('users').select('*').eq('id', uid).single()
-          if (userErr) console.error('[onAuthStateChange] users fetch error:', userErr)
-          if (userData) {
-            const checkedUser = await checkStreakOnLogin(userData as User)
-            setUser(checkedUser)
-            const { data: prog } = await supabase!
-              .from('user_progress').select('*').eq('user_id', uid)
-            if (prog) applyProgress(prog as UserProgress[])
-            await loadSupabaseSession(uid, checkedUser.level)
-          } else {
-            const { data: newUser, error: insertErr } = await supabase!
-              .from('users')
-              .insert({ id: uid, email: session.user.email, level: 'A1', streak: 0 })
-              .select().single()
-            if (insertErr) console.error('[onAuthStateChange] users insert error:', insertErr)
-            if (newUser) {
-              setUser(newUser as User)
-              await loadSupabaseSession(uid, 'A1')
+          try {
+            const uid = session.user.id
+            const { data: userData, error: userErr } = await supabase!
+              .from('users').select('*').eq('id', uid).single()
+            if (userErr) console.error('[onAuthStateChange] users fetch error:', userErr)
+            if (userData) {
+              const checkedUser = await checkStreakOnLogin(userData as User)
+              setUser(checkedUser)
+              const { data: prog } = await supabase!
+                .from('user_progress').select('*').eq('user_id', uid)
+              if (prog) applyProgress(prog as UserProgress[])
+              await loadSupabaseSession(uid, checkedUser.level)
+            } else {
+              const { data: newUser, error: insertErr } = await supabase!
+                .from('users')
+                .insert({ id: uid, email: session.user.email, level: 'A1', streak: 0 })
+                .select().single()
+              if (insertErr) console.error('[onAuthStateChange] users insert error:', insertErr)
+              if (newUser) {
+                setUser(newUser as User)
+                await loadSupabaseSession(uid, 'A1')
+              }
             }
+          } catch (err) {
+            console.error('[onAuthStateChange] SIGNED_IN error:', err)
+          } finally {
+            clearTimeout(loadingTimeout)
+            setIsLoading(false)
           }
-          setIsLoading(false)
         } else if (event === 'SIGNED_OUT') {
           console.warn('[onAuthStateChange] SIGNED_OUT — clearing state')
           setUser(null); setProgress({}); setTodaySession(null)
@@ -240,7 +252,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         }
       }
     )
-    return () => subscription.unsubscribe()
+    return () => { subscription.unsubscribe(); clearTimeout(loadingTimeout) }
   }, [demo, supabase, applyProgress, loadSession, loadSupabaseSession, checkStreakOnLogin])
 
   // ── actions ────────────────────────────────────────────────────────────────
