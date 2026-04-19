@@ -314,11 +314,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const signOut = useCallback(async () => {
     if (demo) {
       localSignOut()
+      setUser(null); setProgress({}); setTodaySession(null)
+      setTodayWords([]); setLeafCount(0); setStreakLost(false)
     } else {
       await supabase!.auth.signOut()
+      // Full reload destroys the Supabase singleton, preventing the GoTrueClient
+      // auth lock from getting stuck after a global signOut invalidates other sessions.
+      window.location.href = '/auth/login'
     }
-    setUser(null); setProgress({}); setTodaySession(null)
-    setTodayWords([]); setLeafCount(0); setStreakLost(false)
   }, [demo, supabase])
 
   const upsertProgressEntry = useCallback((entry: UserProgress) => {
