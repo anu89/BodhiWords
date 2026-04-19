@@ -232,6 +232,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
               await loadSupabaseSession(uid, 'A1')
             }
           }
+          setIsLoading(false)
         } else if (event === 'SIGNED_OUT') {
           console.warn('[onAuthStateChange] SIGNED_OUT — clearing state')
           setUser(null); setProgress({}); setTodaySession(null)
