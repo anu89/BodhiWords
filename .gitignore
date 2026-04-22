@@ -20,6 +20,9 @@
 # production
 /build
 
+/scripts
+/src/wordlist
+
 # misc
 .DS_Store
 *.pem

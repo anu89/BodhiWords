@@ -2,15 +2,15 @@
 
 import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, useRef } from 'react'
 import { createClient } from '@/lib/supabase'
-import { WORDS } from '@/lib/words'
 import { getTodayStr, getYesterdayStr } from '@/lib/utils'
-import type { User, UserProgress, DailySession, ESLLevel } from '@/types'
+import type { User, UserProgress, DailySession, ESLLevel, ExamDomain, UserMode, Word } from '@/types'
 
 interface AppContextValue {
   user: User | null
   progress: Record<string, UserProgress>
   todaySession: DailySession | null
-  todayWords: typeof WORDS
+  todayWords: Word[]
+  words: Word[]
   leafCount: number
   isLoading: boolean
   streakLost: boolean
@@ -18,7 +18,7 @@ interface AppContextValue {
   refreshProgress: () => Promise<void>
   signOut: () => Promise<void>
   changeLevel: (level: ESLLevel) => Promise<void>
-  saveProfile: (name: string, level: ESLLevel) => Promise<void>
+  saveProfile: (data: { name: string; level: ESLLevel; mode: UserMode; examDomain?: ExamDomain | null; dailyGoal: number }) => Promise<void>
   updateTodaySession: (updates: Partial<DailySession>) => void
   updateUserData: (updates: Partial<User>) => void
   upsertProgressEntry: (entry: UserProgress) => void
@@ -30,6 +30,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [progress, setProgress] = useState<Record<string, UserProgress>>({})
   const [todaySession, setTodaySession] = useState<DailySession | null>(null)
+  const [words, setWords] = useState<Word[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [streakLost, setStreakLost] = useState(false)
   const loadingRef = useRef(false)
@@ -45,8 +46,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     return { list, map }
   }, [supabase])
 
+  const fetchWords = useCallback(async (level: ESLLevel): Promise<Word[]> => {
+    const { data } = await supabase.from('words').select('*').eq('level', level)
+    return (data ?? []) as Word[]
+  }, [supabase])
+
   // Returns session — caller sets state
-  const buildDailySession = useCallback(async (userId: string, level: ESLLevel, progressList: UserProgress[]) => {
+  const buildDailySession = useCallback(async (userId: string, levelWords: Word[], progressList: UserProgress[]) => {
     const today = getTodayStr()
 
     const { data: existing } = await supabase
@@ -59,7 +65,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     if (existing) return existing as DailySession
 
     const masteredIds = new Set(progressList.filter(p => p.status === 'mastered').map(p => p.word_id))
-    const available = WORDS.filter(w => w.level === level && !masteredIds.has(w.id))
+    const available = levelWords.filter(w => !masteredIds.has(w.id))
     const picked = [...available].sort(() => Math.random() - 0.5).slice(0, 5).map(w => w.id)
 
     if (picked.length === 0) return null
@@ -122,13 +128,17 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         didLoseStreak = true
       }
 
-      // Fetch remaining data
-      const { list: progressList, map: progressMap } = await fetchProgress(userId)
-      const session = await buildDailySession(userId, userData.level, progressList)
+      // Fetch remaining data in parallel
+      const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
+        fetchProgress(userId),
+        fetchWords(userData.level),
+      ])
+      const session = await buildDailySession(userId, levelWords, progressList)
 
       // Set all state at once — prevents partial-render flicker
       setUser(userData as User)
       setProgress(progressMap)
+      setWords(levelWords)
       setTodaySession(session)
       if (didLoseStreak) setStreakLost(true)
     } catch (err) {
@@ -175,8 +185,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const todayWords = useMemo(() => {
     if (!todaySession) return []
-    return WORDS.filter(w => todaySession.word_ids.includes(w.id))
-  }, [todaySession])
+    return words.filter(w => todaySession.word_ids.includes(w.id))
+  }, [todaySession, words])
 
   const leafCount = useMemo(() =>
     Object.values(progress).filter(p => p.status === 'learning' || p.status === 'mastered').length
@@ -208,29 +218,37 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setUser(prev => prev ? { ...prev, level } : null)
   }, [user, supabase])
 
-  const saveProfile = useCallback(async (name: string, level: ESLLevel) => {
+  const saveProfile = useCallback(async ({ name, level, mode, examDomain, dailyGoal }: {
+    name: string; level: ESLLevel; mode: UserMode; examDomain?: ExamDomain | null; dailyGoal: number
+  }) => {
     if (!user) return
     const today = getTodayStr()
 
-    // upsert — works even if the trigger-created row is missing
     await supabase.from('users').upsert({
       id: user.id,
       email: user.email,
       name,
       level,
+      mode,
+      exam_domain: examDomain ?? null,
+      daily_goal: dailyGoal,
       streak: user.streak ?? 0,
       last_active_date: user.last_active_date ?? null,
     })
 
     await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today)
 
-    const { list: progressList, map: progressMap } = await fetchProgress(user.id)
-    const session = await buildDailySession(user.id, level, progressList)
+    const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
+      fetchProgress(user.id),
+      fetchWords(level),
+    ])
+    const session = await buildDailySession(user.id, levelWords, progressList)
 
-    setUser(prev => prev ? { ...prev, name, level } : null)
+    setUser(prev => prev ? { ...prev, name, level, mode, exam_domain: examDomain ?? null, daily_goal: dailyGoal } : null)
     setProgress(progressMap)
+    setWords(levelWords)
     setTodaySession(session)
-  }, [user, supabase, fetchProgress, buildDailySession])
+  }, [user, supabase, fetchProgress, fetchWords, buildDailySession])
 
   const signOut = useCallback(async () => {
     await supabase.auth.signOut()
@@ -243,6 +261,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       progress,
       todaySession,
       todayWords,
+      words,
       leafCount,
       isLoading,
       streakLost,

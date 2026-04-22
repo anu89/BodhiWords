@@ -1,4 +1,6 @@
 export type ESLLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
+export type UserMode = 'esl' | 'exam'
+export type ExamDomain = 'banking' | 'cat' | 'gre' | 'rrb' | 'ssc_cgl' | 'toefl'
 
 export interface Word {
   id: string
@@ -20,6 +22,9 @@ export interface User {
   streak: number
   last_active_date: string | null
   created_at: string
+  mode: UserMode
+  exam_domain: ExamDomain | null
+  daily_goal: number
 }
 
 export interface DailySession {
