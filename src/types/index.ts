@@ -34,6 +34,7 @@ export interface DailySession {
   word_ids: string[]
   completed: boolean
   created_at: string
+  mode: UserMode
 }
 
 export interface UserProgress {

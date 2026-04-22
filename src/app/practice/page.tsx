@@ -61,7 +61,7 @@ export default function PracticePage() {
 
     if (filter === 'all') {
       const { data } = await supabase
-        .from('user_progress').select('word_id').eq('user_id', user.id)
+        .from('user_progress').select('word_id').eq('user_id', user.id).eq('mode', user.mode)
       const ids = new Set((data ?? []).map((r: { word_id: string }) => r.word_id))
       setWords(WORDS.filter(w => ids.has(w.id)))
       return
@@ -70,7 +70,7 @@ export default function PracticePage() {
     if (filter === 'week') {
       const { data } = await supabase
         .from('daily_sessions').select('word_ids')
-        .eq('user_id', user.id).gte('date', weekAgo)
+        .eq('user_id', user.id).eq('mode', user.mode).gte('date', weekAgo)
       const ids = new Set((data ?? []).flatMap((s: { word_ids: string[] }) => s.word_ids))
       setWords(WORDS.filter(w => ids.has(w.id)))
       return
@@ -79,7 +79,7 @@ export default function PracticePage() {
     const dateFilter = filter === 'yesterday' ? yesterday : today
     const { data } = await supabase
       .from('daily_sessions').select('word_ids')
-      .eq('user_id', user.id).eq('date', dateFilter).single()
+      .eq('user_id', user.id).eq('mode', user.mode).eq('date', dateFilter).maybeSingle()
     setWords(data?.word_ids ? WORDS.filter(w => data.word_ids.includes(w.id)) : [])
   }, [user, filter, supabase])
 
@@ -133,6 +133,7 @@ export default function PracticePage() {
       const entry: UserProgress = {
         user_id: user.id,
         word_id: wordId,
+        mode: user.mode,
         correct_count: newCount,
         incorrect_count: existing?.incorrect_count ?? 0,
         status: newStatus,

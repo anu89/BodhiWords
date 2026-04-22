@@ -217,11 +217,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const changeLevel = useCallback(async (level: ESLLevel) => {
     if (!user) return
-    const levelWords = await fetchWords(level)
     await supabase.from('users').update({ level }).eq('id', user.id)
     setUser(prev => prev ? { ...prev, level } : null)
-    setWords(levelWords)
-  }, [user, supabase, fetchWords])
+  }, [user, supabase])
 
   const saveProfile = useCallback(async ({ name, level, mode, examDomain, dailyGoal }: {
     name: string; level: ESLLevel; mode: UserMode; examDomain?: ExamDomain | null; dailyGoal: number
