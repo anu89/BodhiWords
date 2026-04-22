@@ -1,0 +1,1747 @@
+[
+  {
+    "id": "w1001",
+    "word": "Abolish",
+    "meaning_en": "To formally put an end to a law, system, or practice",
+    "meaning_hi": "समाप्त करना / उन्मूलन करना",
+    "example": "Many countries have abolished the death penalty.",
+    "antonyms": [
+      "establish",
+      "create",
+      "introduce"
+    ],
+    "mnemonic": "ABOLISH — A + POLISH; polish away the old rule until it's gone.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1002",
+    "word": "Abuse",
+    "meaning_en": "Cruel or violent treatment; to misuse something",
+    "meaning_hi": "दुरुपयोग / दुर्व्यवहार",
+    "example": "Abuse of power by leaders must be challenged.",
+    "antonyms": [
+      "protect",
+      "respect",
+      "nurture"
+    ],
+    "mnemonic": "ABUSE — A + BUSE; a BRUISE from ABUSE.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1003",
+    "word": "Accountability",
+    "meaning_en": "The fact of being responsible for your actions",
+    "meaning_hi": "जवाबदेही / उत्तरदायित्व",
+    "example": "Accountability in government builds public trust.",
+    "antonyms": [
+      "irresponsibility",
+      "immunity"
+    ],
+    "mnemonic": "ACCOUNTABILITY — ACCOUNT + ABILITY; the ABILITY to ACCOUNT for actions.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1004",
+    "word": "Accumulate",
+    "meaning_en": "To gather or collect over time",
+    "meaning_hi": "जमा करना / संचय करना",
+    "example": "She accumulated years of experience before starting her own firm.",
+    "antonyms": [
+      "distribute",
+      "disperse",
+      "lose"
+    ],
+    "mnemonic": "ACCUMULATE — ACCU + MULATE; mules carry loads; accumulate what you carry.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1005",
+    "word": "Activist",
+    "meaning_en": "A person who campaigns strongly for political or social change",
+    "meaning_hi": "कार्यकर्ता / सक्रिय समर्थक",
+    "example": "Environmental activists protested outside the factory.",
+    "antonyms": [
+      "bystander",
+      "passive observer"
+    ],
+    "mnemonic": "ACTIVIST — ACTIVE + IST; someone who is ACTIVELY fighting for a cause.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1006",
+    "word": "Adaptation",
+    "meaning_en": "The process of changing to suit new conditions",
+    "meaning_hi": "अनुकूलन / रूपांतरण",
+    "example": "Adaptation to climate change is now an urgent priority.",
+    "antonyms": [
+      "resistance",
+      "rigidity"
+    ],
+    "mnemonic": "ADAPTATION — ADAPT + ATION; the result of adapting.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1007",
+    "word": "Advocate",
+    "meaning_en": "To publicly recommend or support; a person who does this",
+    "meaning_hi": "समर्थन करना / वकालत करना",
+    "example": "She advocates for equal rights in the workplace.",
+    "antonyms": [
+      "oppose",
+      "criticise",
+      "discourage"
+    ],
+    "mnemonic": "ADVOCATE — AD + VOICE + ATE; give your VOICE loudly for a cause.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1008",
+    "word": "Aftermath",
+    "meaning_en": "The consequences or effects of an unpleasant event",
+    "meaning_hi": "परिणाम / बाद का असर",
+    "example": "The aftermath of the earthquake lasted for years.",
+    "antonyms": [
+      "prelude",
+      "cause",
+      "beginning"
+    ],
+    "mnemonic": "AFTERMATH — AFTER + MATH; the MATH (count) of damage AFTER disaster.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1009",
+    "word": "Alliance",
+    "meaning_en": "A union or partnership formed for mutual benefit",
+    "meaning_hi": "गठबंधन / संघ",
+    "example": "NATO is a military alliance of Western nations.",
+    "antonyms": [
+      "rivalry",
+      "opposition",
+      "conflict"
+    ],
+    "mnemonic": "ALLIANCE — ALL + IANCE; ALL joined = alliance.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1010",
+    "word": "Allegation",
+    "meaning_en": "A claim that someone has done something wrong, without proof yet",
+    "meaning_hi": "आरोप / अभियोग",
+    "example": "The politician denied all allegations of corruption.",
+    "antonyms": [
+      "denial",
+      "proof",
+      "exoneration"
+    ],
+    "mnemonic": "ALLEGATION — ALLEGE + ATION; what is alleged becomes an allegation.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1011",
+    "word": "Ambassador",
+    "meaning_en": "A diplomat representing their country in another country",
+    "meaning_hi": "राजदूत",
+    "example": "The Indian ambassador met with French officials.",
+    "antonyms": [],
+    "mnemonic": "AMBASSADOR — AMBASS + ADOR; a grand ADORned representative.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1012",
+    "word": "Amendment",
+    "meaning_en": "A change made to a law or document",
+    "meaning_hi": "संशोधन",
+    "example": "The First Amendment protects freedom of speech in the US.",
+    "antonyms": [
+      "original",
+      "repeal"
+    ],
+    "mnemonic": "AMENDMENT — AMEND + MENT; the result of amending (fixing) a law.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1013",
+    "word": "Assault",
+    "meaning_en": "A violent attack on someone; to attack someone violently",
+    "meaning_hi": "हमला करना / आक्रमण",
+    "example": "He was charged with assault after the fight.",
+    "antonyms": [
+      "protect",
+      "defend",
+      "shield"
+    ],
+    "mnemonic": "ASSAULT — A + SALT; throwing SALT in someone's wound = assault.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1014",
+    "word": "Assembly",
+    "meaning_en": "A group of people meeting together; the act of gathering",
+    "meaning_hi": "सभा / विधानसभा",
+    "example": "The UN General Assembly meets every September.",
+    "antonyms": [
+      "dispersal",
+      "separation"
+    ],
+    "mnemonic": "ASSEMBLY — ASSEMBLE + Y; why ASSEMBLE? To form an assembly.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1015",
+    "word": "Asylum",
+    "meaning_en": "Protection given by a government to someone who has fled their country",
+    "meaning_hi": "शरण / आश्रय",
+    "example": "She was granted asylum after fleeing political persecution.",
+    "antonyms": [
+      "deportation",
+      "rejection"
+    ],
+    "mnemonic": "ASYLUM — A + SYLUM; a SAFE LOOM (shelter) for the displaced.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1016",
+    "word": "Autonomy",
+    "meaning_en": "The right to self-govern; independence",
+    "meaning_hi": "स्वायत्तता / स्वशासन",
+    "example": "The region demanded greater political autonomy.",
+    "antonyms": [
+      "dependence",
+      "control",
+      "submission"
+    ],
+    "mnemonic": "AUTONOMY — AUTO + NOMY; AUTO (self) + NOMY (rule) = self-rule.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1017",
+    "word": "Ballot",
+    "meaning_en": "A process of voting, usually done in secret",
+    "meaning_hi": "मतपत्र / मतदान",
+    "example": "The result was decided by a secret ballot.",
+    "antonyms": [],
+    "mnemonic": "BALLOT — BALL + OT; a BALL rolled into the box = ballot.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1018",
+    "word": "Barrier",
+    "meaning_en": "An obstacle that prevents movement or progress",
+    "meaning_hi": "बाधा / रुकावट",
+    "example": "Language barriers can hinder communication.",
+    "antonyms": [
+      "bridge",
+      "gateway",
+      "opening"
+    ],
+    "mnemonic": "BARRIER — BAR + RIER; a BAR blocks the way.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1019",
+    "word": "Breakthrough",
+    "meaning_en": "An important discovery or development",
+    "meaning_hi": "सफलता / महत्त्वपूर्ण खोज",
+    "example": "Scientists made a breakthrough in cancer research.",
+    "antonyms": [
+      "setback",
+      "failure",
+      "regression"
+    ],
+    "mnemonic": "BREAKTHROUGH — BREAK + THROUGH; BREAK THROUGH the wall of limitation.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1020",
+    "word": "Burden",
+    "meaning_en": "A heavy load; a responsibility that causes hardship",
+    "meaning_hi": "बोझ / भार",
+    "example": "The cost of healthcare is a burden for many families.",
+    "antonyms": [
+      "relief",
+      "ease",
+      "help"
+    ],
+    "mnemonic": "BURDEN — BURN + DEN; a burning DEN of responsibility = burden.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1021",
+    "word": "Campaign",
+    "meaning_en": "An organised effort to achieve a social or political goal",
+    "meaning_hi": "अभियान",
+    "example": "The charity ran a campaign to raise awareness.",
+    "antonyms": [
+      "inaction",
+      "surrender"
+    ],
+    "mnemonic": "CAMPAIGN — CAMP + AIGN; a military CAMP fighting for a cause.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1022",
+    "word": "Casualty",
+    "meaning_en": "A person killed or injured in a war or accident",
+    "meaning_hi": "हताहत / पीड़ित",
+    "example": "The conflict resulted in heavy casualties on both sides.",
+    "antonyms": [
+      "survivor",
+      "victor"
+    ],
+    "mnemonic": "CASUALTY — CASUAL + TY; something CASUALLY dangerous becomes a casualty.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1023",
+    "word": "Chaos",
+    "meaning_en": "Complete disorder and confusion",
+    "meaning_hi": "अव्यवस्था / हंगामा",
+    "example": "The sudden power cut caused chaos in the office.",
+    "antonyms": [
+      "order",
+      "calm",
+      "organization"
+    ],
+    "mnemonic": "CHAOS — a CAT in a HOSe = CHAOS; unpredictable disorder.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1024",
+    "word": "Chronic",
+    "meaning_en": "Persisting for a long time; always present",
+    "meaning_hi": "दीर्घकालीन / पुराना",
+    "example": "He suffers from chronic back pain.",
+    "antonyms": [
+      "acute",
+      "temporary",
+      "brief"
+    ],
+    "mnemonic": "CHRONIC — CHRONO (time) + IC; lasting through time = chronic.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1025",
+    "word": "Civilian",
+    "meaning_en": "A person not in the armed forces or police",
+    "meaning_hi": "आम नागरिक",
+    "example": "The army was accused of targeting civilians.",
+    "antonyms": [
+      "soldier",
+      "military personnel",
+      "combatant"
+    ],
+    "mnemonic": "CIVILIAN — CIVIL + IAN; someone living a CIVIL (non-military) life.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1026",
+    "word": "Coalition",
+    "meaning_en": "A temporary alliance of political parties or groups",
+    "meaning_hi": "गठबंधन",
+    "example": "A coalition government was formed after the election.",
+    "antonyms": [
+      "division",
+      "opposition",
+      "rivalry"
+    ],
+    "mnemonic": "COALITION — COAL + ITION; coal pieces joining = forming a coalition.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1027",
+    "word": "Collaborate",
+    "meaning_en": "To work jointly with others on a project",
+    "meaning_hi": "सहयोग करना / मिलकर काम करना",
+    "example": "Scientists from ten countries collaborated on the study.",
+    "antonyms": [
+      "compete",
+      "oppose",
+      "work alone"
+    ],
+    "mnemonic": "COLLABORATE — CO + LABOUR + ATE; labour together = collaborate.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1028",
+    "word": "Compassion",
+    "meaning_en": "Sympathetic concern for the suffering of others",
+    "meaning_hi": "करुणा / सहानुभूति",
+    "example": "A good doctor treats patients with skill and compassion.",
+    "antonyms": [
+      "cruelty",
+      "indifference",
+      "heartlessness"
+    ],
+    "mnemonic": "COMPASSION — COM + PASSION; shared PASSION for others' pain = compassion.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1029",
+    "word": "Compelling",
+    "meaning_en": "Evoking interest and attention; powerfully convincing",
+    "meaning_hi": "आकर्षक / सम्मोहक",
+    "example": "She made a compelling argument for change.",
+    "antonyms": [
+      "unconvincing",
+      "boring",
+      "weak"
+    ],
+    "mnemonic": "COMPELLING — COMPEL + LING; something that COMPELS you to listen.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1030",
+    "word": "Compromise",
+    "meaning_en": "An agreement reached by each side giving something up",
+    "meaning_hi": "समझौता करना",
+    "example": "Both parties reached a compromise after long negotiations.",
+    "antonyms": [
+      "stubbornness",
+      "refusal",
+      "deadlock"
+    ],
+    "mnemonic": "COMPROMISE — COMPRO + MISE; put MISE en place — arrange the middle ground.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1031",
+    "word": "Conscience",
+    "meaning_en": "An inner sense of what is right or wrong",
+    "meaning_hi": "अंतरात्मा / ज़मीर",
+    "example": "Her conscience would not let her stay silent.",
+    "antonyms": [
+      "ruthlessness",
+      "amorality"
+    ],
+    "mnemonic": "CONSCIENCE — CON + SCIENCE; the inner SCIENCE of knowing right from wrong.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1032",
+    "word": "Consensus",
+    "meaning_en": "A general agreement among a group",
+    "meaning_hi": "सहमति / आम राय",
+    "example": "There is no consensus on how to solve the climate crisis.",
+    "antonyms": [
+      "disagreement",
+      "conflict",
+      "dissent"
+    ],
+    "mnemonic": "CONSENSUS — CON + SENSUS; sensing together = consensus.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1033",
+    "word": "Constitution",
+    "meaning_en": "The fundamental laws and principles governing a state",
+    "meaning_hi": "संविधान",
+    "example": "India's Constitution guarantees equality for all citizens.",
+    "antonyms": [],
+    "mnemonic": "CONSTITUTION — CONSTITUTE + ION; what constitutes the law of the land.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1034",
+    "word": "Corruption",
+    "meaning_en": "Dishonest or fraudulent conduct by those in power",
+    "meaning_hi": "भ्रष्टाचार",
+    "example": "Corruption undermines democracy and justice.",
+    "antonyms": [
+      "integrity",
+      "honesty",
+      "transparency"
+    ],
+    "mnemonic": "CORRUPTION — CORRUPT + ION; a corroded ION (element) in society.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1035",
+    "word": "Credibility",
+    "meaning_en": "The quality of being trusted and believed",
+    "meaning_hi": "विश्वसनीयता",
+    "example": "The scandal damaged the company's credibility.",
+    "antonyms": [
+      "dishonesty",
+      "unreliability",
+      "doubt"
+    ],
+    "mnemonic": "CREDIBILITY — CREDIT + ABILITY; the ABILITY to earn CREDIT = credibility.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1036",
+    "word": "Crisis",
+    "meaning_en": "A time of intense difficulty requiring urgent decisions",
+    "meaning_hi": "संकट / आपातकाल",
+    "example": "The government acted swiftly during the economic crisis.",
+    "antonyms": [
+      "stability",
+      "peace",
+      "recovery"
+    ],
+    "mnemonic": "CRISIS — CRY + SIS; everyone CRIES when a crisis hits.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1037",
+    "word": "Custody",
+    "meaning_en": "Protective care; legal guardianship; being held by police",
+    "meaning_hi": "हिरासत / संरक्षण",
+    "example": "The suspect was taken into police custody.",
+    "antonyms": [
+      "freedom",
+      "release",
+      "liberty"
+    ],
+    "mnemonic": "CUSTODY — CUST + ODY; the BODY (ody) in CUSTOM (cust) control = custody.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1038",
+    "word": "Debate",
+    "meaning_en": "A formal discussion of opposing viewpoints",
+    "meaning_hi": "बहस / वाद-विवाद",
+    "example": "The presidential debate was watched by millions.",
+    "antonyms": [
+      "agreement",
+      "consensus"
+    ],
+    "mnemonic": "DEBATE — DE + BATE; bait both sides into a DEBATE.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1039",
+    "word": "Declaration",
+    "meaning_en": "A formal announcement or statement",
+    "meaning_hi": "घोषणा / उद्घोषणा",
+    "example": "The Declaration of Independence was signed in 1776.",
+    "antonyms": [
+      "denial",
+      "silence",
+      "withdrawal"
+    ],
+    "mnemonic": "DECLARATION — DECLARE + ATION; saying it loud and clear = declaration.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1040",
+    "word": "Dedication",
+    "meaning_en": "Strong commitment to something over time",
+    "meaning_hi": "समर्पण / लगन",
+    "example": "Her dedication to the sport earned her a gold medal.",
+    "antonyms": [
+      "neglect",
+      "indifference",
+      "laziness"
+    ],
+    "mnemonic": "DEDICATION — DEDICATE + ION; the state of being dedicated.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1041",
+    "word": "Denial",
+    "meaning_en": "A statement that something is not true; a refusal to acknowledge",
+    "meaning_hi": "इनकार / अस्वीकृति",
+    "example": "He issued a firm denial of all charges.",
+    "antonyms": [
+      "acceptance",
+      "admission",
+      "acknowledgement"
+    ],
+    "mnemonic": "DENIAL — DE + NILE; like the NILE river, denial just FLOWS past the truth.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1042",
+    "word": "Democracy",
+    "meaning_en": "A system of government where citizens vote for leaders",
+    "meaning_hi": "लोकतंत्र",
+    "example": "India is the world's largest democracy.",
+    "antonyms": [
+      "dictatorship",
+      "autocracy",
+      "tyranny"
+    ],
+    "mnemonic": "DEMOCRACY — DEMO (people) + CRACY (rule); ruled by the people.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1043",
+    "word": "Deployment",
+    "meaning_en": "The act of moving troops or resources into action",
+    "meaning_hi": "तैनाती",
+    "example": "The government approved the deployment of troops.",
+    "antonyms": [
+      "withdrawal",
+      "retreat"
+    ],
+    "mnemonic": "DEPLOYMENT — DEPLOY + MENT; the act of deploying forces.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1044",
+    "word": "Detention",
+    "meaning_en": "The state of being held in custody",
+    "meaning_hi": "नज़रबंदी / हिरासत",
+    "example": "He was held in detention without charge for 48 hours.",
+    "antonyms": [
+      "release",
+      "freedom",
+      "liberty"
+    ],
+    "mnemonic": "DETENTION — DETAIN + TION; the result of being detained.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1045",
+    "word": "Dignity",
+    "meaning_en": "The quality of being worthy of honour and respect",
+    "meaning_hi": "गरिमा / सम्मान",
+    "example": "Every person deserves to be treated with dignity.",
+    "antonyms": [
+      "disgrace",
+      "shame",
+      "humiliation"
+    ],
+    "mnemonic": "DIGNITY — DIG + NITY; DIG deep into your IDENTITY = dignity.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1046",
+    "word": "Dilemma",
+    "meaning_en": "A situation requiring a choice between difficult options",
+    "meaning_hi": "दुविधा / असमंजस",
+    "example": "She faced a dilemma: leave or stay and fight.",
+    "antonyms": [
+      "certainty",
+      "clarity",
+      "easy choice"
+    ],
+    "mnemonic": "DILEMMA — DI (two) + LEMMA (problem); two equally tough problems.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1047",
+    "word": "Diplomat",
+    "meaning_en": "A government official who manages relations with other countries",
+    "meaning_hi": "राजनयिक",
+    "example": "The diplomat worked to resolve the border dispute.",
+    "antonyms": [],
+    "mnemonic": "DIPLOMAT — DIPLO (double) + MAT; managing two sides on a MAT of negotiation.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1048",
+    "word": "Discrimination",
+    "meaning_en": "Unjust treatment of different groups of people",
+    "meaning_hi": "भेदभाव",
+    "example": "Discrimination based on race or gender is illegal.",
+    "antonyms": [
+      "equality",
+      "fairness",
+      "inclusion"
+    ],
+    "mnemonic": "DISCRIMINATION — DISCRIM + INATION; criminalizing a nation's differences.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1049",
+    "word": "Disruption",
+    "meaning_en": "A disturbance that interrupts an event or process",
+    "meaning_hi": "व्यवधान / बाधा",
+    "example": "The strike caused major disruption to transport.",
+    "antonyms": [
+      "continuity",
+      "stability",
+      "order"
+    ],
+    "mnemonic": "DISRUPTION — DISRUPT + ION; the force of disrupting things.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1050",
+    "word": "Diversity",
+    "meaning_en": "The range of different types of people or things",
+    "meaning_hi": "विविधता",
+    "example": "The company values diversity and inclusion.",
+    "antonyms": [
+      "uniformity",
+      "sameness",
+      "homogeneity"
+    ],
+    "mnemonic": "DIVERSITY — DIVERSE + ITY; the state of being diverse.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1051",
+    "word": "Dominant",
+    "meaning_en": "Most powerful or influential",
+    "meaning_hi": "प्रभावशाली / प्रमुख",
+    "example": "English is the dominant language in global business.",
+    "antonyms": [
+      "weak",
+      "minor",
+      "subordinate"
+    ],
+    "mnemonic": "DOMINANT — DOMAIN + ANT; ruling the domain = dominant.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1052",
+    "word": "Efficiency",
+    "meaning_en": "Achieving maximum productivity with minimum wasted effort",
+    "meaning_hi": "दक्षता / कुशलता",
+    "example": "Energy efficiency reduces both cost and pollution.",
+    "antonyms": [
+      "inefficiency",
+      "waste",
+      "incompetence"
+    ],
+    "mnemonic": "EFFICIENCY — EFFECT + ICIENCY; being most EFFECTIVE = efficiency.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1053",
+    "word": "Elite",
+    "meaning_en": "A group regarded as superior in ability or status",
+    "meaning_hi": "अभिजात वर्ग / एलीट",
+    "example": "Only the elite could afford to attend the event.",
+    "antonyms": [
+      "masses",
+      "common people",
+      "majority"
+    ],
+    "mnemonic": "ELITE — E + LITE; the LITE (light) few at the top = elite.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1054",
+    "word": "Empower",
+    "meaning_en": "To give someone the authority or strength to do something",
+    "meaning_hi": "सशक्त करना",
+    "example": "Education empowers women in developing nations.",
+    "antonyms": [
+      "disempower",
+      "weaken",
+      "suppress"
+    ],
+    "mnemonic": "EMPOWER — EM + POWER; give POWER to others = empower.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1055",
+    "word": "Enforcement",
+    "meaning_en": "The act of compelling obedience to a law or rule",
+    "meaning_hi": "प्रवर्तन / कानून का पालन कराना",
+    "example": "Strict enforcement of traffic rules saves lives.",
+    "antonyms": [
+      "negligence",
+      "leniency",
+      "ignorance"
+    ],
+    "mnemonic": "ENFORCEMENT — ENFORCE + MENT; the act of enforcing rules.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1056",
+    "word": "Epidemic",
+    "meaning_en": "A widespread occurrence of an infectious disease",
+    "meaning_hi": "महामारी",
+    "example": "The cholera epidemic spread rapidly in the flood zones.",
+    "antonyms": [
+      "containment",
+      "cure"
+    ],
+    "mnemonic": "EPIDEMIC — EPI (on) + DEMIC (people); a disease spreading ON the people.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1057",
+    "word": "Equality",
+    "meaning_en": "The state of being equal, especially in rights and opportunities",
+    "meaning_hi": "समानता",
+    "example": "Gender equality remains a major global challenge.",
+    "antonyms": [
+      "inequality",
+      "discrimination",
+      "bias"
+    ],
+    "mnemonic": "EQUALITY — EQUAL + ITY; the state of being EQUAL.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1058",
+    "word": "Establishment",
+    "meaning_en": "The founding of an institution; the established social order",
+    "meaning_hi": "स्थापना / तंत्र",
+    "example": "The establishment of democracy took decades.",
+    "antonyms": [
+      "abolition",
+      "dissolution"
+    ],
+    "mnemonic": "ESTABLISHMENT — ESTABLISH + MENT; the result of establishing.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1059",
+    "word": "Exploitation",
+    "meaning_en": "The act of treating someone unfairly for personal gain",
+    "meaning_hi": "शोषण",
+    "example": "Child labour is a form of exploitation.",
+    "antonyms": [
+      "protection",
+      "fairness",
+      "empowerment"
+    ],
+    "mnemonic": "EXPLOITATION — EXPLOIT + ATION; exploiting someone = exploitation.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1060",
+    "word": "Facilitate",
+    "meaning_en": "To make something easier or help it happen",
+    "meaning_hi": "सुविधाजनक बनाना / सहायता करना",
+    "example": "Technology facilitates communication across borders.",
+    "antonyms": [
+      "hinder",
+      "obstruct",
+      "complicate"
+    ],
+    "mnemonic": "FACILITATE — FACIL (easy) + ITATE; make it easy = facilitate.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1061",
+    "word": "Fate",
+    "meaning_en": "The development of events beyond one's control",
+    "meaning_hi": "भाग्य / नियति",
+    "example": "She accepted her fate with courage.",
+    "antonyms": [
+      "choice",
+      "free will"
+    ],
+    "mnemonic": "FATE — LATE; your FATE decides when it's too LATE to change.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1062",
+    "word": "Fierce",
+    "meaning_en": "Violent and aggressive; very strong or intense",
+    "meaning_hi": "उग्र / भयंकर",
+    "example": "There was fierce competition for the top position.",
+    "antonyms": [
+      "gentle",
+      "calm",
+      "mild"
+    ],
+    "mnemonic": "FIERCE — FIRE + CE; a FIRE is fierce — intense and uncontrollable.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1063",
+    "word": "Flee",
+    "meaning_en": "To run away from danger or an unpleasant situation",
+    "meaning_hi": "भाग जाना",
+    "example": "Thousands fled the country during the war.",
+    "antonyms": [
+      "stay",
+      "confront",
+      "remain"
+    ],
+    "mnemonic": "FLEE — FLEA; a FLEA flees from the scratch.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1064",
+    "word": "Flourish",
+    "meaning_en": "To grow or develop in a healthy or vigorous way",
+    "meaning_hi": "फलना-फूलना / पनपना",
+    "example": "Small businesses flourish in a supportive economy.",
+    "antonyms": [
+      "decline",
+      "wither",
+      "struggle"
+    ],
+    "mnemonic": "FLOURISH — FLOUR + ISH; like FLOUR rising in bread, things FLOURISH.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1065",
+    "word": "Framework",
+    "meaning_en": "A basic structure underlying a system or concept",
+    "meaning_hi": "ढाँचा / रूपरेखा",
+    "example": "A legal framework is needed to regulate AI.",
+    "antonyms": [
+      "chaos",
+      "disorder",
+      "vacuum"
+    ],
+    "mnemonic": "FRAMEWORK — FRAME + WORK; a FRAME within which things WORK.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1066",
+    "word": "Fundamental",
+    "meaning_en": "Of central importance; forming the essential basis",
+    "meaning_hi": "मौलिक / आधारभूत",
+    "example": "Freedom of speech is a fundamental right.",
+    "antonyms": [
+      "secondary",
+      "trivial",
+      "minor"
+    ],
+    "mnemonic": "FUNDAMENTAL — FUND + AMENTAL; the FUND (base) is fundamental.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1067",
+    "word": "Genocide",
+    "meaning_en": "The deliberate killing of a large group of people based on ethnicity",
+    "meaning_hi": "नरसंहार",
+    "example": "The Holocaust is one of history's worst acts of genocide.",
+    "antonyms": [
+      "protection",
+      "preservation"
+    ],
+    "mnemonic": "GENOCIDE — GENO (race) + CIDE (kill); killing of a race = genocide.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1068",
+    "word": "Governance",
+    "meaning_en": "The way an organisation or country is managed",
+    "meaning_hi": "शासन / प्रशासन",
+    "example": "Good governance requires transparency and accountability.",
+    "antonyms": [
+      "mismanagement",
+      "anarchy"
+    ],
+    "mnemonic": "GOVERNANCE — GOVERN + ANCE; the practice of governing.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1069",
+    "word": "Harassment",
+    "meaning_en": "Aggressive pressure or intimidation of someone",
+    "meaning_hi": "उत्पीड़न / परेशानी",
+    "example": "Workplace harassment must be reported immediately.",
+    "antonyms": [
+      "respect",
+      "support",
+      "encouragement"
+    ],
+    "mnemonic": "HARASSMENT — HARASS + MENT; the act of harassing someone.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1070",
+    "word": "Heritage",
+    "meaning_en": "Cultural traditions passed down from previous generations",
+    "meaning_hi": "विरासत",
+    "example": "India's heritage is reflected in its art, music, and architecture.",
+    "antonyms": [
+      "innovation",
+      "modernity"
+    ],
+    "mnemonic": "HERITAGE — HEIR + TAGE; what the HEIR receives = heritage.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1071",
+    "word": "Hierarchy",
+    "meaning_en": "A system in which people are ranked above one another",
+    "meaning_hi": "पदानुक्रम / श्रेणीबद्धता",
+    "example": "The corporate hierarchy determines who makes decisions.",
+    "antonyms": [
+      "equality",
+      "flat structure"
+    ],
+    "mnemonic": "HIERARCHY — HIGH + ARCHY; HIGH ruling ARCH = hierarchy.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1072",
+    "word": "Hostility",
+    "meaning_en": "Unfriendly or aggressive behaviour",
+    "meaning_hi": "शत्रुता / विरोध",
+    "example": "The crowd reacted with hostility to the announcement.",
+    "antonyms": [
+      "friendliness",
+      "warmth",
+      "cooperation"
+    ],
+    "mnemonic": "HOSTILITY — HOST + ILITY; a bad HOST creates hostility.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1073",
+    "word": "Humanitarian",
+    "meaning_en": "Concerned with improving the welfare of people",
+    "meaning_hi": "मानवीय / मानवतावादी",
+    "example": "Aid workers provided humanitarian assistance to refugees.",
+    "antonyms": [
+      "cruel",
+      "inhumane",
+      "indifferent"
+    ],
+    "mnemonic": "HUMANITARIAN — HUMAN + ITARIAN; serving HUMAN needs = humanitarian.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1074",
+    "word": "Hypothesis",
+    "meaning_en": "A proposed explanation to be tested by research",
+    "meaning_hi": "परिकल्पना / अनुमान",
+    "example": "Scientists tested the hypothesis through experiments.",
+    "antonyms": [
+      "fact",
+      "proof",
+      "certainty"
+    ],
+    "mnemonic": "HYPOTHESIS — HYPO (under) + THESIS; an under-the-surface theory.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1075",
+    "word": "Ideology",
+    "meaning_en": "A system of ideas and ideals forming the basis of a political theory",
+    "meaning_hi": "विचारधारा",
+    "example": "The party's ideology focuses on social equality.",
+    "antonyms": [
+      "pragmatism",
+      "neutrality"
+    ],
+    "mnemonic": "IDEOLOGY — IDEA + OLOGY; the study (-ology) of IDEAS.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1076",
+    "word": "Imminent",
+    "meaning_en": "About to happen very soon",
+    "meaning_hi": "आसन्न / शीघ्र आने वाला",
+    "example": "A storm was imminent — we had to take cover.",
+    "antonyms": [
+      "distant",
+      "unlikely",
+      "far off"
+    ],
+    "mnemonic": "IMMINENT — IM + MINENT; looming overhead (eminent) = imminent.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1077",
+    "word": "Infrastructure",
+    "meaning_en": "The basic physical systems of a country or organisation",
+    "meaning_hi": "बुनियादी ढाँचा",
+    "example": "Investment in infrastructure boosts economic growth.",
+    "antonyms": [],
+    "mnemonic": "INFRASTRUCTURE — INFRA (below) + STRUCTURE; the foundational structure BELOW everything.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1078",
+    "word": "Injustice",
+    "meaning_en": "Lack of fairness or justice",
+    "meaning_hi": "अन्याय",
+    "example": "She dedicated her life to fighting injustice.",
+    "antonyms": [
+      "justice",
+      "fairness",
+      "equality"
+    ],
+    "mnemonic": "INJUSTICE — IN + JUSTICE; the OPPOSITE of justice.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1079",
+    "word": "Integration",
+    "meaning_en": "The mixing or combining of groups into one system",
+    "meaning_hi": "एकीकरण",
+    "example": "The integration of immigrants into society takes time.",
+    "antonyms": [
+      "segregation",
+      "separation",
+      "exclusion"
+    ],
+    "mnemonic": "INTEGRATION — INTEGER (whole) + RATION; making a whole = integration.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1080",
+    "word": "Integrity",
+    "meaning_en": "The quality of being honest and having strong moral principles",
+    "meaning_hi": "ईमानदारी / सत्यनिष्ठा",
+    "example": "A leader must act with integrity at all times.",
+    "antonyms": [
+      "dishonesty",
+      "corruption",
+      "hypocrisy"
+    ],
+    "mnemonic": "INTEGRITY — INTEGER (whole); being wholehearted and honest = integrity.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1081",
+    "word": "Intervention",
+    "meaning_en": "Action taken to change or improve a situation",
+    "meaning_hi": "हस्तक्षेप",
+    "example": "Military intervention in the conflict was controversial.",
+    "antonyms": [
+      "non-interference",
+      "passivity",
+      "neutrality"
+    ],
+    "mnemonic": "INTERVENTION — INTER (between) + VENTION; coming BETWEEN two parties.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1082",
+    "word": "Investigation",
+    "meaning_en": "A systematic inquiry to discover facts",
+    "meaning_hi": "जाँच / अन्वेषण",
+    "example": "The police launched an investigation into the fraud.",
+    "antonyms": [
+      "ignorance",
+      "neglect"
+    ],
+    "mnemonic": "INVESTIGATION — INVEST + IGATION; investing effort into finding the truth.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1083",
+    "word": "Justice",
+    "meaning_en": "Fair treatment and the upholding of law",
+    "meaning_hi": "न्याय",
+    "example": "Every citizen deserves access to justice.",
+    "antonyms": [
+      "injustice",
+      "unfairness",
+      "corruption"
+    ],
+    "mnemonic": "JUSTICE — JUST + ICE; cold hard JUST ICE = justice.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1084",
+    "word": "Landmark",
+    "meaning_en": "An important event or turning point; a notable building",
+    "meaning_hi": "मील का पत्थर / ऐतिहासिक स्थल",
+    "example": "The 1994 elections were a landmark moment in South Africa.",
+    "antonyms": [
+      "insignificance",
+      "ordinary"
+    ],
+    "mnemonic": "LANDMARK — LAND + MARK; a MARK on the LAND worth noting.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1085",
+    "word": "Lawsuit",
+    "meaning_en": "A legal case brought before a court",
+    "meaning_hi": "मुकदमा / क़ानूनी दावा",
+    "example": "She filed a lawsuit against her former employer.",
+    "antonyms": [
+      "settlement",
+      "agreement"
+    ],
+    "mnemonic": "LAWSUIT — LAW + SUIT; wearing a SUIT in a court of LAW.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1086",
+    "word": "Legacy",
+    "meaning_en": "Something handed down by a predecessor; lasting impact",
+    "meaning_hi": "विरासत / धरोहर",
+    "example": "Gandhi's legacy continues to inspire millions.",
+    "antonyms": [
+      "insignificance",
+      "oblivion"
+    ],
+    "mnemonic": "LEGACY — LEG + ACY; your LEGS walk forward, but your legacy stays behind.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1087",
+    "word": "Legislation",
+    "meaning_en": "Laws made by a governing body",
+    "meaning_hi": "कानून / विधान",
+    "example": "New legislation was passed to protect workers' rights.",
+    "antonyms": [
+      "illegality",
+      "anarchy"
+    ],
+    "mnemonic": "LEGISLATION — LEGISLATE + ION; the act of legislating = legislation.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1088",
+    "word": "Legitimate",
+    "meaning_en": "Conforming to the law; reasonable and justifiable",
+    "meaning_hi": "वैध / न्यायसंगत",
+    "example": "The protesters had legitimate concerns about the policy.",
+    "antonyms": [
+      "illegitimate",
+      "unlawful",
+      "unjustified"
+    ],
+    "mnemonic": "LEGITIMATE — LEGIT + IMATE; LEGIT = real and lawful = legitimate.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1089",
+    "word": "Liberty",
+    "meaning_en": "The state of being free from oppression or restriction",
+    "meaning_hi": "स्वतंत्रता / आज़ादी",
+    "example": "The Statue of Liberty is a symbol of freedom.",
+    "antonyms": [
+      "captivity",
+      "oppression",
+      "imprisonment"
+    ],
+    "mnemonic": "LIBERTY — LIBRE (free in Spanish) + TY; state of being FREE.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1090",
+    "word": "Mainstream",
+    "meaning_en": "The ideas and opinions accepted by most people",
+    "meaning_hi": "मुख्यधारा",
+    "example": "The movement eventually entered the mainstream.",
+    "antonyms": [
+      "fringe",
+      "alternative",
+      "radical"
+    ],
+    "mnemonic": "MAINSTREAM — MAIN + STREAM; the MAIN flowing STREAM of society.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1091",
+    "word": "Mandatory",
+    "meaning_en": "Required by law or rule; compulsory",
+    "meaning_hi": "अनिवार्य / ज़रूरी",
+    "example": "Wearing helmets is mandatory for motorcyclists.",
+    "antonyms": [
+      "optional",
+      "voluntary",
+      "discretionary"
+    ],
+    "mnemonic": "MANDATORY — MANDATE + ORY; relating to a MANDATE (official order).",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1092",
+    "word": "Manipulation",
+    "meaning_en": "Controlling or influencing someone in a clever or dishonest way",
+    "meaning_hi": "हेरफेर / चालाकी",
+    "example": "The campaign used data manipulation to influence voters.",
+    "antonyms": [
+      "honesty",
+      "transparency",
+      "fairness"
+    ],
+    "mnemonic": "MANIPULATION — MANIPULATE + ION; twisting hands (mani = hand) to control.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1093",
+    "word": "Massacre",
+    "meaning_en": "The brutal killing of a large number of people",
+    "meaning_hi": "नरसंहार / कत्लेआम",
+    "example": "The massacre shocked the international community.",
+    "antonyms": [
+      "protection",
+      "preservation"
+    ],
+    "mnemonic": "MASSACRE — MASS + ACRE; mass destruction of ACRES of lives.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1094",
+    "word": "Mediation",
+    "meaning_en": "The act of mediating between parties in a dispute",
+    "meaning_hi": "मध्यस्थता",
+    "example": "Mediation helped the two companies reach an agreement.",
+    "antonyms": [
+      "conflict",
+      "confrontation",
+      "deadlock"
+    ],
+    "mnemonic": "MEDIATION — MEDIATE + ION; coming in the MIDDLE to help both sides.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1095",
+    "word": "Migration",
+    "meaning_en": "The movement of people from one place to another",
+    "meaning_hi": "प्रवास / पलायन",
+    "example": "Economic migration is increasing across the world.",
+    "antonyms": [
+      "settlement",
+      "staying"
+    ],
+    "mnemonic": "MIGRATION — MIGRATE + ION; the act of migrating.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1096",
+    "word": "Momentum",
+    "meaning_en": "The force or speed of movement; growing strength",
+    "meaning_hi": "गति / प्रेरणा-बल",
+    "example": "The campaign gained momentum after the speech.",
+    "antonyms": [
+      "stagnation",
+      "standstill",
+      "halt"
+    ],
+    "mnemonic": "MOMENTUM — MOMENT + UM; a MOMENT of energy building up = momentum.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1097",
+    "word": "Morality",
+    "meaning_en": "Principles about what is right and wrong behaviour",
+    "meaning_hi": "नैतिकता",
+    "example": "Questions of morality are central to politics.",
+    "antonyms": [
+      "immorality",
+      "corruption",
+      "vice"
+    ],
+    "mnemonic": "MORALITY — MORAL + ITY; the state of having morals.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1098",
+    "word": "Notorious",
+    "meaning_en": "Famous for something bad or negative",
+    "meaning_hi": "कुख्यात / बदनाम",
+    "example": "The area is notorious for high crime rates.",
+    "antonyms": [
+      "reputable",
+      "respected",
+      "unknown"
+    ],
+    "mnemonic": "NOTORIOUS — NOT + ORIOUS; NOT glorious = notorious.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1099",
+    "word": "Outbreak",
+    "meaning_en": "A sudden occurrence of something unwanted, like disease or war",
+    "meaning_hi": "प्रकोप / विस्फोट",
+    "example": "An outbreak of typhoid affected thousands.",
+    "antonyms": [
+      "containment",
+      "suppression",
+      "calm"
+    ],
+    "mnemonic": "OUTBREAK — OUT + BREAK; a problem BREAKS OUT of control.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1100",
+    "word": "Overwhelming",
+    "meaning_en": "Very great in amount; impossible to resist",
+    "meaning_hi": "अत्यधिक / भारी",
+    "example": "The response to the disaster was overwhelming.",
+    "antonyms": [
+      "mild",
+      "manageable",
+      "weak"
+    ],
+    "mnemonic": "OVERWHELMING — OVER + WHELM; a WAVE that goes OVER you = overwhelming.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1101",
+    "word": "Patriot",
+    "meaning_en": "A person who vigorously supports their country",
+    "meaning_hi": "देशभक्त",
+    "example": "He was celebrated as a patriot who died for his country.",
+    "antonyms": [
+      "traitor",
+      "defector"
+    ],
+    "mnemonic": "PATRIOT — PATRI (father) + OT; defending the FATHERLAND = patriot.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1102",
+    "word": "Petition",
+    "meaning_en": "A formal request signed by many people",
+    "meaning_hi": "याचिका",
+    "example": "Over 100,000 people signed the petition.",
+    "antonyms": [
+      "order",
+      "command",
+      "demand"
+    ],
+    "mnemonic": "PETITION — PET + ITION; like a PET begging for something = petition.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1103",
+    "word": "Pioneer",
+    "meaning_en": "A person who develops or introduces new ideas",
+    "meaning_hi": "अग्रदूत / पथ-प्रदर्शक",
+    "example": "Marie Curie was a pioneer in the field of radioactivity.",
+    "antonyms": [
+      "follower",
+      "imitator",
+      "laggard"
+    ],
+    "mnemonic": "PIONEER — PIE + ONE + ER; the first one to bake the PIE = pioneer.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1104",
+    "word": "Pledge",
+    "meaning_en": "A solemn promise or commitment",
+    "meaning_hi": "प्रतिज्ञा / वचन देना",
+    "example": "The prime minister pledged to reduce poverty.",
+    "antonyms": [
+      "break promise",
+      "betray",
+      "renege"
+    ],
+    "mnemonic": "PLEDGE — LEDGE; stand on the LEDGE and make a PLEDGE.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1105",
+    "word": "Prejudice",
+    "meaning_en": "An unfair opinion formed without enough knowledge",
+    "meaning_hi": "पूर्वाग्रह / भेदभाव",
+    "example": "Prejudice against minorities must be challenged.",
+    "antonyms": [
+      "fairness",
+      "open-mindedness",
+      "equality"
+    ],
+    "mnemonic": "PREJUDICE — PRE + JUDGE; judging BEFORE knowing = prejudice.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1106",
+    "word": "Prestige",
+    "meaning_en": "Widespread respect and admiration earned by success",
+    "meaning_hi": "प्रतिष्ठा / सम्मान",
+    "example": "Winning the Nobel Prize brought her international prestige.",
+    "antonyms": [
+      "disgrace",
+      "dishonour",
+      "obscurity"
+    ],
+    "mnemonic": "PRESTIGE — PRES (press) + TIGE; the PRESS (media) covering your PRESTIGE.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1107",
+    "word": "Propaganda",
+    "meaning_en": "Information used to promote a particular viewpoint, often biased",
+    "meaning_hi": "प्रचार / प्रोपेगेंडा",
+    "example": "The government used propaganda to justify the war.",
+    "antonyms": [
+      "truth",
+      "facts",
+      "objectivity"
+    ],
+    "mnemonic": "PROPAGANDA — PROPAG + ANDA; spreading (propagating) a AGENDA.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1108",
+    "word": "Prosecution",
+    "meaning_en": "The action of taking legal proceedings against someone",
+    "meaning_hi": "मुकदमा चलाना / अभियोजन",
+    "example": "The prosecution presented strong evidence in court.",
+    "antonyms": [
+      "defence",
+      "acquittal",
+      "pardon"
+    ],
+    "mnemonic": "PROSECUTION — PROSECUTE + ION; the act of prosecuting in court.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1109",
+    "word": "Protest",
+    "meaning_en": "A public demonstration of objection to something",
+    "meaning_hi": "विरोध / प्रदर्शन",
+    "example": "Thousands joined the protest against police brutality.",
+    "antonyms": [
+      "support",
+      "approval",
+      "silence"
+    ],
+    "mnemonic": "PROTEST — PRO + TEST; put your beliefs to the TEST publicly = protest.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1110",
+    "word": "Province",
+    "meaning_en": "A principal administrative division of a country",
+    "meaning_hi": "प्रांत / राज्य",
+    "example": "The northern province was hit hardest by the floods.",
+    "antonyms": [],
+    "mnemonic": "PROVINCE — PROVE + INCE; a region that proves its independence.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1111",
+    "word": "Racism",
+    "meaning_en": "Prejudice and discrimination based on race",
+    "meaning_hi": "नस्लवाद",
+    "example": "Racism has no place in a civilised society.",
+    "antonyms": [
+      "equality",
+      "inclusion",
+      "tolerance"
+    ],
+    "mnemonic": "RACISM — RACE + ISM; an ideology (ISM) based on RACE.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1112",
+    "word": "Radical",
+    "meaning_en": "Drastic; relating to fundamental change",
+    "meaning_hi": "आमूल / उग्र / क्रांतिकारी",
+    "example": "Radical reform is needed to fix the healthcare system.",
+    "antonyms": [
+      "moderate",
+      "conservative",
+      "gradual"
+    ],
+    "mnemonic": "RADICAL — RADIC (root) + AL; going to the ROOT = radical.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1113",
+    "word": "Rally",
+    "meaning_en": "A mass meeting; to come together for a common cause",
+    "meaning_hi": "रैली / जमा होना",
+    "example": "The opposition held a massive rally in the capital.",
+    "antonyms": [
+      "disperse",
+      "scatter"
+    ],
+    "mnemonic": "RALLY — REALLY together; a RALLY gets REAL support from the masses.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1114",
+    "word": "Rebellion",
+    "meaning_en": "An organised resistance or uprising against authority",
+    "meaning_hi": "विद्रोह",
+    "example": "The rebellion against the dictator began in the south.",
+    "antonyms": [
+      "submission",
+      "obedience",
+      "loyalty"
+    ],
+    "mnemonic": "REBELLION — REBEL + LION; a REBEL with the heart of a LION = rebellion.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1115",
+    "word": "Referendum",
+    "meaning_en": "A public vote on a single political question",
+    "meaning_hi": "जनमत संग्रह",
+    "example": "A referendum was held on whether to leave the EU.",
+    "antonyms": [
+      "appointment",
+      "decree"
+    ],
+    "mnemonic": "REFERENDUM — REFER + ENDUM; REFER the decision ENDUM (to the end) = people decide.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1116",
+    "word": "Refugee",
+    "meaning_en": "A person forced to leave their country due to persecution or disaster",
+    "meaning_hi": "शरणार्थी",
+    "example": "Millions of refugees fled the civil war.",
+    "antonyms": [
+      "citizen",
+      "resident"
+    ],
+    "mnemonic": "REFUGEE — REFUGE + E; a person seeking REFUGE = refugee.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1117",
+    "word": "Regime",
+    "meaning_en": "A system of government, especially an authoritarian one",
+    "meaning_hi": "शासन / सत्ता",
+    "example": "The regime cracked down on political opponents.",
+    "antonyms": [
+      "democracy",
+      "freedom"
+    ],
+    "mnemonic": "REGIME — REGI (king) + ME; a king-like ME ruling = regime.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1118",
+    "word": "Reluctant",
+    "meaning_en": "Unwilling and hesitant; not eager",
+    "meaning_hi": "अनिच्छुक / झिझकने वाला",
+    "example": "He was reluctant to admit that he was wrong.",
+    "antonyms": [
+      "eager",
+      "willing",
+      "enthusiastic"
+    ],
+    "mnemonic": "RELUCTANT — RE + LUCTANT; like a RELUCTANT wrestler who won't fight.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1119",
+    "word": "Renowned",
+    "meaning_en": "Known and admired by many people",
+    "meaning_hi": "प्रसिद्ध / विख्यात",
+    "example": "She is renowned for her work in neuroscience.",
+    "antonyms": [
+      "unknown",
+      "obscure",
+      "anonymous"
+    ],
+    "mnemonic": "RENOWNED — RE + KNOWN + ED; widely KNOWN and RE-known = renowned.",
+    "level": "C1",
+    "chapter_id": 7
+  },
+  {
+    "id": "w1120",
+    "word": "Resistance",
+    "meaning_en": "Opposition to something; refusal to accept or comply",
+    "meaning_hi": "प्रतिरोध / विरोध",
+    "example": "The resistance movement fought for independence.",
+    "antonyms": [
+      "compliance",
+      "submission",
+      "acceptance"
+    ],
+    "mnemonic": "RESISTANCE — RESIST + ANCE; the act of resisting.",
+    "level": "C1",
+    "chapter_id": 7
+  }
+]
