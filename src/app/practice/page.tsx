@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useApp } from '@/context/AppContext'
-import { WORDS } from '@/lib/words'
 import { generateMCQQuestions, generateFillQuestions, getTodayStr } from '@/lib/utils'
 import TestQuestionComponent from '@/components/TestQuestion'
 import type { Word, TestQuestion, UserProgress } from '@/types'
@@ -20,7 +19,7 @@ type ModeType = 'flashcard' | 'mcq' | 'fill' | 'dictation'
 const MASTERY_THRESHOLD = 3
 
 export default function PracticePage() {
-  const { user, isLoading, progress, upsertProgressEntry } = useApp()
+  const { user, isLoading, progress, upsertProgressEntry, allWords } = useApp()
   const router = useRouter()
   const supabase = useMemo(() => createClient(), [])
 
@@ -63,7 +62,7 @@ export default function PracticePage() {
       const { data } = await supabase
         .from('user_progress').select('word_id').eq('user_id', user.id).eq('mode', user.mode)
       const ids = new Set((data ?? []).map((r: { word_id: string }) => r.word_id))
-      setWords(WORDS.filter(w => ids.has(w.id)))
+      setWords(allWords.filter(w => ids.has(w.id)))
       return
     }
 
@@ -72,7 +71,7 @@ export default function PracticePage() {
         .from('daily_sessions').select('word_ids')
         .eq('user_id', user.id).eq('mode', user.mode).gte('date', weekAgo)
       const ids = new Set((data ?? []).flatMap((s: { word_ids: string[] }) => s.word_ids))
-      setWords(WORDS.filter(w => ids.has(w.id)))
+      setWords(allWords.filter(w => ids.has(w.id)))
       return
     }
 
@@ -80,8 +79,8 @@ export default function PracticePage() {
     const { data } = await supabase
       .from('daily_sessions').select('word_ids')
       .eq('user_id', user.id).eq('mode', user.mode).eq('date', dateFilter).maybeSingle()
-    setWords(data?.word_ids ? WORDS.filter(w => data.word_ids.includes(w.id)) : [])
-  }, [user, filter, supabase])
+    setWords(data?.word_ids ? allWords.filter(w => data.word_ids.includes(w.id)) : [])
+  }, [user, filter, supabase, allWords])
 
   useEffect(() => { loadWords() }, [loadWords])
 
@@ -92,10 +91,10 @@ export default function PracticePage() {
     setDictIndex(0); setDictInput(''); setDictRevealed(false)
     setDictResults({}); setDictDone(false)
     if (words.length > 0) {
-      if (mode === 'mcq') setQuestions(generateMCQQuestions(words, WORDS))
+      if (mode === 'mcq') setQuestions(generateMCQQuestions(words, allWords))
       else if (mode === 'fill') setQuestions(generateFillQuestions(words))
     }
-  }, [words, mode])
+  }, [words, mode, allWords])
 
   // Auto-speak when dictation word changes
   useEffect(() => {
@@ -355,7 +354,7 @@ export default function PracticePage() {
               <button
                 onClick={() => {
                   setQuizIndex(0); setQuizResults({}); setSessionDone(false); setPromoted([])
-                  if (mode === 'mcq') setQuestions(generateMCQQuestions(words, WORDS))
+                  if (mode === 'mcq') setQuestions(generateMCQQuestions(words, allWords))
                   else setQuestions(generateFillQuestions(words))
                 }}
                 className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-bodhi-green text-white font-semibold text-sm"
