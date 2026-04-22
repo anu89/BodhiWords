@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react'
+import React, { createContext, useContext, useEffect, useState, useCallback, useMemo, useRef } from 'react'
 import { createClient } from '@/lib/supabase'
 import { WORDS } from '@/lib/words'
 import { getTodayStr, getYesterdayStr } from '@/lib/utils'
@@ -32,84 +32,132 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [todaySession, setTodaySession] = useState<DailySession | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [streakLost, setStreakLost] = useState(false)
+  const loadingRef = useRef(false)
 
   const supabase = useMemo(() => createClient(), [])
 
-  // --- Helpers ---
-
+  // Returns data — callers set state to keep updates atomic
   const fetchProgress = useCallback(async (userId: string) => {
     const { data } = await supabase.from('user_progress').select('*').eq('user_id', userId)
-    if (data) {
-      const map: Record<string, UserProgress> = {}
-      data.forEach((p: UserProgress) => { map[p.word_id] = p })
-      setProgress(map)
-      return data as UserProgress[]
-    }
-    return []
+    const list = (data ?? []) as UserProgress[]
+    const map: Record<string, UserProgress> = {}
+    list.forEach((p: UserProgress) => { map[p.word_id] = p })
+    return { list, map }
   }, [supabase])
 
-  const loadDailySession = useCallback(async (userId: string, level: ESLLevel, currentProgress: UserProgress[]) => {
+  // Returns session — caller sets state
+  const buildDailySession = useCallback(async (userId: string, level: ESLLevel, progressList: UserProgress[]) => {
     const today = getTodayStr()
-    
-    // Check for existing session
-    let { data: session } = await supabase
+
+    const { data: existing } = await supabase
       .from('daily_sessions')
       .select('*')
       .eq('user_id', userId)
       .eq('date', today)
+      .maybeSingle()
+
+    if (existing) return existing as DailySession
+
+    const masteredIds = new Set(progressList.filter(p => p.status === 'mastered').map(p => p.word_id))
+    const available = WORDS.filter(w => w.level === level && !masteredIds.has(w.id))
+    const picked = [...available].sort(() => Math.random() - 0.5).slice(0, 5).map(w => w.id)
+
+    if (picked.length === 0) return null
+
+    const { data: inserted, error } = await supabase
+      .from('daily_sessions')
+      .insert({ user_id: userId, date: today, word_ids: picked, completed: false })
+      .select()
       .single()
 
-    if (!session) {
-      // Generate new session based on level and mastered words
-      const masteredIds = new Set(currentProgress.filter(p => p.status === 'mastered').map(p => p.word_id))
-      const available = WORDS.filter(w => w.level === level && !masteredIds.has(w.id))
-      const picked = [...available].sort(() => Math.random() - 0.5).slice(0, 5).map(w => w.id)
-
-      if (picked.length > 0) {
-        const { data: newSession } = await supabase
-          .from('daily_sessions')
-          .insert({ user_id: userId, date: today, word_ids: picked, completed: false })
-          .select()
-          .single()
-        session = newSession
-      }
+    if (error) {
+      // Race: another call already inserted — fetch it
+      const { data: raced } = await supabase
+        .from('daily_sessions')
+        .select('*')
+        .eq('user_id', userId)
+        .eq('date', today)
+        .maybeSingle()
+      return (raced ?? null) as DailySession | null
     }
-    setTodaySession(session as DailySession)
+
+    return inserted as DailySession
   }, [supabase])
 
-  const loadUserData = useCallback(async (userId: string) => {
+  const loadUserData = useCallback(async (userId: string, userEmail?: string) => {
+    if (loadingRef.current) return
+    loadingRef.current = true
     try {
-      // 1. Get User Profile
-      let { data: userData } = await supabase.from('users').select('*').eq('id', userId).single()
-      
-      if (userData) {
-        // 2. Streak Logic
-        const yesterday = getYesterdayStr()
-        if (userData.last_active_date && userData.last_active_date < yesterday && userData.streak > 0) {
-          await supabase.from('users').update({ streak: 0 }).eq('id', userId)
-          userData.streak = 0
-          setStreakLost(true)
-        }
-        setUser(userData as User)
+      let { data: userData } = await supabase
+        .from('users')
+        .select('*')
+        .eq('id', userId)
+        .maybeSingle()
 
-        // 3. Load Progress & Session
-        const currentProgress = await fetchProgress(userId)
-        await loadDailySession(userId, userData.level, currentProgress)
+      if (!userData) {
+        // DB trigger may not have fired — create the row
+        await supabase.from('users').insert({
+          id: userId,
+          email: userEmail ?? '',
+          level: 'B1' as ESLLevel,
+          streak: 0,
+          last_active_date: null,
+        })
+        const { data: refetched } = await supabase
+          .from('users')
+          .select('*')
+          .eq('id', userId)
+          .maybeSingle()
+        userData = refetched
       }
+
+      if (!userData) return
+
+      // Streak reset
+      const yesterday = getYesterdayStr()
+      let didLoseStreak = false
+      if (userData.last_active_date && userData.last_active_date < yesterday && userData.streak > 0) {
+        await supabase.from('users').update({ streak: 0 }).eq('id', userId)
+        userData = { ...userData, streak: 0 }
+        didLoseStreak = true
+      }
+
+      // Fetch remaining data
+      const { list: progressList, map: progressMap } = await fetchProgress(userId)
+      const session = await buildDailySession(userId, userData.level, progressList)
+
+      // Set all state at once — prevents partial-render flicker
+      setUser(userData as User)
+      setProgress(progressMap)
+      setTodaySession(session)
+      if (didLoseStreak) setStreakLost(true)
     } catch (err) {
       console.error('Error loading user data:', err)
     } finally {
+      loadingRef.current = false
       setIsLoading(false)
     }
-  }, [supabase, fetchProgress, loadDailySession])
-
-  // --- Auth Effect ---
+  }, [supabase, fetchProgress, buildDailySession])
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+    let mounted = true
+
+    // Use getSession for immediate init — don't rely solely on onAuthStateChange
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!mounted) return
       if (session?.user) {
-        await loadUserData(session.user.id)
+        loadUserData(session.user.id, session.user.email ?? undefined)
       } else {
+        setIsLoading(false)
+      }
+    })
+
+    // onAuthStateChange handles sign-in from other tabs / same-page login
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (!mounted) return
+      if (event === 'SIGNED_IN' && session?.user) {
+        loadUserData(session.user.id, session.user.email ?? undefined)
+      } else if (event === 'SIGNED_OUT') {
         setUser(null)
         setProgress({})
         setTodaySession(null)
@@ -117,10 +165,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       }
     })
 
-    return () => subscription.unsubscribe()
+    return () => {
+      mounted = false
+      subscription.unsubscribe()
+    }
   }, [supabase, loadUserData])
 
-  // --- Derived State ---
+  // --- Derived state ---
 
   const todayWords = useMemo(() => {
     if (!todaySession) return []
@@ -133,9 +184,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   // --- Actions ---
 
-  const refreshProgress = async () => {
-    if (user) await fetchProgress(user.id)
-  }
+  const refreshProgress = useCallback(async () => {
+    if (!user) return
+    const { map } = await fetchProgress(user.id)
+    setProgress(map)
+  }, [user, fetchProgress])
 
   const updateTodaySession = useCallback((updates: Partial<DailySession>) => {
     setTodaySession(prev => prev ? { ...prev, ...updates } : null)
@@ -159,16 +212,25 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     if (!user) return
     const today = getTodayStr()
 
-    // Update profile
-    await supabase.from('users').update({ name, level }).eq('id', user.id)
-    
-    // Reset today's session so new words match the new level
+    // upsert — works even if the trigger-created row is missing
+    await supabase.from('users').upsert({
+      id: user.id,
+      email: user.email,
+      name,
+      level,
+      streak: user.streak ?? 0,
+      last_active_date: user.last_active_date ?? null,
+    })
+
     await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today)
-    
+
+    const { list: progressList, map: progressMap } = await fetchProgress(user.id)
+    const session = await buildDailySession(user.id, level, progressList)
+
     setUser(prev => prev ? { ...prev, name, level } : null)
-    const currentProgress = await fetchProgress(user.id)
-    await loadDailySession(user.id, level, currentProgress)
-  }, [user, supabase, fetchProgress, loadDailySession])
+    setProgress(progressMap)
+    setTodaySession(session)
+  }, [user, supabase, fetchProgress, buildDailySession])
 
   const signOut = useCallback(async () => {
     await supabase.auth.signOut()
