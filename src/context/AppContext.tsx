@@ -11,6 +11,7 @@ interface AppContextValue {
   todaySession: DailySession | null
   todayWords: Word[]
   words: Word[]
+  allWords: Word[]
   leafCount: number
   isLoading: boolean
   streakLost: boolean
@@ -32,6 +33,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgress] = useState<Record<string, UserProgress>>({})
   const [todaySession, setTodaySession] = useState<DailySession | null>(null)
   const [words, setWords] = useState<Word[]>([])
+  const [allWords, setAllWords] = useState<Word[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [streakLost, setStreakLost] = useState(false)
   const loadingRef = useRef(false)
@@ -47,8 +49,32 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     return { list, map }
   }, [supabase])
 
-  const fetchWords = useCallback(async (level: ESLLevel): Promise<Word[]> => {
+  // Map exam domain → chapter_id(s) that hold those words
+  const EXAM_CHAPTERS: Record<string, number[]> = {
+    toefl:   [11],
+    gre:     [11],   // extend as more exam chapters are added
+    cat:     [11],
+    banking: [11],
+    rrb:     [11],
+    ssc_cgl: [11],
+  }
+
+  const fetchWords = useCallback(async (level: ESLLevel, mode?: string, examDomain?: string | null): Promise<Word[]> => {
+    if (mode === 'exam' && examDomain && EXAM_CHAPTERS[examDomain]) {
+      const chapters = EXAM_CHAPTERS[examDomain]
+      const { data } = await supabase
+        .from('words')
+        .select('*')
+        .in('chapter_id', chapters)
+      return (data ?? []) as Word[]
+    }
     const { data } = await supabase.from('words').select('*').eq('level', level)
+    return (data ?? []) as Word[]
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [supabase])
+
+  const fetchAllWords = useCallback(async (): Promise<Word[]> => {
+    const { data } = await supabase.from('words').select('*')
     return (data ?? []) as Word[]
   }, [supabase])
 
@@ -132,9 +158,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
       // Fetch remaining data in parallel
       const userMode = userData.mode ?? 'esl'
-      const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
+      const [{ list: progressList, map: progressMap }, levelWords, allWordsData] = await Promise.all([
         fetchProgress(userId, userMode),
-        fetchWords(userData.level),
+        fetchWords(userData.level, userMode, userData.exam_domain),
+        fetchAllWords(),
       ])
       const session = await buildDailySession(userId, userMode, levelWords, progressList)
 
@@ -142,6 +169,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       setUser(userData as User)
       setProgress(progressMap)
       setWords(levelWords)
+      setAllWords(allWordsData)
       setTodaySession(session)
       if (didLoseStreak) setStreakLost(true)
     } catch (err) {
@@ -150,7 +178,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       loadingRef.current = false
       setIsLoading(false)
     }
-  }, [supabase, fetchProgress, fetchWords, buildDailySession])
+  }, [supabase, fetchProgress, fetchWords, fetchAllWords, buildDailySession])
 
   useEffect(() => {
     let mounted = true
@@ -243,7 +271,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
       fetchProgress(user.id, mode),
-      fetchWords(level),
+      fetchWords(level, mode, examDomain ?? null),  // use new level & new examDomain
     ])
     const session = await buildDailySession(user.id, mode, levelWords, progressList)
 
@@ -265,7 +293,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     await supabase.from('users').update(updates).eq('id', user.id)
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
       fetchProgress(user.id, mode),
-      fetchWords(user.level),
+      fetchWords(user.level, mode, examDomain ?? user.exam_domain),
     ])
     const session = await buildDailySession(user.id, mode, levelWords, progressList)
     setUser(prev => prev ? { ...prev, ...updates } : null)
@@ -286,6 +314,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       todaySession,
       todayWords,
       words,
+      allWords,
       leafCount,
       isLoading,
       streakLost,
