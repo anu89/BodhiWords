@@ -1,0 +1,1672 @@
+[
+  {
+    "id": "w501",
+    "word": "Absolutely",
+    "meaning_en": "Completely and without doubt; used for emphasis",
+    "meaning_hi": "बिल्कुल / पूरी तरह से",
+    "example": "I absolutely love the food here.",
+    "antonyms": [
+      "partially",
+      "doubtfully"
+    ],
+    "mnemonic": "ABSOLUTELY — ABSOLUTE + LY; absolute certainty = absolutely.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w502",
+    "word": "Access",
+    "meaning_en": "The right or ability to use or enter something",
+    "meaning_hi": "पहुँच / उपयोग करना",
+    "example": "Students have access to the library 24 hours a day.",
+    "antonyms": [
+      "denial",
+      "restriction",
+      "block"
+    ],
+    "mnemonic": "ACCESS — AC + CESS; success begins with access.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w503",
+    "word": "Accommodation",
+    "meaning_en": "A place where someone can stay or live",
+    "meaning_hi": "आवास / रहने की जगह",
+    "example": "The university provides accommodation for first-year students.",
+    "antonyms": [
+      "homelessness"
+    ],
+    "mnemonic": "ACCOMMODATION — ACCOMMODATE + ION; a place that accommodates you.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w504",
+    "word": "Account",
+    "meaning_en": "A record of money; or a description of events",
+    "meaning_hi": "खाता / विवरण",
+    "example": "She opened a bank account to save her salary.",
+    "antonyms": [],
+    "mnemonic": "ACCOUNT — ACCOUNT-able; you account for every rupee.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w505",
+    "word": "Achievement",
+    "meaning_en": "Something done successfully through effort",
+    "meaning_hi": "उपलब्धि",
+    "example": "Winning the gold medal was her greatest achievement.",
+    "antonyms": [
+      "failure",
+      "defeat"
+    ],
+    "mnemonic": "ACHIEVEMENT — ACHIEVE + MENT; the result of achieving something.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w506",
+    "word": "Admire",
+    "meaning_en": "To respect and approve of someone or something",
+    "meaning_hi": "प्रशंसा करना / सराहना",
+    "example": "I admire her dedication to helping others.",
+    "antonyms": [
+      "despise",
+      "disrespect",
+      "hate"
+    ],
+    "mnemonic": "ADMIRE — AD + MIRE; a mirror (MIRE) reflects greatness — you admire it.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w507",
+    "word": "Admit",
+    "meaning_en": "To accept that something is true; to allow entry",
+    "meaning_hi": "स्वीकार करना / मानना",
+    "example": "He admitted that he had made a mistake.",
+    "antonyms": [
+      "deny",
+      "reject",
+      "refuse"
+    ],
+    "mnemonic": "ADMIT — AD + MIT; MIT only admits the best students.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w508",
+    "word": "Afford",
+    "meaning_en": "To have enough money or time for something",
+    "meaning_hi": "सामर्थ्य रखना / खर्च कर सकना",
+    "example": "We can't afford a holiday this year.",
+    "antonyms": [
+      "lack",
+      "struggle"
+    ],
+    "mnemonic": "AFFORD — A FORD car; you can afford a Ford, but not a Ferrari.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w509",
+    "word": "Aim",
+    "meaning_en": "A goal or purpose; to direct something towards a target",
+    "meaning_hi": "लक्ष्य / उद्देश्य",
+    "example": "My aim is to become a software engineer.",
+    "antonyms": [
+      "aimlessness",
+      "randomness"
+    ],
+    "mnemonic": "AIM — an ARROW AIMed at a target hits the bullseye.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w510",
+    "word": "Alarm",
+    "meaning_en": "A warning sound; a feeling of fear about danger",
+    "meaning_hi": "अलार्म / चेतावनी",
+    "example": "The fire alarm rang and everyone left the building.",
+    "antonyms": [
+      "calm",
+      "reassurance"
+    ],
+    "mnemonic": "ALARM — A + LARM; an ARM raising ALARM wakes you up!",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w511",
+    "word": "Alternative",
+    "meaning_en": "A different option or choice available",
+    "meaning_hi": "विकल्प",
+    "example": "If you don't like tea, there is an alternative — juice.",
+    "antonyms": [
+      "only option",
+      "necessity"
+    ],
+    "mnemonic": "ALTERNATIVE — ALTER + NATIVE; alter the native path = take an alternative.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w512",
+    "word": "Ambitious",
+    "meaning_en": "Having a strong desire to succeed",
+    "meaning_hi": "महत्त्वाकांक्षी",
+    "example": "She is ambitious and plans to start her own business.",
+    "antonyms": [
+      "unambitious",
+      "lazy",
+      "content"
+    ],
+    "mnemonic": "AMBITIOUS — AMBITION + S; someone full of ambitions is ambitious.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w513",
+    "word": "Announce",
+    "meaning_en": "To make a public or official statement",
+    "meaning_hi": "घोषणा करना",
+    "example": "The school announced the results on Friday.",
+    "antonyms": [
+      "hide",
+      "conceal",
+      "suppress"
+    ],
+    "mnemonic": "ANNOUNCE — A + NOUN + CE; put a NOUN (name) out for everyone to hear.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w514",
+    "word": "Apologise",
+    "meaning_en": "To say sorry for something you have done wrong",
+    "meaning_hi": "माफ़ी माँगना",
+    "example": "She apologised for being late to the meeting.",
+    "antonyms": [
+      "blame",
+      "accuse",
+      "justify"
+    ],
+    "mnemonic": "APOLOGISE — APOLOGY + ISE; making an apology = apologising.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w515",
+    "word": "Appreciate",
+    "meaning_en": "To recognise the value or importance of something",
+    "meaning_hi": "सराहना करना / महत्त्व देना",
+    "example": "I really appreciate your help with this project.",
+    "antonyms": [
+      "ignore",
+      "disregard",
+      "undervalue"
+    ],
+    "mnemonic": "APPRECIATE — A PRICE + ATE; you appreciate the true PRICE of things.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w516",
+    "word": "Arrest",
+    "meaning_en": "To take someone into legal custody by police",
+    "meaning_hi": "गिरफ़्तार करना",
+    "example": "The police arrested the thief near the market.",
+    "antonyms": [
+      "release",
+      "free",
+      "liberate"
+    ],
+    "mnemonic": "ARREST — A + REST; when arrested, you are put to rest in a cell.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w517",
+    "word": "Assignment",
+    "meaning_en": "A task given to someone as part of their work or studies",
+    "meaning_hi": "असाइनमेंट / कार्य",
+    "example": "The teacher gave us an assignment on climate change.",
+    "antonyms": [],
+    "mnemonic": "ASSIGNMENT — ASSIGN + MENT; what is assigned to you.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w518",
+    "word": "Atmosphere",
+    "meaning_en": "The air around the earth; the mood of a place",
+    "meaning_hi": "वातावरण / माहौल",
+    "example": "The restaurant had a wonderful atmosphere.",
+    "antonyms": [],
+    "mnemonic": "ATMOSPHERE — ATMOS + SPHERE; the sphere of atoms around Earth.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w519",
+    "word": "Attitude",
+    "meaning_en": "A way of thinking or feeling about something",
+    "meaning_hi": "रवैया / मनोभाव",
+    "example": "A positive attitude helps you overcome difficulties.",
+    "antonyms": [
+      "indifference"
+    ],
+    "mnemonic": "ATTITUDE — ALTITUDE; your attitude determines your altitude in life.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w520",
+    "word": "Authority",
+    "meaning_en": "The power to give orders or make decisions",
+    "meaning_hi": "अधिकार / सत्ता",
+    "example": "The teacher has the authority to set class rules.",
+    "antonyms": [
+      "powerlessness",
+      "submission"
+    ],
+    "mnemonic": "AUTHORITY — AUTHOR + ITY; an AUTHOR has the right to control the story.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w521",
+    "word": "Basic",
+    "meaning_en": "The most important and fundamental; simple",
+    "meaning_hi": "बुनियादी / आधारभूत",
+    "example": "The school teaches basic reading and writing skills.",
+    "antonyms": [
+      "advanced",
+      "complex",
+      "sophisticated"
+    ],
+    "mnemonic": "BASIC — BASE + IC; the BASE of everything = basic.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w522",
+    "word": "Battle",
+    "meaning_en": "A fight between groups; a struggle to achieve something",
+    "meaning_hi": "युद्ध / संघर्ष",
+    "example": "The doctors fought a long battle against the disease.",
+    "antonyms": [
+      "peace",
+      "truce",
+      "surrender"
+    ],
+    "mnemonic": "BATTLE — a RATTLE of swords in BATTLE.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w523",
+    "word": "Behaviour",
+    "meaning_en": "The way a person or animal acts",
+    "meaning_hi": "व्यवहार",
+    "example": "Good behaviour is expected from all students.",
+    "antonyms": [
+      "misbehaviour",
+      "misconduct"
+    ],
+    "mnemonic": "BEHAVIOUR — BEHAVE + YOUR; your way of behaving.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w524",
+    "word": "Brave",
+    "meaning_en": "Willing to face danger without showing fear",
+    "meaning_hi": "साहसी / बहादुर",
+    "example": "The brave firefighter rescued the child from the flames.",
+    "antonyms": [
+      "cowardly",
+      "fearful",
+      "timid"
+    ],
+    "mnemonic": "BRAVE — a WAVE can be conquered by a BRAVE surfer.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w525",
+    "word": "Campaign",
+    "meaning_en": "An organised effort to achieve a goal, especially political",
+    "meaning_hi": "अभियान",
+    "example": "The government launched a campaign to promote cleanliness.",
+    "antonyms": [
+      "inaction",
+      "idleness"
+    ],
+    "mnemonic": "CAMPAIGN — CAMP + AIGN; setting up CAMP to fight for a cause.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w526",
+    "word": "Career",
+    "meaning_en": "A job or profession that someone does over a long period",
+    "meaning_hi": "करियर / पेशा",
+    "example": "She chose a career in medicine.",
+    "antonyms": [],
+    "mnemonic": "CAREER — a CAR that needs CARE to keep moving forward.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w527",
+    "word": "Category",
+    "meaning_en": "A group of things with similar features",
+    "meaning_hi": "श्रेणी / वर्ग",
+    "example": "This book falls into the category of science fiction.",
+    "antonyms": [],
+    "mnemonic": "CATEGORY — CATE + GORY; file stories into categories like a library.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w528",
+    "word": "Challenge",
+    "meaning_en": "A difficult task that tests your ability",
+    "meaning_hi": "चुनौती",
+    "example": "Learning a new language is a real challenge.",
+    "antonyms": [
+      "ease",
+      "simplicity",
+      "breeze"
+    ],
+    "mnemonic": "CHALLENGE — CHANCE + BELL; ring the bell — chance to face a challenge!",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w529",
+    "word": "Champion",
+    "meaning_en": "The winner of a competition; someone who defends a cause",
+    "meaning_hi": "चैम्पियन / विजेता",
+    "example": "He became the national chess champion at 16.",
+    "antonyms": [
+      "loser",
+      "runner-up"
+    ],
+    "mnemonic": "CHAMPION — CHAMP + ION; an ion of energy fuels a champ.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w530",
+    "word": "Claim",
+    "meaning_en": "To say something is true; to demand something as your right",
+    "meaning_hi": "दावा करना",
+    "example": "She claimed that she had finished the work on time.",
+    "antonyms": [
+      "deny",
+      "disclaim",
+      "reject"
+    ],
+    "mnemonic": "CLAIM — EXCLAIM; to claim something loudly is to exclaim it.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w531",
+    "word": "Confident",
+    "meaning_en": "Feeling sure about yourself or something",
+    "meaning_hi": "आत्मविश्वासी",
+    "example": "She felt confident before her presentation.",
+    "antonyms": [
+      "nervous",
+      "unsure",
+      "timid",
+      "insecure"
+    ],
+    "mnemonic": "CONFIDENT — CON + FIDENT; having full FAITH (fident) in yourself.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w532",
+    "word": "Confuse",
+    "meaning_en": "To make someone unable to understand clearly",
+    "meaning_hi": "भ्रमित करना",
+    "example": "The two roads looked so similar they confused him.",
+    "antonyms": [
+      "clarify",
+      "explain",
+      "clear up"
+    ],
+    "mnemonic": "CONFUSE — CON + FUSE; mix the FUSES up and everything gets confused.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w533",
+    "word": "Countryside",
+    "meaning_en": "Land outside towns and cities with fields and nature",
+    "meaning_hi": "ग्रामीण इलाका / देहात",
+    "example": "She loves the quiet and beauty of the countryside.",
+    "antonyms": [
+      "city",
+      "urban area",
+      "town"
+    ],
+    "mnemonic": "COUNTRYSIDE — COUNTRY + SIDE; the side of the country away from cities.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w534",
+    "word": "Cruel",
+    "meaning_en": "Causing pain or suffering deliberately",
+    "meaning_hi": "क्रूर / निर्दयी",
+    "example": "It is cruel to leave animals without food or water.",
+    "antonyms": [
+      "kind",
+      "gentle",
+      "caring",
+      "compassionate"
+    ],
+    "mnemonic": "CRUEL — a DUEL can be cruel when fought without mercy.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w535",
+    "word": "Culture",
+    "meaning_en": "The customs, beliefs, and arts of a group of people",
+    "meaning_hi": "संस्कृति",
+    "example": "India has a rich and diverse culture.",
+    "antonyms": [],
+    "mnemonic": "CULTURE — CULTIVATE; you cultivate culture over generations.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w536",
+    "word": "Damage",
+    "meaning_en": "Physical harm that makes something less useful or valuable",
+    "meaning_hi": "नुकसान / क्षति",
+    "example": "The flood caused serious damage to the village.",
+    "antonyms": [
+      "repair",
+      "improve",
+      "fix",
+      "restore"
+    ],
+    "mnemonic": "DAMAGE — DAM + AGE; a broken dam causes damage over time.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w537",
+    "word": "Decade",
+    "meaning_en": "A period of ten years",
+    "meaning_hi": "दशक",
+    "example": "Technology has changed a lot over the past decade.",
+    "antonyms": [],
+    "mnemonic": "DECADE — DECA means ten; a decade = 10 years.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w538",
+    "word": "Destination",
+    "meaning_en": "The place you are travelling to",
+    "meaning_hi": "गंतव्य / मंज़िल",
+    "example": "Paris is one of the most popular tourist destinations.",
+    "antonyms": [
+      "origin",
+      "starting point",
+      "source"
+    ],
+    "mnemonic": "DESTINATION — DESTINY + NATION; your destiny within a nation.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w539",
+    "word": "Determined",
+    "meaning_en": "Having a strong will to achieve something",
+    "meaning_hi": "दृढ़निश्चयी",
+    "example": "She was determined to pass the exam no matter what.",
+    "antonyms": [
+      "uncertain",
+      "weak-willed",
+      "undecided"
+    ],
+    "mnemonic": "DETERMINED — DETERMINE + D; once determined, the decision (D) is final.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w540",
+    "word": "Disappointed",
+    "meaning_en": "Feeling sad because something was not as good as expected",
+    "meaning_hi": "निराश",
+    "example": "He was disappointed when he didn't get the scholarship.",
+    "antonyms": [
+      "happy",
+      "satisfied",
+      "pleased",
+      "delighted"
+    ],
+    "mnemonic": "DISAPPOINTED — DIS + APPOINT; when hopes fail to meet the appointment.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w541",
+    "word": "Discuss",
+    "meaning_en": "To talk about something in detail with others",
+    "meaning_hi": "चर्चा करना",
+    "example": "Let's discuss the plan before we start.",
+    "antonyms": [
+      "ignore",
+      "avoid",
+      "conceal"
+    ],
+    "mnemonic": "DISCUSS — DISC + USS; toss a DISC of ideas between us = discuss.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w542",
+    "word": "Documentary",
+    "meaning_en": "A film or programme presenting real events or facts",
+    "meaning_hi": "वृत्तचित्र / डॉक्युमेंट्री",
+    "example": "We watched a documentary about wild animals in Africa.",
+    "antonyms": [
+      "fiction",
+      "drama"
+    ],
+    "mnemonic": "DOCUMENTARY — DOCUMENT + ARY; documenting real events = documentary.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w543",
+    "word": "Earthquake",
+    "meaning_en": "A sudden violent shaking of the ground",
+    "meaning_hi": "भूकंप",
+    "example": "The earthquake damaged hundreds of buildings.",
+    "antonyms": [],
+    "mnemonic": "EARTHQUAKE — EARTH + QUAKE; the EARTH QUAKEs and shakes.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w544",
+    "word": "Economy",
+    "meaning_en": "The system of trade and money in a country",
+    "meaning_hi": "अर्थव्यवस्था",
+    "example": "India has one of the fastest-growing economies in the world.",
+    "antonyms": [],
+    "mnemonic": "ECONOMY — ECO + NOMY; managing the eco(system) of money.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w545",
+    "word": "Education",
+    "meaning_en": "The process of teaching and learning in schools or colleges",
+    "meaning_hi": "शिक्षा",
+    "example": "Education is the key to a better future.",
+    "antonyms": [
+      "ignorance",
+      "illiteracy"
+    ],
+    "mnemonic": "EDUCATION — EDUCATE + ION; being educated throughout.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w546",
+    "word": "Effect",
+    "meaning_en": "A result or change caused by something",
+    "meaning_hi": "प्रभाव / असर",
+    "example": "The medicine had an immediate effect on her headache.",
+    "antonyms": [
+      "cause",
+      "source",
+      "origin"
+    ],
+    "mnemonic": "EFFECT — the E after CAUSE = EFFECT; causes always create effects.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w547",
+    "word": "Effort",
+    "meaning_en": "The energy used to do something",
+    "meaning_hi": "प्रयास / मेहनत",
+    "example": "She put a lot of effort into preparing for the exam.",
+    "antonyms": [
+      "laziness",
+      "idleness"
+    ],
+    "mnemonic": "EFFORT — an EFFORT is when you FORT-ify your willpower.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w548",
+    "word": "Election",
+    "meaning_en": "The process of choosing leaders by voting",
+    "meaning_hi": "चुनाव",
+    "example": "Millions of people voted in the general election.",
+    "antonyms": [],
+    "mnemonic": "ELECTION — ELECT + ION; people ELECT someone via the election process.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w549",
+    "word": "Emergency",
+    "meaning_en": "A sudden dangerous situation requiring immediate action",
+    "meaning_hi": "आपातकाल / इमर्जेंसी",
+    "example": "Call the ambulance — this is an emergency!",
+    "antonyms": [
+      "routine",
+      "normal",
+      "planned"
+    ],
+    "mnemonic": "EMERGENCY — EMERGE + ENCY; when danger EMERGES, it's an emergency.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w550",
+    "word": "Encourage",
+    "meaning_en": "To give someone confidence or support to do something",
+    "meaning_hi": "प्रोत्साहित करना",
+    "example": "Her teacher encouraged her to enter the competition.",
+    "antonyms": [
+      "discourage",
+      "deter",
+      "dissuade"
+    ],
+    "mnemonic": "ENCOURAGE — EN + COURAGE; fill someone with COURAGE.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w551",
+    "word": "Environment",
+    "meaning_en": "The natural world; the conditions around you",
+    "meaning_hi": "पर्यावरण / माहौल",
+    "example": "We must protect the environment for future generations.",
+    "antonyms": [],
+    "mnemonic": "ENVIRONMENT — ENVIRON + MENT; everything that environs (surrounds) us.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w552",
+    "word": "Escape",
+    "meaning_en": "To get free from a dangerous or unpleasant situation",
+    "meaning_hi": "भागना / बचना",
+    "example": "The prisoner tried to escape through the back window.",
+    "antonyms": [
+      "stay",
+      "face",
+      "confront",
+      "remain"
+    ],
+    "mnemonic": "ESCAPE — ES + CAPE; put on a CAPE and fly away to escape!",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w553",
+    "word": "Event",
+    "meaning_en": "Something that happens, especially something planned",
+    "meaning_hi": "घटना / कार्यक्रम",
+    "example": "The music festival is the biggest event of the year.",
+    "antonyms": [],
+    "mnemonic": "EVENT — EVENTually things happen; an event is a happening.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w554",
+    "word": "Examine",
+    "meaning_en": "To look at carefully or test someone",
+    "meaning_hi": "जाँच करना / परीक्षा लेना",
+    "example": "The doctor examined the patient thoroughly.",
+    "antonyms": [
+      "ignore",
+      "overlook"
+    ],
+    "mnemonic": "EXAMINE — EXAM + INE; examining leads to an exam result.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w555",
+    "word": "Explore",
+    "meaning_en": "To travel through an unfamiliar area to learn about it",
+    "meaning_hi": "अन्वेषण करना / खोजना",
+    "example": "She loves to explore new cities when she travels.",
+    "antonyms": [
+      "ignore",
+      "stay put",
+      "avoid"
+    ],
+    "mnemonic": "EXPLORE — EX + PLORE; going beyond the shore to explore.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w556",
+    "word": "Fascinating",
+    "meaning_en": "Extremely interesting and attractive",
+    "meaning_hi": "मनमोहक / आकर्षक",
+    "example": "The documentary about deep-sea creatures was fascinating.",
+    "antonyms": [
+      "boring",
+      "dull",
+      "uninteresting"
+    ],
+    "mnemonic": "FASCINATING — FASCINATE + ING; if something fascinates you, it's fascinating.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w557",
+    "word": "Feature",
+    "meaning_en": "An important or interesting part of something",
+    "meaning_hi": "विशेषता / लक्षण",
+    "example": "The best feature of this phone is its camera.",
+    "antonyms": [],
+    "mnemonic": "FEATURE — FEAT + URE; a feature is a notable FEAT of a product.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w558",
+    "word": "Financial",
+    "meaning_en": "Relating to money and finances",
+    "meaning_hi": "आर्थिक / वित्तीय",
+    "example": "She is facing financial difficulties after losing her job.",
+    "antonyms": [],
+    "mnemonic": "FINANCIAL — FINANCE + AL; all about finance and money.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w559",
+    "word": "Flood",
+    "meaning_en": "A large amount of water covering an area; an overwhelming amount",
+    "meaning_hi": "बाढ़",
+    "example": "Heavy rains caused a flood in the lower parts of the city.",
+    "antonyms": [
+      "drought",
+      "dry"
+    ],
+    "mnemonic": "FLOOD — BLOOD; a flood of water is like blood flowing through earth.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w560",
+    "word": "Force",
+    "meaning_en": "Power or strength; to make someone do something",
+    "meaning_hi": "बल / ताकत / मजबूर करना",
+    "example": "The strong wind forced us to stay indoors.",
+    "antonyms": [
+      "weakness",
+      "request",
+      "allow"
+    ],
+    "mnemonic": "FORCE — FORCE of nature; you can't resist a natural force.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w561",
+    "word": "Friendship",
+    "meaning_en": "A close relationship between people who care for each other",
+    "meaning_hi": "दोस्ती / मित्रता",
+    "example": "True friendship is built on trust and respect.",
+    "antonyms": [
+      "enmity",
+      "rivalry",
+      "hatred"
+    ],
+    "mnemonic": "FRIENDSHIP — FRIEND + SHIP; a SHIP that carries your FRIEND safely.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w562",
+    "word": "Fuel",
+    "meaning_en": "A substance that produces energy when burned",
+    "meaning_hi": "ईंधन",
+    "example": "The car ran out of fuel on the highway.",
+    "antonyms": [],
+    "mnemonic": "FUEL — FULL; a FULL tank of fuel keeps you going.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w563",
+    "word": "Generation",
+    "meaning_en": "All the people born and living at the same time",
+    "meaning_hi": "पीढ़ी",
+    "example": "The younger generation is more comfortable with technology.",
+    "antonyms": [],
+    "mnemonic": "GENERATION — GENERATE + ION; what a generation generates for the next.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w564",
+    "word": "Generous",
+    "meaning_en": "Willing to give more than expected",
+    "meaning_hi": "उदार / दानशील",
+    "example": "She is generous and always helps those in need.",
+    "antonyms": [
+      "selfish",
+      "greedy",
+      "stingy",
+      "mean"
+    ],
+    "mnemonic": "GENEROUS — GENUS; a noble genus (type) of person is generous.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w565",
+    "word": "Global",
+    "meaning_en": "Relating to the whole world",
+    "meaning_hi": "वैश्विक / विश्वव्यापी",
+    "example": "Climate change is a global problem.",
+    "antonyms": [
+      "local",
+      "national",
+      "regional"
+    ],
+    "mnemonic": "GLOBAL — GLOBE + AL; relating to the whole globe.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w566",
+    "word": "Government",
+    "meaning_en": "The group of people that officially controls a country",
+    "meaning_hi": "सरकार",
+    "example": "The government announced free healthcare for all citizens.",
+    "antonyms": [
+      "anarchy",
+      "rebellion"
+    ],
+    "mnemonic": "GOVERNMENT — GOVERN + MENT; the mental framework to govern a nation.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w567",
+    "word": "Growth",
+    "meaning_en": "The process of increasing in size or importance",
+    "meaning_hi": "वृद्धि / विकास",
+    "example": "The country showed strong economic growth last year.",
+    "antonyms": [
+      "decline",
+      "decrease",
+      "shrinkage"
+    ],
+    "mnemonic": "GROWTH — GROW + TH; the result of growing.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w568",
+    "word": "Guilty",
+    "meaning_en": "Responsible for a crime or wrongdoing; feeling shame",
+    "meaning_hi": "दोषी",
+    "example": "The court found him guilty of theft.",
+    "antonyms": [
+      "innocent",
+      "blameless",
+      "not guilty"
+    ],
+    "mnemonic": "GUILTY — GUILT + Y; why (Y) is there GUILT? Because you're guilty.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w569",
+    "word": "Historic",
+    "meaning_en": "Famous or important in history",
+    "meaning_hi": "ऐतिहासिक",
+    "example": "The signing of the agreement was a historic moment.",
+    "antonyms": [
+      "ordinary",
+      "insignificant",
+      "modern"
+    ],
+    "mnemonic": "HISTORIC — HISTORY + C; a key moment in HISTORY = historic.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w570",
+    "word": "Honest",
+    "meaning_en": "Truthful and not likely to cheat or lie",
+    "meaning_hi": "ईमानदार",
+    "example": "Be honest with me — what do you really think?",
+    "antonyms": [
+      "dishonest",
+      "lying",
+      "deceitful"
+    ],
+    "mnemonic": "HONEST — HONOR + EST; the most honourable is the most honest.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w571",
+    "word": "Ignore",
+    "meaning_en": "To deliberately pay no attention to something",
+    "meaning_hi": "अनदेखा करना / नज़रअंदाज़ करना",
+    "example": "She ignored his calls for three days.",
+    "antonyms": [
+      "notice",
+      "acknowledge",
+      "attend to"
+    ],
+    "mnemonic": "IGNORE — I + GNORE; when you IGNORE someone, they're a goner to you.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w572",
+    "word": "Illegal",
+    "meaning_en": "Not allowed by law",
+    "meaning_hi": "अवैध / गैरकानूनी",
+    "example": "It is illegal to drive without a licence.",
+    "antonyms": [
+      "legal",
+      "lawful",
+      "permitted"
+    ],
+    "mnemonic": "ILLEGAL — ILL + LEGAL; something legally ILL = illegal.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w573",
+    "word": "Improve",
+    "meaning_en": "To make something better",
+    "meaning_hi": "सुधारना / बेहतर करना",
+    "example": "She practises daily to improve her English.",
+    "antonyms": [
+      "worsen",
+      "damage",
+      "decline",
+      "deteriorate"
+    ],
+    "mnemonic": "IMPROVE — IM + PROVE; to prove yourself better = improve.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w574",
+    "word": "Influence",
+    "meaning_en": "The effect someone or something has on another",
+    "meaning_hi": "प्रभाव / असर डालना",
+    "example": "Music has a strong influence on people's moods.",
+    "antonyms": [
+      "irrelevance",
+      "powerlessness"
+    ],
+    "mnemonic": "INFLUENCE — IN + FLUENCE; flow IN to someone's thinking = influence.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w575",
+    "word": "Ingredient",
+    "meaning_en": "One of the items used to make a food dish or mixture",
+    "meaning_hi": "सामग्री / पदार्थ",
+    "example": "The main ingredient in this curry is tomato.",
+    "antonyms": [],
+    "mnemonic": "INGREDIENT — IN + GREED + ENT; what goes IN the greedy dish.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w576",
+    "word": "Innocent",
+    "meaning_en": "Not guilty; not having done anything wrong",
+    "meaning_hi": "निर्दोष / बेगुनाह",
+    "example": "The lawyer proved that her client was innocent.",
+    "antonyms": [
+      "guilty",
+      "criminal",
+      "corrupt"
+    ],
+    "mnemonic": "INNOCENT — INNOCENCE + T; full of innocence = innocent.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w577",
+    "word": "Issue",
+    "meaning_en": "An important topic or problem to deal with",
+    "meaning_hi": "मुद्दा / समस्या",
+    "example": "Climate change is one of the biggest issues today.",
+    "antonyms": [
+      "solution",
+      "answer"
+    ],
+    "mnemonic": "ISSUE — IS + SUE; if there's an issue, someone will sue!",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w578",
+    "word": "Journey",
+    "meaning_en": "The act of travelling from one place to another",
+    "meaning_hi": "यात्रा / सफ़र",
+    "example": "The journey from Delhi to Mumbai takes about two hours by plane.",
+    "antonyms": [],
+    "mnemonic": "JOURNEY — a JOURNAL is kept during a long JOURNEY.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w579",
+    "word": "Keen",
+    "meaning_en": "Very enthusiastic or eager to do something",
+    "meaning_hi": "उत्सुक / उत्साहित",
+    "example": "She is keen to learn new things every day.",
+    "antonyms": [
+      "indifferent",
+      "disinterested",
+      "reluctant"
+    ],
+    "mnemonic": "KEEN — like a sharp edge; keenly interested = sharp focus.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w580",
+    "word": "Knowledge",
+    "meaning_en": "Understanding and information gained through experience",
+    "meaning_hi": "ज्ञान",
+    "example": "A doctor needs deep knowledge of medicine.",
+    "antonyms": [
+      "ignorance",
+      "unawareness"
+    ],
+    "mnemonic": "KNOWLEDGE — KNOW + LEDGE; stand on the ledge of knowing.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w581",
+    "word": "Laboratory",
+    "meaning_en": "A room with scientific equipment for experiments",
+    "meaning_hi": "प्रयोगशाला",
+    "example": "Students carried out experiments in the chemistry laboratory.",
+    "antonyms": [],
+    "mnemonic": "LABORATORY — LABOR + ATORY; a place where you labor (work) on science.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w582",
+    "word": "Lack",
+    "meaning_en": "The state of not having enough of something",
+    "meaning_hi": "कमी / अभाव",
+    "example": "The project failed due to a lack of funding.",
+    "antonyms": [
+      "abundance",
+      "plenty",
+      "excess"
+    ],
+    "mnemonic": "LACK — BLACK; everything goes BLACK when you lack light.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w583",
+    "word": "Law",
+    "meaning_en": "A rule made by the government that people must follow",
+    "meaning_hi": "कानून",
+    "example": "Everyone must obey the law of the country.",
+    "antonyms": [
+      "lawlessness",
+      "anarchy",
+      "chaos"
+    ],
+    "mnemonic": "LAW — a FLAW in society is fixed by the LAW.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w584",
+    "word": "Layer",
+    "meaning_en": "A covering or thickness over something else",
+    "meaning_hi": "परत / तह",
+    "example": "Add a thin layer of cream on top of the cake.",
+    "antonyms": [],
+    "mnemonic": "LAYER — PLAYER; each PLAYER adds a LAYER to the game.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w585",
+    "word": "Legal",
+    "meaning_en": "Allowed by law; relating to the law",
+    "meaning_hi": "कानूनी / वैध",
+    "example": "You must have a legal permit to sell food on the street.",
+    "antonyms": [
+      "illegal",
+      "unlawful",
+      "criminal"
+    ],
+    "mnemonic": "LEGAL — REGAL; a regal and lawful order is legal.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w586",
+    "word": "Leisure",
+    "meaning_en": "Free time when you are not working",
+    "meaning_hi": "फुर्सत / खाली समय",
+    "example": "He spends his leisure time reading and gardening.",
+    "antonyms": [
+      "work",
+      "duty",
+      "obligation"
+    ],
+    "mnemonic": "LEISURE — PLEASE + URE; leisure pleases you.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w587",
+    "word": "Limit",
+    "meaning_en": "The greatest amount allowed; a point beyond which you cannot go",
+    "meaning_hi": "सीमा / हद",
+    "example": "There is a speed limit of 60 km/h on this road.",
+    "antonyms": [
+      "freedom",
+      "unlimited",
+      "infinity"
+    ],
+    "mnemonic": "LIMIT — LIMb IT; cut the limb at the limit.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w588",
+    "word": "Location",
+    "meaning_en": "A particular place or position",
+    "meaning_hi": "स्थान / जगह",
+    "example": "The hotel is in a beautiful location near the beach.",
+    "antonyms": [],
+    "mnemonic": "LOCATION — LOCATE + ION; where you LOCATE something is its location.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w589",
+    "word": "Lonely",
+    "meaning_en": "Sad because you are without company",
+    "meaning_hi": "अकेला / एकाकी",
+    "example": "She felt lonely after moving to a new city.",
+    "antonyms": [
+      "accompanied",
+      "social",
+      "together"
+    ],
+    "mnemonic": "LONELY — ONLY + one; only one = lonely.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w590",
+    "word": "Luxury",
+    "meaning_en": "Something expensive and very comfortable but not necessary",
+    "meaning_hi": "विलासिता / ऐशो-आराम",
+    "example": "Staying in a five-star hotel is a real luxury.",
+    "antonyms": [
+      "necessity",
+      "basic",
+      "poverty"
+    ],
+    "mnemonic": "LUXURY — LUSH + URY; lush and comfortable = luxury.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w591",
+    "word": "Management",
+    "meaning_en": "The control or organisation of something",
+    "meaning_hi": "प्रबंधन",
+    "example": "Good time management helps you achieve more each day.",
+    "antonyms": [
+      "mismanagement",
+      "chaos"
+    ],
+    "mnemonic": "MANAGEMENT — MANAGE + MENT; mental planning to manage things.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w592",
+    "word": "Marriage",
+    "meaning_en": "The legal relationship between two people as husband and wife",
+    "meaning_hi": "विवाह / शादी",
+    "example": "They had a small marriage ceremony with close family.",
+    "antonyms": [
+      "divorce",
+      "separation"
+    ],
+    "mnemonic": "MARRIAGE — MARRY + AGE; across all ages, people marry = marriage.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w593",
+    "word": "Measure",
+    "meaning_en": "To find the size or amount of something; a plan of action",
+    "meaning_hi": "मापना / उपाय",
+    "example": "Measure the room before buying new furniture.",
+    "antonyms": [],
+    "mnemonic": "MEASURE — TREASURE; you MEASURE how much TREASURE you have.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w594",
+    "word": "Mental",
+    "meaning_en": "Relating to the mind and thinking",
+    "meaning_hi": "मानसिक",
+    "example": "Good mental health is as important as physical health.",
+    "antonyms": [
+      "physical",
+      "bodily"
+    ],
+    "mnemonic": "MENTAL — MENTALITY; your mentality is your mental state.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w595",
+    "word": "Mystery",
+    "meaning_en": "Something strange that cannot be explained",
+    "meaning_hi": "रहस्य / पहेली",
+    "example": "The disappearance of the explorer remains a mystery.",
+    "antonyms": [
+      "fact",
+      "explanation",
+      "certainty"
+    ],
+    "mnemonic": "MYSTERY — MIST + ERY; a MIST covers a mystery; it's hidden.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w596",
+    "word": "Nation",
+    "meaning_en": "A country and its people",
+    "meaning_hi": "राष्ट्र / देश",
+    "example": "India is a democratic nation with a rich heritage.",
+    "antonyms": [],
+    "mnemonic": "NATION — NATIVE + ON; a nation is made up of its native people.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w597",
+    "word": "Negative",
+    "meaning_en": "Not good; expressing opposition; below zero",
+    "meaning_hi": "नकारात्मक",
+    "example": "Try not to have a negative attitude towards problems.",
+    "antonyms": [
+      "positive",
+      "optimistic",
+      "good"
+    ],
+    "mnemonic": "NEGATIVE — NEGATE + IVE; to negate means to say no — negative.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w598",
+    "word": "Neighbourhood",
+    "meaning_en": "The area around where someone lives",
+    "meaning_hi": "पड़ोस / मोहल्ला",
+    "example": "It is a peaceful neighbourhood with many trees.",
+    "antonyms": [],
+    "mnemonic": "NEIGHBOURHOOD — NEIGHBOUR + HOOD; the hood (area) of your neighbours.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w599",
+    "word": "Occasion",
+    "meaning_en": "A special event or a particular time when something happens",
+    "meaning_hi": "अवसर / मौका",
+    "example": "Diwali is a special occasion celebrated across India.",
+    "antonyms": [
+      "everyday",
+      "routine"
+    ],
+    "mnemonic": "OCCASION — OCEAN; a special occasion is as grand as an ocean.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w600",
+    "word": "Opinion",
+    "meaning_en": "What you personally think about something",
+    "meaning_hi": "राय / मत",
+    "example": "In my opinion, this is the best book of the year.",
+    "antonyms": [
+      "fact",
+      "certainty"
+    ],
+    "mnemonic": "OPINION — ONION; like an ONION, an OPINION has many layers.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w601",
+    "word": "Opportunity",
+    "meaning_en": "A situation in which it is possible to do something",
+    "meaning_hi": "अवसर / मौका",
+    "example": "Studying abroad is a great opportunity.",
+    "antonyms": [
+      "misfortune",
+      "setback",
+      "obstacle"
+    ],
+    "mnemonic": "OPPORTUNITY — OPPORT + UNITY; unity of the right moment = opportunity.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w602",
+    "word": "Passion",
+    "meaning_en": "A very strong feeling or enthusiasm for something",
+    "meaning_hi": "जुनून / आवेश",
+    "example": "She has a great passion for painting.",
+    "antonyms": [
+      "indifference",
+      "apathy",
+      "boredom"
+    ],
+    "mnemonic": "PASSION — FASHION; a passion for FASHION drives designers.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w603",
+    "word": "Patient",
+    "meaning_en": "Able to wait calmly without getting upset",
+    "meaning_hi": "धैर्यवान",
+    "example": "Be patient — the results will come with time.",
+    "antonyms": [
+      "impatient",
+      "restless",
+      "hasty"
+    ],
+    "mnemonic": "PATIENT — WAIT + PATIENT; a patient patient waits without fuss.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w604",
+    "word": "Performance",
+    "meaning_en": "How well someone does a task; a public show or act",
+    "meaning_hi": "प्रदर्शन",
+    "example": "Her performance in the play received a standing ovation.",
+    "antonyms": [
+      "failure",
+      "inaction"
+    ],
+    "mnemonic": "PERFORMANCE — PERFORM + ANCE; the act of performing.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w605",
+    "word": "Permit",
+    "meaning_en": "To officially allow something; an official document allowing something",
+    "meaning_hi": "अनुमति देना / परमिट",
+    "example": "You need a permit to park here.",
+    "antonyms": [
+      "ban",
+      "forbid",
+      "deny",
+      "prohibit"
+    ],
+    "mnemonic": "PERMIT — PER + MIT; a permit lets you pass through the gate.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w606",
+    "word": "Persuade",
+    "meaning_en": "To cause someone to do or believe something through reasoning",
+    "meaning_hi": "मनाना / राज़ी करना",
+    "example": "She persuaded her parents to let her study abroad.",
+    "antonyms": [
+      "discourage",
+      "deter",
+      "force"
+    ],
+    "mnemonic": "PERSUADE — PER + SUADE; swaying (suade) a person = persuade.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w607",
+    "word": "Photography",
+    "meaning_en": "The art of taking pictures with a camera",
+    "meaning_hi": "फ़ोटोग्राफ़ी",
+    "example": "She took up photography as a hobby last year.",
+    "antonyms": [],
+    "mnemonic": "PHOTOGRAPHY — PHOTO + GRAPHY; writing with light (photo) = photography.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w608",
+    "word": "Poetry",
+    "meaning_en": "Writing that expresses ideas or emotions in verse form",
+    "meaning_hi": "कविता",
+    "example": "He reads poetry every morning to start his day.",
+    "antonyms": [
+      "prose",
+      "plain language"
+    ],
+    "mnemonic": "POETRY — POET + RY; what a POET creates = poetry.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w609",
+    "word": "Political",
+    "meaning_en": "Relating to government or public affairs",
+    "meaning_hi": "राजनीतिक",
+    "example": "There is a heated political debate about the new tax.",
+    "antonyms": [
+      "apolitical",
+      "personal"
+    ],
+    "mnemonic": "POLITICAL — POLITICS + AL; something related to politics.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w610",
+    "word": "Positive",
+    "meaning_en": "Good; hopeful and confident; certain",
+    "meaning_hi": "सकारात्मक",
+    "example": "Try to stay positive even when things go wrong.",
+    "antonyms": [
+      "negative",
+      "pessimistic",
+      "doubtful"
+    ],
+    "mnemonic": "POSITIVE — POSIT + IVE; something posited with confidence = positive.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w611",
+    "word": "Poverty",
+    "meaning_en": "The state of being very poor",
+    "meaning_hi": "गरीबी",
+    "example": "Many charities work to reduce poverty in rural areas.",
+    "antonyms": [
+      "wealth",
+      "prosperity",
+      "richness"
+    ],
+    "mnemonic": "POVERTY — POOR + VERTY; in poverty, your purse (POVERTY) is empty.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w612",
+    "word": "Pressure",
+    "meaning_en": "A force pushing on something; a feeling of stress",
+    "meaning_hi": "दबाव / दबाव में होना",
+    "example": "She works well under pressure.",
+    "antonyms": [
+      "ease",
+      "relaxation",
+      "freedom"
+    ],
+    "mnemonic": "PRESSURE — PRESS + URE; when pressed too hard, you feel pressure.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w613",
+    "word": "Previous",
+    "meaning_en": "Coming before in time or order",
+    "meaning_hi": "पिछला / पूर्व",
+    "example": "The previous owner of this house renovated the kitchen.",
+    "antonyms": [
+      "next",
+      "following",
+      "future",
+      "subsequent"
+    ],
+    "mnemonic": "PREVIOUS — PRE + VIOUS; PRE (before) = previous.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w614",
+    "word": "Process",
+    "meaning_en": "A series of steps to achieve a result",
+    "meaning_hi": "प्रक्रिया",
+    "example": "Learning a language is a long process.",
+    "antonyms": [],
+    "mnemonic": "PROCESS — PRO + CESS; a PROfessional goes through a PROCESS.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w615",
+    "word": "Product",
+    "meaning_en": "Something that is made or grown to be sold",
+    "meaning_hi": "उत्पाद",
+    "example": "They launched a new beauty product last month.",
+    "antonyms": [],
+    "mnemonic": "PRODUCT — PRO + DUCT; ducts (channels) bring the product to you.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w616",
+    "word": "Profit",
+    "meaning_en": "Money earned after costs are paid",
+    "meaning_hi": "लाभ / मुनाफ़ा",
+    "example": "The company made a large profit last year.",
+    "antonyms": [
+      "loss",
+      "deficit",
+      "debt"
+    ],
+    "mnemonic": "PROFIT — PRO + FIT; a pro stays FIT by making profit.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w617",
+    "word": "Promote",
+    "meaning_en": "To encourage something to grow; to move someone to a higher role",
+    "meaning_hi": "बढ़ावा देना / पदोन्नत करना",
+    "example": "The campaign promoted healthy eating habits.",
+    "antonyms": [
+      "demote",
+      "discourage",
+      "hinder"
+    ],
+    "mnemonic": "PROMOTE — PRO + MOTE; moving forward (pro) = promote.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w618",
+    "word": "Protest",
+    "meaning_en": "A public demonstration against something; to object",
+    "meaning_hi": "विरोध / प्रदर्शन करना",
+    "example": "Students marched in protest against the new fee increase.",
+    "antonyms": [
+      "support",
+      "approve",
+      "agree"
+    ],
+    "mnemonic": "PROTEST — PRO + TEST; testing (questioning) the PROs of something = protest.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w619",
+    "word": "Proud",
+    "meaning_en": "Feeling great satisfaction in something you have done",
+    "meaning_hi": "गर्वित / गर्व महसूस करना",
+    "example": "Her parents were proud of her when she topped the class.",
+    "antonyms": [
+      "ashamed",
+      "embarrassed",
+      "humble"
+    ],
+    "mnemonic": "PROUD — a LOUD cheer for being PROUD.",
+    "level": "B1",
+    "chapter_id": 3
+  },
+  {
+    "id": "w620",
+    "word": "Punish",
+    "meaning_en": "To make someone suffer for something wrong they have done",
+    "meaning_hi": "सज़ा देना",
+    "example": "The teacher punished the students who were late.",
+    "antonyms": [
+      "reward",
+      "praise",
+      "forgive"
+    ],
+    "mnemonic": "PUNISH — PUN + ISH; a bad PUN is punishable!",
+    "level": "B1",
+    "chapter_id": 3
+  }
+]

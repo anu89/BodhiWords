@@ -10,8 +10,8 @@ import b2_1Words from '@/wordlist/B2-1/b2_1_vocabulary.json'
 import b2_2Words from '@/wordlist/B2-2/b2_2_vocabulary.json'
 import c1_1Words from '@/wordlist/C1-1/c1_1_vocabulary.json'
 import c1_2Words from '@/wordlist/C1-2/c1_2_vocabulary.json'
-// import c2_1Words from '@/wordlist/C2-1/c2_1_vocabulary.json'
-// import c2_2Words from '@/wordlist/C2-2/c2_2_vocabulary.json'
+import c2_1Words from '@/wordlist/C2-1/c2_1_vocabulary.json'
+import c2_2Words from '@/wordlist/C2-2/c2_2_vocabulary.json'
 
 export const WORDS: Word[] = [
   ...(a1Words as Word[]),
@@ -22,8 +22,8 @@ export const WORDS: Word[] = [
   ...(b2_2Words as Word[]),
   ...(c1_1Words as Word[]),
   ...(c1_2Words as Word[]),
-  // ...(c2_1Words as Word[]),
-  // ...(c2_2Words as Word[]),
+  ...(c2_1Words as Word[]),
+  ...(c2_2Words as Word[]),
 ]
 
 export const CHAPTERS = [

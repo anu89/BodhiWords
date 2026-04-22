@@ -1,0 +1,1498 @@
+[
+  {
+    "id": "w1201",
+    "word": "Abhor",
+    "meaning_en": "To regard with disgust and hatred",
+    "meaning_hi": "घृणा करना / नफ़रत करना",
+    "example": "She abhors any form of cruelty to animals.",
+    "antonyms": [
+      "love",
+      "adore",
+      "cherish"
+    ],
+    "mnemonic": "ABHOR — AB + HOR(ror); filled with horror = abhor.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1202",
+    "word": "Abject",
+    "meaning_en": "Of the most miserable kind; showing lack of self-respect",
+    "meaning_hi": "अत्यंत दयनीय / निम्न",
+    "example": "He lived in abject poverty for most of his life.",
+    "antonyms": [
+      "proud",
+      "dignified",
+      "noble"
+    ],
+    "mnemonic": "ABJECT — AB + JECT(ed); thrown down (ject=throw) completely = abject.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1203",
+    "word": "Abrogate",
+    "meaning_en": "To repeal or abolish a law or agreement officially",
+    "meaning_hi": "निरस्त करना / रद्द करना",
+    "example": "The treaty was abrogated after decades of tension.",
+    "antonyms": [
+      "establish",
+      "enact",
+      "ratify"
+    ],
+    "mnemonic": "ABROGATE — AB + ROGUE + ATE; a ROGUE ruling EATS away the law = abrogate.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1204",
+    "word": "Acrimony",
+    "meaning_en": "Bitterness or ill feeling in speech or manner",
+    "meaning_hi": "कड़वाहट / तल्खी",
+    "example": "The divorce was settled with great acrimony.",
+    "antonyms": [
+      "goodwill",
+      "harmony",
+      "warmth"
+    ],
+    "mnemonic": "ACRIMONY — ACRI (sharp) + MONY; sharp like acid words = acrimony.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1205",
+    "word": "Acumen",
+    "meaning_en": "The ability to make good judgements quickly",
+    "meaning_hi": "कुशाग्रता / तीव्र बुद्धि",
+    "example": "Her business acumen led the company to success.",
+    "antonyms": [
+      "stupidity",
+      "naivety",
+      "dullness"
+    ],
+    "mnemonic": "ACUMEN — ACUTE + MEN; an ACUTE MINd = acumen.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1206",
+    "word": "Adamant",
+    "meaning_en": "Refusing to be persuaded; unshakeable",
+    "meaning_hi": "अडिग / दृढ़",
+    "example": "He was adamant that he had not made any mistake.",
+    "antonyms": [
+      "flexible",
+      "yielding",
+      "persuadable"
+    ],
+    "mnemonic": "ADAMANT — A + DIAMOND; as hard as a DIAMOND = adamant.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1207",
+    "word": "Adversity",
+    "meaning_en": "A difficult or unpleasant situation",
+    "meaning_hi": "विपरीत परिस्थिति / विपदा",
+    "example": "She remained strong in the face of adversity.",
+    "antonyms": [
+      "prosperity",
+      "fortune",
+      "success"
+    ],
+    "mnemonic": "ADVERSITY — ADVERSE + ITY; the state of adverse (bad) conditions.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1208",
+    "word": "Affinity",
+    "meaning_en": "A natural liking or connection between people or things",
+    "meaning_hi": "आत्मीयता / लगाव",
+    "example": "She felt an immediate affinity with the artist's work.",
+    "antonyms": [
+      "aversion",
+      "dislike",
+      "hostility"
+    ],
+    "mnemonic": "AFFINITY — AFFINE + ITY; fine (affine) connection = affinity.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1209",
+    "word": "Alacrity",
+    "meaning_en": "Brisk and cheerful readiness to do something",
+    "meaning_hi": "तत्परता / फुर्ती",
+    "example": "She accepted the challenge with great alacrity.",
+    "antonyms": [
+      "reluctance",
+      "slowness",
+      "hesitation"
+    ],
+    "mnemonic": "ALACRITY — A + LARK + ITY; a LARK (bird) springs up with alacrity.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1210",
+    "word": "Allegiance",
+    "meaning_en": "Loyalty or commitment to a leader, country, or cause",
+    "meaning_hi": "निष्ठा / वफ़ादारी",
+    "example": "Soldiers swear allegiance to their country.",
+    "antonyms": [
+      "treachery",
+      "disloyalty",
+      "betrayal"
+    ],
+    "mnemonic": "ALLEGIANCE — ALLEGE + IANCE; pledging (alleging) faithfulness = allegiance.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1211",
+    "word": "Alleviate",
+    "meaning_en": "To make suffering or a problem less severe",
+    "meaning_hi": "कम करना / हल्का करना",
+    "example": "Painkillers alleviate but don't cure the condition.",
+    "antonyms": [
+      "worsen",
+      "intensify",
+      "aggravate"
+    ],
+    "mnemonic": "ALLEVIATE — A + LEVIATE (lift); LIFT the burden = alleviate.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1212",
+    "word": "Aloof",
+    "meaning_en": "Not friendly or forthcoming; cold or distant",
+    "meaning_hi": "अलग / दूर रहने वाला",
+    "example": "He seemed aloof and uninterested in conversation.",
+    "antonyms": [
+      "friendly",
+      "warm",
+      "engaged"
+    ],
+    "mnemonic": "ALOOF — A + LOOF(ah); distant as a loofah floating away.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1213",
+    "word": "Altruistic",
+    "meaning_en": "Showing concern for others' welfare above one's own",
+    "meaning_hi": "परोपकारी / निःस्वार्थ",
+    "example": "Her altruistic nature led her to donate anonymously.",
+    "antonyms": [
+      "selfish",
+      "greedy",
+      "self-serving"
+    ],
+    "mnemonic": "ALTRUISTIC — ALTER (other) + ISTIC; acting for OTHERS = altruistic.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1214",
+    "word": "Ambiguity",
+    "meaning_en": "The quality of being open to more than one interpretation",
+    "meaning_hi": "अस्पष्टता / द्विअर्थता",
+    "example": "The contract contained dangerous ambiguity.",
+    "antonyms": [
+      "clarity",
+      "precision",
+      "certainty"
+    ],
+    "mnemonic": "AMBIGUITY — AMBI (both) + GUITY; going BOTH ways = ambiguity.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1215",
+    "word": "Ambivalent",
+    "meaning_en": "Having mixed feelings or contradictory ideas about something",
+    "meaning_hi": "दुविधाग्रस्त / द्विभावी",
+    "example": "She felt ambivalent about leaving her home city.",
+    "antonyms": [
+      "certain",
+      "decisive",
+      "clear-minded"
+    ],
+    "mnemonic": "AMBIVALENT — AMBI (both) + VALENT; valuing BOTH sides equally = ambivalent.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1216",
+    "word": "Anarchy",
+    "meaning_en": "A state of disorder due to absence of authority",
+    "meaning_hi": "अराजकता",
+    "example": "The collapse of the government led to total anarchy.",
+    "antonyms": [
+      "order",
+      "law",
+      "governance"
+    ],
+    "mnemonic": "ANARCHY — AN (without) + ARCHY (rule); without rule = anarchy.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1217",
+    "word": "Animosity",
+    "meaning_en": "Strong hostility or ill feeling",
+    "meaning_hi": "शत्रुता / दुश्मनी",
+    "example": "There was great animosity between the two rival clans.",
+    "antonyms": [
+      "friendship",
+      "goodwill",
+      "love"
+    ],
+    "mnemonic": "ANIMOSITY — ANIMAL + OSITY; animal-like aggression = animosity.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1218",
+    "word": "Anomaly",
+    "meaning_en": "Something that deviates from what is normal",
+    "meaning_hi": "विसंगति / असामान्यता",
+    "example": "The test results showed a clear anomaly.",
+    "antonyms": [
+      "norm",
+      "regularity",
+      "standard"
+    ],
+    "mnemonic": "ANOMALY — A + NORMAL + Y; NOT normal = anomaly.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1219",
+    "word": "Antipathy",
+    "meaning_en": "A deep-seated feeling of aversion or dislike",
+    "meaning_hi": "विरोध / अरुचि",
+    "example": "Her antipathy towards the regime was well known.",
+    "antonyms": [
+      "sympathy",
+      "attraction",
+      "affection"
+    ],
+    "mnemonic": "ANTIPATHY — ANTI (against) + PATHY (feeling); feeling AGAINST something.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1220",
+    "word": "Apex",
+    "meaning_en": "The top or highest point; the climax",
+    "meaning_hi": "शिखर / चोटी",
+    "example": "He reached the apex of his career at forty.",
+    "antonyms": [
+      "nadir",
+      "base",
+      "bottom"
+    ],
+    "mnemonic": "APEX — A PEX (peak); the highest PEAKed point = apex.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1221",
+    "word": "Archetype",
+    "meaning_en": "A very typical example; an original model",
+    "meaning_hi": "आदर्श प्रतिरूप / मूल स्वरूप",
+    "example": "He is the archetype of the self-made entrepreneur.",
+    "antonyms": [
+      "anomaly",
+      "exception",
+      "deviation"
+    ],
+    "mnemonic": "ARCHETYPE — ARCHE (original) + TYPE; the original TYPE = archetype.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1222",
+    "word": "Arduous",
+    "meaning_en": "Involving or requiring strenuous effort; difficult",
+    "meaning_hi": "कठिन / परिश्रमसाध्य",
+    "example": "The arduous climb took twelve hours to complete.",
+    "antonyms": [
+      "easy",
+      "effortless",
+      "simple"
+    ],
+    "mnemonic": "ARDUOUS — HARD + UOUS; harder than HARD = arduous.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1223",
+    "word": "Armistice",
+    "meaning_en": "An agreement to stop fighting; a truce",
+    "meaning_hi": "युद्धविराम",
+    "example": "The armistice was signed on November 11, 1918.",
+    "antonyms": [
+      "war",
+      "conflict",
+      "hostilities"
+    ],
+    "mnemonic": "ARMISTICE — ARM + ISTICE; put down the ARM (weapon) = armistice.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1224",
+    "word": "Arrogance",
+    "meaning_en": "An exaggerated sense of one's own importance",
+    "meaning_hi": "अहंकार / घमंड",
+    "example": "His arrogance made him deeply unpopular at work.",
+    "antonyms": [
+      "humility",
+      "modesty",
+      "meekness"
+    ],
+    "mnemonic": "ARROGANCE — ARROG(ate) + ANCE; claiming more than your due = arrogance.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1225",
+    "word": "Astute",
+    "meaning_en": "Having a clever and accurate understanding",
+    "meaning_hi": "चतुर / बुद्धिमान",
+    "example": "The astute investor spotted the opportunity early.",
+    "antonyms": [
+      "naive",
+      "foolish",
+      "gullible"
+    ],
+    "mnemonic": "ASTUTE — AS + TUTE (tutored); as well-tutored as a master = astute.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1226",
+    "word": "Audacity",
+    "meaning_en": "Willingness to take bold risks; shocking lack of respect",
+    "meaning_hi": "दुस्साहस / बेशर्मी",
+    "example": "She had the audacity to question the CEO directly.",
+    "antonyms": [
+      "timidity",
+      "cowardice",
+      "caution"
+    ],
+    "mnemonic": "AUDACITY — AUDA (bold) + CITY; a bold CITY of daring = audacity.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1227",
+    "word": "Austere",
+    "meaning_en": "Severe or strict; without luxury or comfort",
+    "meaning_hi": "कठोर / सादा",
+    "example": "They lived an austere life with few possessions.",
+    "antonyms": [
+      "luxurious",
+      "lavish",
+      "extravagant"
+    ],
+    "mnemonic": "AUSTERE — OYSTER; an OYSTER lives an austere life inside its hard shell.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1228",
+    "word": "Avarice",
+    "meaning_en": "Extreme greed for wealth or material gain",
+    "meaning_hi": "लोभ / लालच",
+    "example": "The character's avarice ultimately led to his downfall.",
+    "antonyms": [
+      "generosity",
+      "charity",
+      "benevolence"
+    ],
+    "mnemonic": "AVARICE — AVID + RICE; AVID desire for every grain of RICE = avarice.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1229",
+    "word": "Axiom",
+    "meaning_en": "A statement regarded as self-evidently true",
+    "meaning_hi": "स्वयंसिद्ध सत्य / सर्वमान्य सिद्धांत",
+    "example": "It is an axiom that hard work leads to success.",
+    "antonyms": [
+      "fallacy",
+      "paradox",
+      "contradiction"
+    ],
+    "mnemonic": "AXIOM — AXE + OM; an AXE cuts to the truth — axiomatic.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1230",
+    "word": "Backlash",
+    "meaning_en": "A strong negative reaction by a large number of people",
+    "meaning_hi": "तीव्र प्रतिक्रिया / विरोध",
+    "example": "The policy caused a massive public backlash.",
+    "antonyms": [
+      "approval",
+      "support",
+      "acclaim"
+    ],
+    "mnemonic": "BACKLASH — BACK + LASH; a LASH that COMES BACK = backlash.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1231",
+    "word": "Bastion",
+    "meaning_en": "A stronghold or place of defence; a person championing a cause",
+    "meaning_hi": "गढ़ / मज़बूत आधार",
+    "example": "The university is a bastion of free thought.",
+    "antonyms": [
+      "weak point",
+      "vulnerability"
+    ],
+    "mnemonic": "BASTION — BASE + TION; the strongest BASE of defence = bastion.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1232",
+    "word": "Belligerent",
+    "meaning_en": "Hostile and aggressive; at war",
+    "meaning_hi": "आक्रामक / युद्धरत",
+    "example": "The belligerent nation refused all peace talks.",
+    "antonyms": [
+      "peaceful",
+      "calm",
+      "conciliatory"
+    ],
+    "mnemonic": "BELLIGERENT — BELLUM (war) + GERENT; one who wages war = belligerent.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1233",
+    "word": "Benevolence",
+    "meaning_en": "The desire to do good to others; kindness",
+    "meaning_hi": "परोपकार / भलाई",
+    "example": "The philanthropist was known for his great benevolence.",
+    "antonyms": [
+      "malevolence",
+      "cruelty",
+      "selfishness"
+    ],
+    "mnemonic": "BENEVOLENCE — BENE (good) + VOLENCE (wish); wishing GOOD for others.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1234",
+    "word": "Bigotry",
+    "meaning_en": "Intolerance towards those holding different views",
+    "meaning_hi": "कट्टरता / संकीर्णता",
+    "example": "Bigotry has no place in a tolerant society.",
+    "antonyms": [
+      "tolerance",
+      "open-mindedness",
+      "liberalism"
+    ],
+    "mnemonic": "BIGOTRY — BIG + OT + RY; a BIG, rigid mindset = bigotry.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1235",
+    "word": "Brevity",
+    "meaning_en": "Concise and exact use of words; shortness of time",
+    "meaning_hi": "संक्षिप्तता",
+    "example": "Brevity is the soul of wit, as Shakespeare wrote.",
+    "antonyms": [
+      "verbosity",
+      "length",
+      "wordiness"
+    ],
+    "mnemonic": "BREVITY — BRIEF + ITY; the state of being BRIEF = brevity.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1236",
+    "word": "Cacophony",
+    "meaning_en": "A harsh, discordant mixture of sounds",
+    "meaning_hi": "कर्णकटु ध्वनि / कोलाहल",
+    "example": "The cacophony of the market made it hard to think.",
+    "antonyms": [
+      "harmony",
+      "melody",
+      "symphony"
+    ],
+    "mnemonic": "CACOPHONY — CACO (bad) + PHONY (sound); bad sound = cacophony.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1237",
+    "word": "Callous",
+    "meaning_en": "Showing or having an insensitive disregard for others",
+    "meaning_hi": "निर्दयी / बेदर्द",
+    "example": "His callous disregard for the victim shocked the court.",
+    "antonyms": [
+      "compassionate",
+      "caring",
+      "sensitive"
+    ],
+    "mnemonic": "CALLOUS — CALLUS (hard skin); a heart as hard as a CALLUS = callous.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1238",
+    "word": "Camaraderie",
+    "meaning_en": "Mutual trust and friendship among people",
+    "meaning_hi": "साथीपन / मैत्री-भाव",
+    "example": "The team was united by great camaraderie.",
+    "antonyms": [
+      "hostility",
+      "rivalry",
+      "enmity"
+    ],
+    "mnemonic": "CAMARADERIE — CAMARADE (comrade); the spirit of comrades = camaraderie.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1239",
+    "word": "Candour",
+    "meaning_en": "The quality of being open and honest; frankness",
+    "meaning_hi": "स्पष्टवादिता / निखालसपन",
+    "example": "She admired his candour in admitting the mistake.",
+    "antonyms": [
+      "deception",
+      "dishonesty",
+      "evasion"
+    ],
+    "mnemonic": "CANDOUR — CANDLE; a CANDLE lights the truth = candour.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1240",
+    "word": "Capitulate",
+    "meaning_en": "To cease to resist an opponent; to surrender",
+    "meaning_hi": "हार मान लेना / समर्पण करना",
+    "example": "After weeks of resistance, the city capitulated.",
+    "antonyms": [
+      "resist",
+      "fight",
+      "persist"
+    ],
+    "mnemonic": "CAPITULATE — CAPITAL surrenders; the CAPITAL city gives in = capitulate.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1241",
+    "word": "Capricious",
+    "meaning_en": "Given to sudden unpredictable changes of behaviour",
+    "meaning_hi": "मनमाना / अस्थिर मिज़ाज",
+    "example": "The capricious weather ruined all outdoor plans.",
+    "antonyms": [
+      "consistent",
+      "predictable",
+      "steady"
+    ],
+    "mnemonic": "CAPRICIOUS — CAPRICE + IOUS; full of CAPRICE (whims) = capricious.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1242",
+    "word": "Catharsis",
+    "meaning_en": "The process of releasing strong emotions; emotional cleansing",
+    "meaning_hi": "भावनात्मक मुक्ति / शुद्धि",
+    "example": "Writing poetry was a form of catharsis for her.",
+    "antonyms": [
+      "repression",
+      "bottling up"
+    ],
+    "mnemonic": "CATHARSIS — CATHAR + SIS; clean (cathar) the emotional SIS(tem).",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1243",
+    "word": "Caveat",
+    "meaning_en": "A warning or qualification",
+    "meaning_hi": "चेतावनी / शर्त",
+    "example": "He agreed, with the caveat that the terms must change.",
+    "antonyms": [
+      "guarantee",
+      "assurance"
+    ],
+    "mnemonic": "CAVEAT — CAVE + AT; watch out (cave) AT that point = caveat.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1244",
+    "word": "Clemency",
+    "meaning_en": "Mercy or leniency shown to an offender",
+    "meaning_hi": "क्षमा / दयालुता",
+    "example": "The judge showed clemency and reduced the sentence.",
+    "antonyms": [
+      "severity",
+      "harshness",
+      "cruelty"
+    ],
+    "mnemonic": "CLEMENCY — CLEMENT (mild) + CY; mild treatment = clemency.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1245",
+    "word": "Coercion",
+    "meaning_en": "The use of force or threats to make someone do something",
+    "meaning_hi": "बलप्रयोग / दबाव",
+    "example": "The confession was obtained through coercion.",
+    "antonyms": [
+      "free will",
+      "choice",
+      "persuasion"
+    ],
+    "mnemonic": "COERCION — CO + ERCE (force) + ION; forcing someone together = coercion.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1246",
+    "word": "Collusion",
+    "meaning_en": "Secret or illegal cooperation to deceive others",
+    "meaning_hi": "मिलीभगत / साज़िश",
+    "example": "There was clear collusion between the two firms.",
+    "antonyms": [
+      "transparency",
+      "honesty",
+      "openness"
+    ],
+    "mnemonic": "COLLUSION — COL + LUSION (illusion); a joint ILLUSION = collusion.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1247",
+    "word": "Complacency",
+    "meaning_en": "A feeling of smug satisfaction with oneself",
+    "meaning_hi": "आत्मसंतुष्टि / लापरवाही",
+    "example": "Complacency led to the company's gradual decline.",
+    "antonyms": [
+      "vigilance",
+      "ambition",
+      "diligence"
+    ],
+    "mnemonic": "COMPLACENCY — COM + PLEASE + NCY; pleased with yourself too much = complacency.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1248",
+    "word": "Conundrum",
+    "meaning_en": "A confusing and difficult problem or question",
+    "meaning_hi": "पहेली / उलझन",
+    "example": "The ethical conundrum had no easy answer.",
+    "antonyms": [
+      "solution",
+      "simplicity",
+      "clarity"
+    ],
+    "mnemonic": "CONUNDRUM — CON + UNDRUM; a drum that CONfuses = conundrum.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1249",
+    "word": "Contemptible",
+    "meaning_en": "Deserving hatred and disrespect",
+    "meaning_hi": "निंदनीय / घृणित",
+    "example": "His contemptible behaviour was widely condemned.",
+    "antonyms": [
+      "admirable",
+      "respectable",
+      "noble"
+    ],
+    "mnemonic": "CONTEMPTIBLE — CONTEMPT + IBLE; worthy of CONTEMPT = contemptible.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1250",
+    "word": "Contrition",
+    "meaning_en": "The state of feeling remorse and guilt",
+    "meaning_hi": "पश्चाताप / अनुताप",
+    "example": "He expressed deep contrition for his actions.",
+    "antonyms": [
+      "impenitence",
+      "defiance",
+      "arrogance"
+    ],
+    "mnemonic": "CONTRITION — CONTRITE + ION; the state of being CONTRITE (sorry).",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1251",
+    "word": "Copious",
+    "meaning_en": "Abundant in supply; extensive",
+    "meaning_hi": "प्रचुर / बहुत अधिक",
+    "example": "She took copious notes during the lecture.",
+    "antonyms": [
+      "scarce",
+      "meagre",
+      "insufficient"
+    ],
+    "mnemonic": "COPIOUS — COPY + OUS; full of COPIES = copious amounts.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1252",
+    "word": "Culpable",
+    "meaning_en": "Deserving blame; responsible for a fault",
+    "meaning_hi": "दोषी / ज़िम्मेदार",
+    "example": "The manager was held culpable for the accident.",
+    "antonyms": [
+      "innocent",
+      "blameless",
+      "faultless"
+    ],
+    "mnemonic": "CULPABLE — CULPRIT + ABLE; ABLE to be called a CULPRIT = culpable.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1253",
+    "word": "Daunting",
+    "meaning_en": "Seeming difficult to deal with; intimidating",
+    "meaning_hi": "भयावह / कठिन लगना",
+    "example": "The daunting task ahead would require months of work.",
+    "antonyms": [
+      "encouraging",
+      "easy",
+      "simple"
+    ],
+    "mnemonic": "DAUNTING — DAUNT + ING; something that DAUNTS (discourages) you = daunting.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1254",
+    "word": "Decorum",
+    "meaning_en": "Behaviour that is appropriate for a particular situation",
+    "meaning_hi": "शिष्टाचार / मर्यादा",
+    "example": "Visitors are expected to observe decorum in the court.",
+    "antonyms": [
+      "indecency",
+      "impropriety",
+      "rudeness"
+    ],
+    "mnemonic": "DECORUM — DECOR + UM; like interior DECOR, it shows taste and order.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1255",
+    "word": "Deference",
+    "meaning_en": "Humble submission and respect towards someone",
+    "meaning_hi": "आदर / सम्मानपूर्ण समर्पण",
+    "example": "In deference to his age, they gave him the seat.",
+    "antonyms": [
+      "disrespect",
+      "defiance",
+      "arrogance"
+    ],
+    "mnemonic": "DEFERENCE — DE + FERENCE; carrying (ference) deference DOWN to someone.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1256",
+    "word": "Demagogue",
+    "meaning_en": "A leader who seeks support through emotional rather than rational appeals",
+    "meaning_hi": "अवसरवादी नेता / भड़काऊ वक्ता",
+    "example": "The demagogue exploited fears to gain votes.",
+    "antonyms": [
+      "statesman",
+      "diplomat"
+    ],
+    "mnemonic": "DEMAGOGUE — DEMO (people) + GOGUE (leader); leading people with emotion = demagogue.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1257",
+    "word": "Despondency",
+    "meaning_en": "A state of low spirits caused by loss of hope",
+    "meaning_hi": "निराशा / हताशा",
+    "example": "After losing the election, he fell into deep despondency.",
+    "antonyms": [
+      "hope",
+      "optimism",
+      "joy"
+    ],
+    "mnemonic": "DESPONDENCY — DE + SPONDENCY; your backbone (spondy) FALLS (de) = despondency.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1258",
+    "word": "Diligence",
+    "meaning_en": "Careful and persistent work or effort",
+    "meaning_hi": "परिश्रम / मेहनत",
+    "example": "Her diligence in research set her apart from her peers.",
+    "antonyms": [
+      "laziness",
+      "carelessness",
+      "negligence"
+    ],
+    "mnemonic": "DILIGENCE — DILI + GENCE; DILI(gently) done with GENCE(ius) care.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1259",
+    "word": "Discord",
+    "meaning_en": "Disagreement between people; a harsh combination of sounds",
+    "meaning_hi": "कलह / मतभेद",
+    "example": "Discord among the leaders weakened the alliance.",
+    "antonyms": [
+      "harmony",
+      "agreement",
+      "accord"
+    ],
+    "mnemonic": "DISCORD — DIS + CORD; cutting the CORD of harmony = discord.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1260",
+    "word": "Disdain",
+    "meaning_en": "The feeling that something is unworthy of respect",
+    "meaning_hi": "अवमानना / तिरस्कार",
+    "example": "She looked at the offer with disdain.",
+    "antonyms": [
+      "admiration",
+      "respect",
+      "esteem"
+    ],
+    "mnemonic": "DISDAIN — DIS + DAIN (dignity); removing dignity = disdain.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1261",
+    "word": "Disseminate",
+    "meaning_en": "To spread or distribute widely",
+    "meaning_hi": "प्रसारित करना / फैलाना",
+    "example": "Social media disseminates news faster than ever.",
+    "antonyms": [
+      "suppress",
+      "conceal",
+      "withhold"
+    ],
+    "mnemonic": "DISSEMINATE — DIS + SEMINATE (seed); SEED ideas across the land.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1262",
+    "word": "Dogma",
+    "meaning_en": "A set of principles laid down by authority as incontrovertibly true",
+    "meaning_hi": "हठधर्मिता / सिद्धांत",
+    "example": "Political dogma often prevents rational debate.",
+    "antonyms": [
+      "doubt",
+      "flexibility",
+      "open-mindedness"
+    ],
+    "mnemonic": "DOGMA — DOG + MA; a DOG follows its MAMA — unquestioningly = dogma.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1263",
+    "word": "Duplicity",
+    "meaning_en": "Deceitfulness; saying one thing while meaning another",
+    "meaning_hi": "दोगलापन / छल",
+    "example": "His duplicity was eventually exposed.",
+    "antonyms": [
+      "honesty",
+      "sincerity",
+      "transparency"
+    ],
+    "mnemonic": "DUPLICITY — DUPLI (double) + CITY; a DOUBLE city of lies = duplicity.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1264",
+    "word": "Ebullience",
+    "meaning_en": "The quality of being cheerful and full of energy",
+    "meaning_hi": "उत्साह / जोश",
+    "example": "Her ebullience was infectious at every meeting.",
+    "antonyms": [
+      "melancholy",
+      "gloom",
+      "apathy"
+    ],
+    "mnemonic": "EBULLIENCE — EBULLIENT = like BUBBLES (ebull) of joy = ebullience.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1265",
+    "word": "Eloquent",
+    "meaning_en": "Fluent or persuasive in speaking or writing",
+    "meaning_hi": "वाक्पटु / प्रभावशाली",
+    "example": "She gave an eloquent speech on women's rights.",
+    "antonyms": [
+      "inarticulate",
+      "incoherent",
+      "mumbling"
+    ],
+    "mnemonic": "ELOQUENT — ELO (style) + QUENT; flowing like music = eloquent.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1266",
+    "word": "Emancipation",
+    "meaning_en": "The fact or process of being set free from restrictions",
+    "meaning_hi": "मुक्ति / आज़ादी",
+    "example": "The emancipation of slaves was a historic milestone.",
+    "antonyms": [
+      "enslavement",
+      "oppression",
+      "bondage"
+    ],
+    "mnemonic": "EMANCIPATION — E + MANCIPATION; removing (E) the MANCIPLE (chains) = emancipation.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1267",
+    "word": "Enigma",
+    "meaning_en": "A person or thing that is mysterious and hard to understand",
+    "meaning_hi": "पहेली / रहस्य",
+    "example": "The disappearance remained an enigma for decades.",
+    "antonyms": [
+      "clarity",
+      "certainty",
+      "explanation"
+    ],
+    "mnemonic": "ENIGMA — ENEMY + GMA; an enemy whose motives are a mystery = enigma.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1268",
+    "word": "Ephemeral",
+    "meaning_en": "Lasting for a very short time",
+    "meaning_hi": "क्षणिक / अल्पकालिक",
+    "example": "Fame is ephemeral; true legacy endures.",
+    "antonyms": [
+      "permanent",
+      "lasting",
+      "enduring"
+    ],
+    "mnemonic": "EPHEMERAL — EF + HEMERAL (day); lasting only a DAY = ephemeral.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1269",
+    "word": "Epitome",
+    "meaning_en": "A person or thing that perfectly represents a quality",
+    "meaning_hi": "मूर्त रूप / आदर्श उदाहरण",
+    "example": "She is the epitome of grace and elegance.",
+    "antonyms": [
+      "antithesis",
+      "opposite",
+      "contrast"
+    ],
+    "mnemonic": "EPITOME — EPI (upon) + TOME (body); the body that defines the standard.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1270",
+    "word": "Equanimity",
+    "meaning_en": "Calm composure, especially in difficult situations",
+    "meaning_hi": "मानसिक संतुलन / समभाव",
+    "example": "She faced the crisis with remarkable equanimity.",
+    "antonyms": [
+      "anxiety",
+      "agitation",
+      "panic"
+    ],
+    "mnemonic": "EQUANIMITY — EQUAL + ANIMITY; equal animation (calm) of the mind.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1271",
+    "word": "Eradicate",
+    "meaning_en": "To destroy completely; to put an end to",
+    "meaning_hi": "उन्मूलन करना / जड़ से मिटाना",
+    "example": "Smallpox was eradicated globally by 1980.",
+    "antonyms": [
+      "create",
+      "establish",
+      "nurture"
+    ],
+    "mnemonic": "ERADICATE — E + RADIC (root) + ATE; pull out by the ROOT = eradicate.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1272",
+    "word": "Erudite",
+    "meaning_en": "Having or showing great knowledge or learning",
+    "meaning_hi": "विद्वान / पंडित",
+    "example": "The erudite professor published over fifty books.",
+    "antonyms": [
+      "ignorant",
+      "uneducated",
+      "illiterate"
+    ],
+    "mnemonic": "ERUDITE — ERU (learned) + DITE; like a dynamite of knowledge = erudite.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1273",
+    "word": "Euphemism",
+    "meaning_en": "A mild expression used in place of a harsh one",
+    "meaning_hi": "कोमल शब्द-प्रयोग / मृदु भाषा",
+    "example": "'Passed away' is a euphemism for 'died'.",
+    "antonyms": [
+      "bluntness",
+      "directness",
+      "harsh language"
+    ],
+    "mnemonic": "EUPHEMISM — EU (good) + PHEMISM (speech); good/soft speech = euphemism.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1274",
+    "word": "Exacerbate",
+    "meaning_en": "To make a problem or bad situation worse",
+    "meaning_hi": "और बिगाड़ना / तीव्र करना",
+    "example": "Stress can exacerbate health problems.",
+    "antonyms": [
+      "alleviate",
+      "improve",
+      "soothe"
+    ],
+    "mnemonic": "EXACERBATE — EX + ACERBATE (sour); make it MORE SOUR = exacerbate.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1275",
+    "word": "Exonerate",
+    "meaning_en": "To officially absolve from blame or criminal charge",
+    "meaning_hi": "बरी करना / दोषमुक्त करना",
+    "example": "New evidence exonerated the man after 10 years.",
+    "antonyms": [
+      "convict",
+      "blame",
+      "accuse"
+    ],
+    "mnemonic": "EXONERATE — EX + ONERATE (burden); remove the BURDEN = exonerate.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1276",
+    "word": "Expunge",
+    "meaning_en": "To remove completely; to wipe out",
+    "meaning_hi": "मिटाना / हटाना",
+    "example": "He requested that his record be expunged.",
+    "antonyms": [
+      "add",
+      "record",
+      "inscribe"
+    ],
+    "mnemonic": "EXPUNGE — EX + SPONGE; SPONGE OUT completely = expunge.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1277",
+    "word": "Fallacy",
+    "meaning_en": "A mistaken belief based on unsound reasoning",
+    "meaning_hi": "भ्रांति / ग़लतफहमी",
+    "example": "The idea that money equals happiness is a fallacy.",
+    "antonyms": [
+      "truth",
+      "fact",
+      "reality"
+    ],
+    "mnemonic": "FALLACY — FALL + ACY; when reasoning FALLS = fallacy.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1278",
+    "word": "Fervour",
+    "meaning_en": "Intense and passionate feeling",
+    "meaning_hi": "जोश / उत्साह",
+    "example": "He defended his beliefs with great fervour.",
+    "antonyms": [
+      "apathy",
+      "indifference",
+      "coldness"
+    ],
+    "mnemonic": "FERVOUR — FERVENT + OUR; OUR FERVENT passion = fervour.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1279",
+    "word": "Flagrant",
+    "meaning_en": "Obviously bad or wrong; conspicuously offensive",
+    "meaning_hi": "प्रत्यक्ष / खुल्लम-खुल्ला",
+    "example": "It was a flagrant violation of human rights.",
+    "antonyms": [
+      "subtle",
+      "hidden",
+      "minor"
+    ],
+    "mnemonic": "FLAGRANT — FLAG + RANT; a FLAG waving while someone RANTS = flagrant.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1280",
+    "word": "Forlorn",
+    "meaning_en": "Pitifully sad and abandoned; unlikely to succeed",
+    "meaning_hi": "उदास / निराश",
+    "example": "She sat alone in a forlorn corner of the room.",
+    "antonyms": [
+      "cheerful",
+      "hopeful",
+      "content"
+    ],
+    "mnemonic": "FORLORN — FOR + LORN (lost); lost FOR ever = forlorn.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1281",
+    "word": "Formidable",
+    "meaning_en": "Inspiring fear or respect through being impressively large or powerful",
+    "meaning_hi": "भयंकर / दुर्जेय",
+    "example": "She was a formidable opponent in debate.",
+    "antonyms": [
+      "weak",
+      "feeble",
+      "manageable"
+    ],
+    "mnemonic": "FORMIDABLE — FORM + IDABLE; a FORM (shape) too big to HANDLE = formidable.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1282",
+    "word": "Fortitude",
+    "meaning_en": "Courage in pain or adversity; mental strength",
+    "meaning_hi": "धैर्य / मनोबल",
+    "example": "She endured the treatment with remarkable fortitude.",
+    "antonyms": [
+      "weakness",
+      "cowardice",
+      "timidity"
+    ],
+    "mnemonic": "FORTITUDE — FORT + ITUDE; a FORT's strength of mind = fortitude.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1283",
+    "word": "Frugal",
+    "meaning_en": "Sparing or economical in use of food or money",
+    "meaning_hi": "मितव्ययी / किफ़ायती",
+    "example": "He led a frugal life despite his great wealth.",
+    "antonyms": [
+      "extravagant",
+      "wasteful",
+      "lavish"
+    ],
+    "mnemonic": "FRUGAL — FRUIT + GAL; a FRUGAL girl who eats only FRUIT.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1284",
+    "word": "Futility",
+    "meaning_en": "Pointlessness; the quality of having no useful result",
+    "meaning_hi": "व्यर्थता / निरर्थकता",
+    "example": "He recognised the futility of arguing further.",
+    "antonyms": [
+      "purpose",
+      "value",
+      "usefulness"
+    ],
+    "mnemonic": "FUTILITY — FUTILE + ITY; the state of being FUTILE (pointless).",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1285",
+    "word": "Gaffe",
+    "meaning_en": "An embarrassing social mistake",
+    "meaning_hi": "शर्मनाक ग़लती / चूक",
+    "example": "His gaffe at the press conference went viral.",
+    "antonyms": [
+      "tact",
+      "diplomacy",
+      "grace"
+    ],
+    "mnemonic": "GAFFE — GASP + FE; a GASP-worthy blunder = gaffe.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1286",
+    "word": "Galvanise",
+    "meaning_en": "To shock or excite someone into taking action",
+    "meaning_hi": "प्रेरित करना / उत्तेजित करना",
+    "example": "The speech galvanised the crowd into action.",
+    "antonyms": [
+      "discourage",
+      "demotivate",
+      "pacify"
+    ],
+    "mnemonic": "GALVANISE — GALVANI (inventor) + SE; an electrical shock that energises.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1287",
+    "word": "Gravitas",
+    "meaning_en": "Dignity, seriousness, and importance of manner",
+    "meaning_hi": "गंभीरता / गरिमा",
+    "example": "The elder statesman spoke with great gravitas.",
+    "antonyms": [
+      "frivolity",
+      "flippancy",
+      "lightness"
+    ],
+    "mnemonic": "GRAVITAS — GRAVITY + AS; the GRAVITY of their presence = gravitas.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1288",
+    "word": "Guile",
+    "meaning_en": "Sly or cunning intelligence; deceitfulness",
+    "meaning_hi": "चालाकी / धूर्तता",
+    "example": "He used guile and charm to get what he wanted.",
+    "antonyms": [
+      "naivety",
+      "honesty",
+      "simplicity"
+    ],
+    "mnemonic": "GUILE — GUILE = wILE; a wily trick = guile.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1289",
+    "word": "Hegemony",
+    "meaning_en": "Leadership or dominance over others",
+    "meaning_hi": "प्रभुत्व / आधिपत्य",
+    "example": "The nation sought cultural and political hegemony.",
+    "antonyms": [
+      "submission",
+      "equality",
+      "subordination"
+    ],
+    "mnemonic": "HEGEMONY — HEGE (lead) + MONY; leading MONEY and power = hegemony.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1290",
+    "word": "Hubris",
+    "meaning_en": "Excessive pride or self-confidence leading to downfall",
+    "meaning_hi": "अहंकार / घमंड",
+    "example": "His hubris led him to underestimate his rivals.",
+    "antonyms": [
+      "humility",
+      "modesty",
+      "caution"
+    ],
+    "mnemonic": "HUBRIS — HUB + RISK; a HUB of excessive RISK from pride = hubris.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1291",
+    "word": "Hypocrisy",
+    "meaning_en": "Claiming virtues one does not actually possess",
+    "meaning_hi": "पाखंड / दोहरा आचरण",
+    "example": "His hypocrisy was exposed when his private life became public.",
+    "antonyms": [
+      "honesty",
+      "sincerity",
+      "authenticity"
+    ],
+    "mnemonic": "HYPOCRISY — HYPO (under) + CRISY; acting UNDER a false CRISIS of goodness.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1292",
+    "word": "Idiosyncratic",
+    "meaning_en": "Peculiar to an individual; unusual",
+    "meaning_hi": "विशेष / विचित्र स्वभाव वाला",
+    "example": "Her idiosyncratic style made her a unique artist.",
+    "antonyms": [
+      "conventional",
+      "ordinary",
+      "typical"
+    ],
+    "mnemonic": "IDIOSYNCRATIC — IDIO (own) + SYNC + RATIC; synced to own rhythm = idiosyncratic.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1293",
+    "word": "Impeccable",
+    "meaning_en": "Having no flaws; exemplary",
+    "meaning_hi": "निर्दोष / बेदाग़",
+    "example": "She had impeccable taste in fashion.",
+    "antonyms": [
+      "flawed",
+      "faulty",
+      "imperfect"
+    ],
+    "mnemonic": "IMPECCABLE — IM + PECCABLE; IM (not) + PECCARE (sin) = sinless = impeccable.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1294",
+    "word": "Impunity",
+    "meaning_en": "Exemption from punishment or injury",
+    "meaning_hi": "दंडमुक्ति",
+    "example": "Criminals cannot act with impunity indefinitely.",
+    "antonyms": [
+      "accountability",
+      "punishment",
+      "consequence"
+    ],
+    "mnemonic": "IMPUNITY — IM + PUNIT(Y); NOT punished = impunity.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1295",
+    "word": "Incessant",
+    "meaning_en": "Never ending or pausing; continuing without interruption",
+    "meaning_hi": "निरंतर / लगातार",
+    "example": "The incessant noise made sleep impossible.",
+    "antonyms": [
+      "intermittent",
+      "occasional",
+      "brief"
+    ],
+    "mnemonic": "INCESSANT — IN + CESSANT (stopping); NOT stopping = incessant.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1296",
+    "word": "Indignation",
+    "meaning_en": "Anger or annoyance provoked by unfair treatment",
+    "meaning_hi": "रोष / नाराज़गी",
+    "example": "She expressed her indignation at the false accusation.",
+    "antonyms": [
+      "acceptance",
+      "calm",
+      "contentment"
+    ],
+    "mnemonic": "INDIGNATION — IN + DIGNITY; losing DIGNITY makes you feel indignation.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1297",
+    "word": "Indomitable",
+    "meaning_en": "Impossible to subdue or defeat",
+    "meaning_hi": "अदम्य / अजेय",
+    "example": "Her indomitable spirit kept her going through hardship.",
+    "antonyms": [
+      "submissive",
+      "weak",
+      "yielding"
+    ],
+    "mnemonic": "INDOMITABLE — IN + DOMIT + ABLE; NOT ABLE to be DOMINATED = indomitable.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1298",
+    "word": "Ingenuity",
+    "meaning_en": "The quality of being clever, original, and inventive",
+    "meaning_hi": "चतुराई / प्रतिभा",
+    "example": "The engineer solved the problem with great ingenuity.",
+    "antonyms": [
+      "stupidity",
+      "incompetence",
+      "unoriginality"
+    ],
+    "mnemonic": "INGENUITY — INGENIOUS + ITY; the state of being INGENIOUS.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1299",
+    "word": "Insidious",
+    "meaning_en": "Proceeding in a subtle but harmful way",
+    "meaning_hi": "कपटी / धीरे-धीरे हानिकारक",
+    "example": "Racism is insidious — it hides in everyday language.",
+    "antonyms": [
+      "obvious",
+      "harmless",
+      "transparent"
+    ],
+    "mnemonic": "INSIDIOUS — INSIDE + IOUS; harm from the INSIDE = insidious.",
+    "level": "C2",
+    "chapter_id": 9
+  },
+  {
+    "id": "w1300",
+    "word": "Insurmountable",
+    "meaning_en": "Too great to be overcome",
+    "meaning_hi": "अजेय / असंभव",
+    "example": "The challenges seemed insurmountable at first.",
+    "antonyms": [
+      "surmountable",
+      "achievable",
+      "manageable"
+    ],
+    "mnemonic": "INSURMOUNTABLE — IN + SURMOUNT + ABLE; NOT ABLE to SURMOUNT = insurmountable.",
+    "level": "C2",
+    "chapter_id": 9
+  }
+]

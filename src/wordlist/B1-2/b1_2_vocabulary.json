@@ -1,0 +1,1153 @@
+[
+  {
+    "id": "w621",
+    "word": "Race",
+    "meaning_en": "A group of people sharing the same origin or characteristics",
+    "meaning_hi": "जाति / नस्ल",
+    "example": "People of all races and religions live together here.",
+    "antonyms": [],
+    "mnemonic": "RACE — traCE; tracing your roots reveals your race.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w622",
+    "word": "Rare",
+    "meaning_en": "Not happening often; unusual and valuable",
+    "meaning_hi": "दुर्लभ / विरल",
+    "example": "A white tiger is a rare animal.",
+    "antonyms": [
+      "common",
+      "frequent",
+      "ordinary"
+    ],
+    "mnemonic": "RARE — a HARE is RARE to spot in the wild.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w623",
+    "word": "Reality",
+    "meaning_en": "The state of things as they actually exist",
+    "meaning_hi": "वास्तविकता / हकीकत",
+    "example": "The reality is that learning takes a lot of time.",
+    "antonyms": [
+      "fantasy",
+      "illusion",
+      "fiction"
+    ],
+    "mnemonic": "REALITY — REAL + ITY; the state of being real.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w624",
+    "word": "Reject",
+    "meaning_en": "To refuse to accept or agree to something",
+    "meaning_hi": "अस्वीकार करना",
+    "example": "Her application was rejected due to missing documents.",
+    "antonyms": [
+      "accept",
+      "approve",
+      "admit",
+      "welcome"
+    ],
+    "mnemonic": "REJECT — RE + JECT; throw it back (ject = throw) = reject.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w625",
+    "word": "Reliable",
+    "meaning_en": "Consistently good; able to be trusted",
+    "meaning_hi": "भरोसेमंद / विश्वसनीय",
+    "example": "She is a reliable worker who never misses deadlines.",
+    "antonyms": [
+      "unreliable",
+      "untrustworthy",
+      "inconsistent"
+    ],
+    "mnemonic": "RELIABLE — RELY + ABLE; you can rely on someone reliable.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w626",
+    "word": "Religion",
+    "meaning_en": "A system of belief in a god or gods",
+    "meaning_hi": "धर्म",
+    "example": "India is home to people of many different religions.",
+    "antonyms": [
+      "atheism",
+      "secularism"
+    ],
+    "mnemonic": "RELIGION — RELI + GION; a REGION of beliefs = religion.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w627",
+    "word": "Remain",
+    "meaning_en": "To stay in the same place or condition",
+    "meaning_hi": "रहना / बना रहना",
+    "example": "The situation remains unclear despite investigations.",
+    "antonyms": [
+      "leave",
+      "change",
+      "go",
+      "depart"
+    ],
+    "mnemonic": "REMAIN — RE + MAIN; stay at the MAIN place and remain.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w628",
+    "word": "Remind",
+    "meaning_en": "To cause someone to remember something",
+    "meaning_hi": "याद दिलाना",
+    "example": "Remind me to call the doctor tomorrow morning.",
+    "antonyms": [
+      "forget",
+      "ignore"
+    ],
+    "mnemonic": "REMIND — RE + MIND; bring something back to the MIND = remind.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w629",
+    "word": "Remote",
+    "meaning_en": "Far away from where people live; small and unlikely",
+    "meaning_hi": "दूरदराज़ / सुदूर",
+    "example": "They live in a remote village with no internet access.",
+    "antonyms": [
+      "nearby",
+      "central",
+      "accessible",
+      "close"
+    ],
+    "mnemonic": "REMOTE — RE + MOTE; a mote (tiny speck) far away = remote.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w630",
+    "word": "Represent",
+    "meaning_en": "To act or speak on behalf of someone",
+    "meaning_hi": "प्रतिनिधित्व करना",
+    "example": "She was chosen to represent her school at the competition.",
+    "antonyms": [
+      "abandon",
+      "ignore"
+    ],
+    "mnemonic": "REPRESENT — RE + PRESENT; PRESENT yourself again for others.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w631",
+    "word": "Require",
+    "meaning_en": "To need something for a particular purpose",
+    "meaning_hi": "आवश्यकता होना",
+    "example": "This job requires excellent communication skills.",
+    "antonyms": [
+      "optional",
+      "exclude"
+    ],
+    "mnemonic": "REQUIRE — RE + QUIRE; things that you DESIRE and require.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w632",
+    "word": "Respect",
+    "meaning_en": "Admiration for someone because of their qualities",
+    "meaning_hi": "सम्मान / इज़्ज़त",
+    "example": "Always treat your elders with respect.",
+    "antonyms": [
+      "disrespect",
+      "contempt",
+      "insult"
+    ],
+    "mnemonic": "RESPECT — RE + SPECT; look (spect) again and again at someone great = respect.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w633",
+    "word": "Responsibility",
+    "meaning_en": "A duty to deal with or take care of something",
+    "meaning_hi": "ज़िम्मेदारी",
+    "example": "It is your responsibility to complete the task on time.",
+    "antonyms": [
+      "irresponsibility",
+      "neglect"
+    ],
+    "mnemonic": "RESPONSIBILITY — RESPOND + ABILITY; the ABILITY to RESPOND to duties.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w634",
+    "word": "Result",
+    "meaning_en": "The consequence or outcome of an action",
+    "meaning_hi": "परिणाम / नतीजा",
+    "example": "Hard work always brings good results.",
+    "antonyms": [
+      "cause",
+      "origin"
+    ],
+    "mnemonic": "RESULT — RE + SULT; the SALT of your efforts = result.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w635",
+    "word": "Retire",
+    "meaning_en": "To stop working, usually because of age",
+    "meaning_hi": "सेवानिवृत्त होना",
+    "example": "He retired at 60 after 35 years of service.",
+    "antonyms": [
+      "work",
+      "join",
+      "begin"
+    ],
+    "mnemonic": "RETIRE — RE + TIRE; when you're too TIRED to work, you retire.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w636",
+    "word": "Risk",
+    "meaning_en": "The possibility of something bad happening",
+    "meaning_hi": "जोखिम / खतरा",
+    "example": "There is a risk of flooding in this area during monsoon.",
+    "antonyms": [
+      "safety",
+      "certainty",
+      "security"
+    ],
+    "mnemonic": "RISK — a DISC on a BRISK day — RISK taking is like spinning a disc.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w637",
+    "word": "Romantic",
+    "meaning_en": "Relating to love; creating feelings of love and excitement",
+    "meaning_hi": "रोमांटिक / प्रेमपूर्ण",
+    "example": "They had a romantic dinner on their anniversary.",
+    "antonyms": [
+      "unromantic",
+      "cold",
+      "practical"
+    ],
+    "mnemonic": "ROMANTIC — ROME + ANTIC; ancient ROME was the city of love — romantic.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w638",
+    "word": "Rough",
+    "meaning_en": "Not smooth; difficult or unpleasant",
+    "meaning_hi": "खुरदुरा / कठिन",
+    "example": "The road was rough and full of potholes.",
+    "antonyms": [
+      "smooth",
+      "gentle",
+      "soft",
+      "easy"
+    ],
+    "mnemonic": "ROUGH — TOUGH; rough times are tough to handle.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w639",
+    "word": "Safety",
+    "meaning_en": "Being protected from harm or danger",
+    "meaning_hi": "सुरक्षा",
+    "example": "Always wear a seatbelt for your own safety.",
+    "antonyms": [
+      "danger",
+      "risk",
+      "hazard"
+    ],
+    "mnemonic": "SAFETY — SAFE + TY; full of safety; being safe.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w640",
+    "word": "Scientific",
+    "meaning_en": "Related to science or using scientific methods",
+    "meaning_hi": "वैज्ञानिक",
+    "example": "The experiment was based on scientific evidence.",
+    "antonyms": [
+      "unscientific",
+      "superstitious"
+    ],
+    "mnemonic": "SCIENTIFIC — SCIENCE + IFIC; making science terrific.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w641",
+    "word": "Security",
+    "meaning_en": "The state of being safe from danger; protection",
+    "meaning_hi": "सुरक्षा / हिफ़ाज़त",
+    "example": "The bank has strong security systems in place.",
+    "antonyms": [
+      "insecurity",
+      "danger",
+      "vulnerability"
+    ],
+    "mnemonic": "SECURITY — SECURE + ITY; the state of being secure.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w642",
+    "word": "Sensible",
+    "meaning_en": "Showing good judgement; practical and reasonable",
+    "meaning_hi": "समझदार / बुद्धिमान",
+    "example": "It is sensible to save money each month.",
+    "antonyms": [
+      "foolish",
+      "silly",
+      "unwise",
+      "reckless"
+    ],
+    "mnemonic": "SENSIBLE — SENSE + IBLE; having good SENSE = sensible.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w643",
+    "word": "Seriously",
+    "meaning_en": "In a way that is bad or dangerous; without joking",
+    "meaning_hi": "गंभीरता से",
+    "example": "Please take your studies seriously.",
+    "antonyms": [
+      "jokingly",
+      "lightly",
+      "playfully"
+    ],
+    "mnemonic": "SERIOUSLY — SERIOUS + LY; in a serious manner.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w644",
+    "word": "Sharp",
+    "meaning_en": "Having a thin edge or point; intelligent; sudden",
+    "meaning_hi": "तेज़ / नुकीला",
+    "example": "Be careful with that knife — it's very sharp.",
+    "antonyms": [
+      "dull",
+      "blunt",
+      "slow"
+    ],
+    "mnemonic": "SHARP — a HARP has sharp strings that cut through sound.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w645",
+    "word": "Shy",
+    "meaning_en": "Nervous and uncomfortable around other people",
+    "meaning_hi": "शर्मीला / संकोची",
+    "example": "He is shy and finds it hard to speak in public.",
+    "antonyms": [
+      "confident",
+      "bold",
+      "outgoing",
+      "sociable"
+    ],
+    "mnemonic": "SHY — a FLY flies away when you reach out; shy creatures avoid contact.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w646",
+    "word": "Silent",
+    "meaning_en": "Making no sound; saying nothing",
+    "meaning_hi": "चुप / मौन",
+    "example": "The library must remain silent at all times.",
+    "antonyms": [
+      "loud",
+      "noisy",
+      "talkative"
+    ],
+    "mnemonic": "SILENT — LISTEN (same letters); to truly listen, be silent.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w647",
+    "word": "Silly",
+    "meaning_en": "Showing a lack of common sense; playfully foolish",
+    "meaning_hi": "मूर्खतापूर्ण / बेतुका",
+    "example": "Don't make silly mistakes in the exam.",
+    "antonyms": [
+      "sensible",
+      "serious",
+      "wise",
+      "clever"
+    ],
+    "mnemonic": "SILLY — HILLY; a SILLY goat climbs HILLY roads for no reason.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w648",
+    "word": "Smart",
+    "meaning_en": "Intelligent; stylish in appearance",
+    "meaning_hi": "चालाक / स्मार्ट",
+    "example": "She gave a very smart answer to the tricky question.",
+    "antonyms": [
+      "stupid",
+      "dull",
+      "foolish",
+      "messy"
+    ],
+    "mnemonic": "SMART — ARTS; a SMART person masters the ARTS.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w649",
+    "word": "Society",
+    "meaning_en": "People living together in an organised community",
+    "meaning_hi": "समाज",
+    "example": "Education improves the quality of life in society.",
+    "antonyms": [
+      "isolation",
+      "individual"
+    ],
+    "mnemonic": "SOCIETY — SOCIAL + ITY; the state of being social = society.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w650",
+    "word": "Solve",
+    "meaning_en": "To find the answer to a problem",
+    "meaning_hi": "हल करना",
+    "example": "Can you solve this maths puzzle?",
+    "antonyms": [
+      "create",
+      "complicate",
+      "worsen"
+    ],
+    "mnemonic": "SOLVE — SALVE; a salve SOLVES the pain.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w651",
+    "word": "Spirit",
+    "meaning_en": "The non-physical part of a person; energy and determination",
+    "meaning_hi": "आत्मा / जोश",
+    "example": "The team played with great spirit and energy.",
+    "antonyms": [
+      "body",
+      "weakness",
+      "despair"
+    ],
+    "mnemonic": "SPIRIT — INSPIRE; a spirit INSPIRES you to keep going.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w652",
+    "word": "Spread",
+    "meaning_en": "To open or extend over a wider area; to distribute",
+    "meaning_hi": "फैलाना / फैलना",
+    "example": "The news spread quickly through the town.",
+    "antonyms": [
+      "concentrate",
+      "gather",
+      "collect"
+    ],
+    "mnemonic": "SPREAD — BREAD; you SPREAD butter on BREAD.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w653",
+    "word": "Stadium",
+    "meaning_en": "A large structure with tiers of seats for sporting events",
+    "meaning_hi": "स्टेडियम",
+    "example": "The cricket stadium was packed with excited fans.",
+    "antonyms": [],
+    "mnemonic": "STADIUM — STAND + IUM; a place where people STAND and cheer.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w654",
+    "word": "Standard",
+    "meaning_en": "A level of quality or achievement; a rule",
+    "meaning_hi": "मानक / स्तर",
+    "example": "The school maintains a high standard of education.",
+    "antonyms": [
+      "low quality",
+      "below average"
+    ],
+    "mnemonic": "STANDARD — STAND + ARD; where you STAND on the quality scale.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w655",
+    "word": "Strength",
+    "meaning_en": "Physical or mental power; a good quality",
+    "meaning_hi": "ताकत / शक्ति",
+    "example": "Her greatest strength is her ability to stay calm.",
+    "antonyms": [
+      "weakness",
+      "fragility",
+      "feebleness"
+    ],
+    "mnemonic": "STRENGTH — STRENGTH comes from STRETCH; stretching builds strength.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w656",
+    "word": "Stress",
+    "meaning_en": "Mental or physical tension caused by pressure",
+    "meaning_hi": "तनाव",
+    "example": "Exam stress affects many students.",
+    "antonyms": [
+      "relaxation",
+      "calm",
+      "peace"
+    ],
+    "mnemonic": "STRESS — PRESS; stress is when life PRESSES hard on you.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w657",
+    "word": "Studio",
+    "meaning_en": "A place where music, films, or art is created",
+    "meaning_hi": "स्टूडियो",
+    "example": "She recorded her first song in a small home studio.",
+    "antonyms": [],
+    "mnemonic": "STUDIO — STUDY + O; a place to STUDY and create — a studio.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w658",
+    "word": "Success",
+    "meaning_en": "The achievement of something you wanted",
+    "meaning_hi": "सफलता",
+    "example": "Her success is the result of years of hard work.",
+    "antonyms": [
+      "failure",
+      "defeat",
+      "loss"
+    ],
+    "mnemonic": "SUCCESS — SUC + CESS; EXCESS effort leads to SUCCESS.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w659",
+    "word": "Suffer",
+    "meaning_en": "To experience pain, difficulty, or unhappiness",
+    "meaning_hi": "पीड़ा झेलना / सहना",
+    "example": "Many people suffer from stress and anxiety.",
+    "antonyms": [
+      "enjoy",
+      "thrive",
+      "prosper"
+    ],
+    "mnemonic": "SUFFER — BUFFER; when the buffer breaks, you suffer.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w660",
+    "word": "Suitable",
+    "meaning_en": "Right or appropriate for a particular purpose",
+    "meaning_hi": "उपयुक्त / सही",
+    "example": "This film is not suitable for young children.",
+    "antonyms": [
+      "unsuitable",
+      "inappropriate",
+      "wrong"
+    ],
+    "mnemonic": "SUITABLE — SUIT + ABLE; a SUIT is ABLE to be worn for the right occasion.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w661",
+    "word": "Supply",
+    "meaning_en": "To provide what is needed; the amount available",
+    "meaning_hi": "आपूर्ति करना / आपूर्ति",
+    "example": "The government supplies free books to all students.",
+    "antonyms": [
+      "demand",
+      "withhold",
+      "take"
+    ],
+    "mnemonic": "SUPPLY — APPLY; you APPLY to get the SUPPLY.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w662",
+    "word": "Survive",
+    "meaning_en": "To continue to live after a difficult or dangerous situation",
+    "meaning_hi": "जीवित रहना / बचना",
+    "example": "Few plants can survive in the desert heat.",
+    "antonyms": [
+      "die",
+      "perish",
+      "fail"
+    ],
+    "mnemonic": "SURVIVE — SUR + VIVE; VIVE means live in French; to keep living.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w663",
+    "word": "Talent",
+    "meaning_en": "A natural skill or ability to do something well",
+    "meaning_hi": "प्रतिभा / हुनर",
+    "example": "She has a rare talent for playing the violin.",
+    "antonyms": [
+      "inability",
+      "weakness"
+    ],
+    "mnemonic": "TALENT — tale + nt; a TALENT tells a great story.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w664",
+    "word": "Tax",
+    "meaning_en": "Money paid to the government from earnings or purchases",
+    "meaning_hi": "कर / टैक्स",
+    "example": "All citizens are required to pay income tax.",
+    "antonyms": [
+      "subsidy",
+      "grant"
+    ],
+    "mnemonic": "TAX — a TAXI ride — you always pay a TAXI fare, just like tax.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w665",
+    "word": "Technique",
+    "meaning_en": "A way of doing something that requires skill",
+    "meaning_hi": "तकनीक / तरीका",
+    "example": "She used a special breathing technique to stay calm.",
+    "antonyms": [],
+    "mnemonic": "TECHNIQUE — TECHNI + QUE; a unique (QUE) technical method.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w666",
+    "word": "Theme",
+    "meaning_en": "The main subject or idea in a book, film, or discussion",
+    "meaning_hi": "विषय / थीम",
+    "example": "The theme of the story is friendship and loyalty.",
+    "antonyms": [],
+    "mnemonic": "THEME — THE + ME; the heart (ME) of THE subject = theme.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w667",
+    "word": "Tiny",
+    "meaning_en": "Extremely small",
+    "meaning_hi": "बहुत छोटा",
+    "example": "The baby's fingers were tiny and delicate.",
+    "antonyms": [
+      "huge",
+      "enormous",
+      "giant",
+      "massive"
+    ],
+    "mnemonic": "TINY — a MINI PONY is tiny.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w668",
+    "word": "Topic",
+    "meaning_en": "A subject that is discussed, written, or studied",
+    "meaning_hi": "विषय / मुद्दा",
+    "example": "Today's topic for discussion is climate change.",
+    "antonyms": [],
+    "mnemonic": "TOPIC — TOP + IC; the TOP idea worth discussing = the topic.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w669",
+    "word": "Total",
+    "meaning_en": "The complete amount when everything is added together",
+    "meaning_hi": "कुल / पूरा",
+    "example": "The total cost of the trip was ₹15,000.",
+    "antonyms": [
+      "partial",
+      "incomplete",
+      "part"
+    ],
+    "mnemonic": "TOTAL — TOLL + AL; a total toll across all booths.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w670",
+    "word": "Trade",
+    "meaning_en": "The buying and selling of goods; a job or skill",
+    "meaning_hi": "व्यापार / कारोबार",
+    "example": "India has trade agreements with many countries.",
+    "antonyms": [],
+    "mnemonic": "TRADE — GRADE; traders GRADE their goods before selling.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w671",
+    "word": "Tradition",
+    "meaning_en": "A custom passed from one generation to the next",
+    "meaning_hi": "परंपरा",
+    "example": "Wearing traditional clothes during festivals is a beautiful tradition.",
+    "antonyms": [
+      "innovation",
+      "change",
+      "modernity"
+    ],
+    "mnemonic": "TRADITION — TRAD + ITION; old TRADE routes carrying customs = tradition.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w672",
+    "word": "Translate",
+    "meaning_en": "To change words from one language to another",
+    "meaning_hi": "अनुवाद करना",
+    "example": "Can you translate this letter from English to Hindi?",
+    "antonyms": [],
+    "mnemonic": "TRANSLATE — TRANS + LATE; carry words ACROSS (trans) to another language.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w673",
+    "word": "Treatment",
+    "meaning_en": "Medical care given to a patient; the way you deal with someone",
+    "meaning_hi": "उपचार / इलाज",
+    "example": "She received treatment for her back pain.",
+    "antonyms": [
+      "neglect",
+      "harm"
+    ],
+    "mnemonic": "TREATMENT — TREAT + MENT; the act of treating an illness or person.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w674",
+    "word": "Trend",
+    "meaning_en": "A general direction in which things are changing",
+    "meaning_hi": "प्रवृत्ति / ट्रेंड",
+    "example": "Social media shapes the latest trends in fashion.",
+    "antonyms": [
+      "tradition",
+      "old custom"
+    ],
+    "mnemonic": "TREND — BLEND; trends blend into popular culture.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w675",
+    "word": "Truth",
+    "meaning_en": "The actual facts; what is real and correct",
+    "meaning_hi": "सच / सत्य",
+    "example": "Always speak the truth, even when it is difficult.",
+    "antonyms": [
+      "lie",
+      "falsehood",
+      "deception",
+      "fiction"
+    ],
+    "mnemonic": "TRUTH — RUTH; a RUTHLESS lie destroys TRUTH.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w676",
+    "word": "Unable",
+    "meaning_en": "Not having the power, skill, or means to do something",
+    "meaning_hi": "असमर्थ / अक्षम",
+    "example": "She was unable to attend the meeting due to illness.",
+    "antonyms": [
+      "able",
+      "capable",
+      "skilled"
+    ],
+    "mnemonic": "UNABLE — UN + ABLE; not ABLE to do something.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w677",
+    "word": "Unemployment",
+    "meaning_en": "The state of not having a job",
+    "meaning_hi": "बेरोज़गारी",
+    "example": "Unemployment is a major problem in many countries.",
+    "antonyms": [
+      "employment",
+      "work",
+      "occupation"
+    ],
+    "mnemonic": "UNEMPLOYMENT — UN + EMPLOY + MENT; state of not being employed.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w678",
+    "word": "Unfair",
+    "meaning_en": "Not treating people equally or justly",
+    "meaning_hi": "अनुचित / नाइंसाफ़ी",
+    "example": "It was unfair to punish the whole class for one person's mistake.",
+    "antonyms": [
+      "fair",
+      "just",
+      "equal"
+    ],
+    "mnemonic": "UNFAIR — UN + FAIR; the opposite of fair.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w679",
+    "word": "Unlikely",
+    "meaning_en": "Not expected to happen; improbable",
+    "meaning_hi": "असंभावित / मुश्किल",
+    "example": "It is unlikely to rain this afternoon.",
+    "antonyms": [
+      "likely",
+      "probable",
+      "expected"
+    ],
+    "mnemonic": "UNLIKELY — UN + LIKELY; not likely at all.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w680",
+    "word": "Update",
+    "meaning_en": "To give the latest information; to make something more modern",
+    "meaning_hi": "अपडेट करना / नवीनतम जानकारी देना",
+    "example": "Please update your contact details on the form.",
+    "antonyms": [
+      "downgrade",
+      "ignore",
+      "leave unchanged"
+    ],
+    "mnemonic": "UPDATE — UP + DATE; bring the DATE up to the present = update.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w681",
+    "word": "Valuable",
+    "meaning_en": "Worth a lot of money; very useful",
+    "meaning_hi": "मूल्यवान / कीमती",
+    "example": "Time is the most valuable resource you have.",
+    "antonyms": [
+      "worthless",
+      "useless",
+      "cheap"
+    ],
+    "mnemonic": "VALUABLE — VALUE + ABLE; having great VALUE = valuable.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w682",
+    "word": "Vehicle",
+    "meaning_en": "A machine used for transporting people or goods",
+    "meaning_hi": "वाहन",
+    "example": "A bus is a vehicle that carries many passengers.",
+    "antonyms": [],
+    "mnemonic": "VEHICLE — VEHEMENT + ICLE; a vehicle moves with force.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w683",
+    "word": "Version",
+    "meaning_en": "A particular form of something that differs slightly from others",
+    "meaning_hi": "संस्करण / वर्जन",
+    "example": "Have you seen the latest version of this app?",
+    "antonyms": [
+      "original"
+    ],
+    "mnemonic": "VERSION — VERSE + ION; each version is a new verse of the same story.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w684",
+    "word": "Victim",
+    "meaning_en": "A person harmed by a crime, accident, or event",
+    "meaning_hi": "पीड़ित / शिकार",
+    "example": "The victims of the flood received government aid.",
+    "antonyms": [
+      "perpetrator",
+      "criminal",
+      "offender"
+    ],
+    "mnemonic": "VICTIM — VIC + TIM; poor TIM became a VICTIM of the storm.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w685",
+    "word": "Violent",
+    "meaning_en": "Using physical force to hurt someone; very strong",
+    "meaning_hi": "हिंसक",
+    "example": "Violent crime has increased in certain areas.",
+    "antonyms": [
+      "peaceful",
+      "gentle",
+      "calm",
+      "nonviolent"
+    ],
+    "mnemonic": "VIOLENT — VIOL + ENT; a violin bow that STRIKES hard = violent.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w686",
+    "word": "Volunteer",
+    "meaning_en": "To offer to do something without being paid",
+    "meaning_hi": "स्वयंसेवक / स्वेच्छा से करना",
+    "example": "She volunteers at the local hospital on weekends.",
+    "antonyms": [
+      "refuse",
+      "compel",
+      "forced labour"
+    ],
+    "mnemonic": "VOLUNTEER — VOLUNT + EER; a volunteer comes willingly (volunt = will).",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w687",
+    "word": "Vote",
+    "meaning_en": "To formally choose between options in an election or decision",
+    "meaning_hi": "मतदान करना / वोट",
+    "example": "Every citizen should vote in a democratic election.",
+    "antonyms": [
+      "abstain",
+      "ignore"
+    ],
+    "mnemonic": "VOTE — NOTE; VOTE by making a NOTE of your choice.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w688",
+    "word": "Warn",
+    "meaning_en": "To tell someone about a possible danger",
+    "meaning_hi": "चेतावनी देना",
+    "example": "The doctor warned him to reduce his sugar intake.",
+    "antonyms": [
+      "encourage",
+      "invite",
+      "reassure"
+    ],
+    "mnemonic": "WARN — HORN; a HORN warns you of an approaching vehicle.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w689",
+    "word": "Waste",
+    "meaning_en": "To use more of something than is needed; unwanted material",
+    "meaning_hi": "बर्बाद करना / कचरा",
+    "example": "Don't waste food — think of those who have nothing.",
+    "antonyms": [
+      "save",
+      "conserve",
+      "preserve"
+    ],
+    "mnemonic": "WASTE — HASTE; in HASTE, you WASTE everything.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w690",
+    "word": "Weapon",
+    "meaning_en": "An object used to injure or kill someone",
+    "meaning_hi": "हथियार",
+    "example": "The use of chemical weapons is banned internationally.",
+    "antonyms": [
+      "shield",
+      "protection"
+    ],
+    "mnemonic": "WEAPON — WEAP + ON; a weapon is turned ON against enemies.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w691",
+    "word": "Worth",
+    "meaning_en": "Having a value equal to something; deserving something",
+    "meaning_hi": "कीमत / मूल्य / के योग्य",
+    "example": "This experience is worth every rupee spent.",
+    "antonyms": [
+      "worthless",
+      "valueless"
+    ],
+    "mnemonic": "WORTH — NORTH; heading NORTH is WORTH the journey.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w692",
+    "word": "Wonder",
+    "meaning_en": "To feel curious; a feeling of amazement",
+    "meaning_hi": "आश्चर्य करना / सोचना",
+    "example": "I often wonder what life is like in other countries.",
+    "antonyms": [
+      "know",
+      "certainty"
+    ],
+    "mnemonic": "WONDER — WANDER; you WONDER as you WANDER through new places.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w693",
+    "word": "Worldwide",
+    "meaning_en": "Existing or happening throughout the world",
+    "meaning_hi": "विश्वव्यापी",
+    "example": "The pandemic had a worldwide impact.",
+    "antonyms": [
+      "local",
+      "national",
+      "regional"
+    ],
+    "mnemonic": "WORLDWIDE — WORLD + WIDE; spreading WIDE across the WORLD.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w694",
+    "word": "Youth",
+    "meaning_en": "Young people collectively; the period of being young",
+    "meaning_hi": "युवा / जवानी",
+    "example": "The youth of today are more aware of global issues.",
+    "antonyms": [
+      "old age",
+      "elderly"
+    ],
+    "mnemonic": "YOUTH — YOU + TH; YOU in your THirties remember your youth.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w695",
+    "word": "Curious",
+    "meaning_en": "Eager to know or learn something",
+    "meaning_hi": "जिज्ञासु / उत्सुक",
+    "example": "She was curious about how the machine worked.",
+    "antonyms": [
+      "indifferent",
+      "uninterested",
+      "apathetic"
+    ],
+    "mnemonic": "CURIOUS — CURIOSITY killed the cat; being curious leads you to discoveries.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w696",
+    "word": "Flexible",
+    "meaning_en": "Able to change or adapt to new situations",
+    "meaning_hi": "लचीला / अनुकूलनीय",
+    "example": "We need a flexible schedule to adjust to changes.",
+    "antonyms": [
+      "rigid",
+      "strict",
+      "inflexible"
+    ],
+    "mnemonic": "FLEXIBLE — FLEX + IBLE; you FLEX your muscles to be flexible.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w697",
+    "word": "Prepare",
+    "meaning_en": "To make ready beforehand",
+    "meaning_hi": "तैयारी करना",
+    "example": "Prepare your notes before the lecture begins.",
+    "antonyms": [
+      "neglect",
+      "ignore",
+      "improvise"
+    ],
+    "mnemonic": "PREPARE — PRE + PARE; pare (trim) things in advance = prepare.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w698",
+    "word": "Aware",
+    "meaning_en": "Having knowledge or understanding of something",
+    "meaning_hi": "जागरूक / सचेत",
+    "example": "Are you aware of the changes to the timetable?",
+    "antonyms": [
+      "unaware",
+      "ignorant",
+      "oblivious"
+    ],
+    "mnemonic": "AWARE — A WARE; a wary person is always AWARE.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w699",
+    "word": "Survey",
+    "meaning_en": "A set of questions asked to gather information from people",
+    "meaning_hi": "सर्वेक्षण",
+    "example": "The company conducted a survey to understand customer needs.",
+    "antonyms": [],
+    "mnemonic": "SURVEY — SUR + VEY; look OVER (sur) the VIEW (vey) = survey.",
+    "level": "B1",
+    "chapter_id": 4
+  },
+  {
+    "id": "w700",
+    "word": "Trend",
+    "meaning_en": "A general direction in which things are developing",
+    "meaning_hi": "प्रवृत्ति / ट्रेंड",
+    "example": "Working from home has become a major trend.",
+    "antonyms": [
+      "tradition",
+      "old custom",
+      "regression"
+    ],
+    "mnemonic": "TREND — BLEND; a trend blends into mainstream culture.",
+    "level": "B1",
+    "chapter_id": 4
+  }
+]

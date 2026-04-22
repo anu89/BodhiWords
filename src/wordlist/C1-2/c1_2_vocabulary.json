@@ -1,0 +1,1190 @@
+[
+  {
+    "id": "w1121",
+    "word": "Rhetoric",
+    "meaning_en": "Persuasive language, often without substance; the art of speaking",
+    "meaning_hi": "वक्तृत्व / खोखले शब्द",
+    "example": "His speech was full of political rhetoric but lacked real plans.",
+    "antonyms": [
+      "plain speech",
+      "honesty",
+      "action"
+    ],
+    "mnemonic": "RHETORIC — RHETO + RIC; RICH in words but often hollow.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1122",
+    "word": "Ritual",
+    "meaning_en": "A series of actions performed according to a set procedure",
+    "meaning_hi": "अनुष्ठान / रस्म",
+    "example": "Morning meditation became part of her daily ritual.",
+    "antonyms": [
+      "spontaneity",
+      "improvisation"
+    ],
+    "mnemonic": "RITUAL — RITU + AL; a habitual (ritual) pattern done regularly.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1123",
+    "word": "Robust",
+    "meaning_en": "Strong and healthy; able to withstand difficult conditions",
+    "meaning_hi": "मज़बूत / ठोस",
+    "example": "A robust economy can withstand global shocks.",
+    "antonyms": [
+      "fragile",
+      "weak",
+      "frail"
+    ],
+    "mnemonic": "ROBUST — ROB + BUST; so strong a robber can't BUST it.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1124",
+    "word": "Sacred",
+    "meaning_en": "Regarded with reverence; connected to religion",
+    "meaning_hi": "पवित्र / धार्मिक",
+    "example": "The Ganges is considered sacred in Hinduism.",
+    "antonyms": [
+      "profane",
+      "secular",
+      "unholy"
+    ],
+    "mnemonic": "SACRED — SACRE (holy in French) + D; designated holy = sacred.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1125",
+    "word": "Sacrifice",
+    "meaning_en": "To give up something valuable for a greater purpose",
+    "meaning_hi": "बलिदान / त्याग करना",
+    "example": "Soldiers make great sacrifices for their country.",
+    "antonyms": [
+      "selfishness",
+      "greed",
+      "keep"
+    ],
+    "mnemonic": "SACRIFICE — SACRI + FICE; FICE (offering) to a SACRED cause.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1126",
+    "word": "Sanction",
+    "meaning_en": "A penalty for disobeying a law; official approval",
+    "meaning_hi": "प्रतिबंध / मंज़ूरी",
+    "example": "Economic sanctions were imposed on the country.",
+    "antonyms": [
+      "approval",
+      "permission",
+      "reward"
+    ],
+    "mnemonic": "SANCTION — SANCT (holy law) + ION; the force of the law.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1127",
+    "word": "Scenario",
+    "meaning_en": "A written description of possible future events",
+    "meaning_hi": "परिदृश्य / संभावित स्थिति",
+    "example": "In the worst-case scenario, the project could fail.",
+    "antonyms": [
+      "certainty",
+      "reality"
+    ],
+    "mnemonic": "SCENARIO — SCENE + ARIO; an imagined SCENE playing out = scenario.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1128",
+    "word": "Scrutiny",
+    "meaning_en": "Close and detailed examination or investigation",
+    "meaning_hi": "जाँच-पड़ताल / कड़ी नज़र",
+    "example": "Government spending is under close public scrutiny.",
+    "antonyms": [
+      "ignorance",
+      "oversight",
+      "neglect"
+    ],
+    "mnemonic": "SCRUTINY — SCRU + TINY; shrink (TINY) things under a microscope = scrutiny.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1129",
+    "word": "Secular",
+    "meaning_en": "Not connected to religion; relating to worldly affairs",
+    "meaning_hi": "धर्मनिरपेक्ष",
+    "example": "India is a secular democracy.",
+    "antonyms": [
+      "religious",
+      "sacred",
+      "theocratic"
+    ],
+    "mnemonic": "SECULAR — SECU + LAR; securing a LAIR away from religion = secular.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1130",
+    "word": "Sentiment",
+    "meaning_en": "A feeling or opinion held or expressed",
+    "meaning_hi": "भावना / विचार",
+    "example": "Public sentiment against the decision grew stronger.",
+    "antonyms": [
+      "indifference",
+      "apathy"
+    ],
+    "mnemonic": "SENTIMENT — SENTI + MENT; the MENTAL feeling you SENSE = sentiment.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1131",
+    "word": "Solidarity",
+    "meaning_en": "Unity and agreement among a group sharing common interests",
+    "meaning_hi": "एकजुटता / सहभाव",
+    "example": "Workers marched in solidarity with the striking miners.",
+    "antonyms": [
+      "division",
+      "rivalry",
+      "hostility"
+    ],
+    "mnemonic": "SOLIDARITY — SOLID + ARITY; SOLID like a rock together = solidarity.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1132",
+    "word": "Sovereignty",
+    "meaning_en": "Supreme power or authority, especially of a state",
+    "meaning_hi": "संप्रभुता",
+    "example": "Countries guard their sovereignty against foreign interference.",
+    "antonyms": [
+      "subjugation",
+      "dependence",
+      "occupation"
+    ],
+    "mnemonic": "SOVEREIGNTY — SOVERE + IGNTY; sovereign (SOVERE) rule = sovereignty.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1133",
+    "word": "Spectrum",
+    "meaning_en": "A wide range of different positions or opinions",
+    "meaning_hi": "व्यापक श्रेणी / स्पेक्ट्रम",
+    "example": "The political spectrum ranges from far left to far right.",
+    "antonyms": [
+      "single point",
+      "uniformity"
+    ],
+    "mnemonic": "SPECTRUM — SPEC + TRUM; look through a SPEC to see the full range.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1134",
+    "word": "Stability",
+    "meaning_en": "The state of being unlikely to change or fail",
+    "meaning_hi": "स्थिरता",
+    "example": "Political stability is essential for economic growth.",
+    "antonyms": [
+      "instability",
+      "chaos",
+      "volatility"
+    ],
+    "mnemonic": "STABILITY — STABLE + ITY; the state of being STABLE.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1135",
+    "word": "Stake",
+    "meaning_en": "Something risked; a share or interest in something",
+    "meaning_hi": "दाँव / हिस्सा",
+    "example": "She had a major stake in the outcome of the vote.",
+    "antonyms": [
+      "insignificance",
+      "detachment"
+    ],
+    "mnemonic": "STAKE — STEAK; you put a big STEAK (stake) on the table when risking.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1136",
+    "word": "Stereotype",
+    "meaning_en": "A fixed, overly simplified image of a type of person",
+    "meaning_hi": "रूढ़िवादी धारणा / स्टीरियोटाइप",
+    "example": "We should challenge gender stereotypes in the media.",
+    "antonyms": [
+      "individuality",
+      "nuance",
+      "complexity"
+    ],
+    "mnemonic": "STEREOTYPE — STEREO + TYPE; a TYPE that sounds the same (stereo) = stereotype.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1137",
+    "word": "Strategic",
+    "meaning_en": "Carefully designed to serve a long-term purpose",
+    "meaning_hi": "रणनीतिक",
+    "example": "The company made a strategic decision to enter new markets.",
+    "antonyms": [
+      "impulsive",
+      "random",
+      "short-sighted"
+    ],
+    "mnemonic": "STRATEGIC — STRATEGY + IC; relating to a STRATEGY.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1138",
+    "word": "Substantial",
+    "meaning_en": "Of considerable importance, size, or worth",
+    "meaning_hi": "पर्याप्त / महत्त्वपूर्ण",
+    "example": "She made a substantial donation to the hospital.",
+    "antonyms": [
+      "trivial",
+      "small",
+      "insignificant"
+    ],
+    "mnemonic": "SUBSTANTIAL — SUBSTANCE + AL; having real SUBSTANCE = substantial.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1139",
+    "word": "Subtle",
+    "meaning_en": "Not immediately obvious; delicately complex",
+    "meaning_hi": "सूक्ष्म / बारीक",
+    "example": "There is a subtle difference between the two ideas.",
+    "antonyms": [
+      "obvious",
+      "blatant",
+      "overt"
+    ],
+    "mnemonic": "SUBTLE — SUB + TLE; hidden BELOW (sub) the surface = subtle.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1140",
+    "word": "Succession",
+    "meaning_en": "A number of things following one another; taking over a role",
+    "meaning_hi": "उत्तराधिकार / क्रम",
+    "example": "There were three crises in quick succession.",
+    "antonyms": [
+      "interruption",
+      "break",
+      "disorder"
+    ],
+    "mnemonic": "SUCCESSION — SUCCEED + SION; each SUCCESS leads to the next succession.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1141",
+    "word": "Summit",
+    "meaning_en": "A meeting of heads of government; the highest point",
+    "meaning_hi": "शिखर सम्मेलन / चोटी",
+    "example": "World leaders met at the climate summit.",
+    "antonyms": [
+      "base",
+      "bottom",
+      "valley"
+    ],
+    "mnemonic": "SUMMIT — SUM + MIT; the SUM of all efforts gets you to the summit.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1142",
+    "word": "Suppression",
+    "meaning_en": "The act of forcibly stopping something",
+    "meaning_hi": "दमन / दबाना",
+    "example": "The suppression of free speech is a human rights violation.",
+    "antonyms": [
+      "freedom",
+      "release",
+      "expression"
+    ],
+    "mnemonic": "SUPPRESSION — SUPPRESS + ION; the act of suppressing.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1143",
+    "word": "Surge",
+    "meaning_en": "A sudden large increase; to move forward suddenly",
+    "meaning_hi": "उछाल / तेज़ी से बढ़ना",
+    "example": "There was a surge in demand for vaccines.",
+    "antonyms": [
+      "decline",
+      "drop",
+      "plummet"
+    ],
+    "mnemonic": "SURGE — URGE; a powerful URGE = a surge of energy.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1144",
+    "word": "Surveillance",
+    "meaning_en": "Close observation of a person or group, especially by authorities",
+    "meaning_hi": "निगरानी",
+    "example": "Government surveillance of citizens raises privacy concerns.",
+    "antonyms": [
+      "privacy",
+      "freedom",
+      "ignorance"
+    ],
+    "mnemonic": "SURVEILLANCE — SURVEY + LANCE; watch (survey) with a LANCE-like focus.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1145",
+    "word": "Sustainability",
+    "meaning_en": "The ability to maintain without damaging the environment",
+    "meaning_hi": "स्थायित्व / पर्यावरणीय टिकाऊपन",
+    "example": "Sustainability is at the core of modern climate policy.",
+    "antonyms": [
+      "destruction",
+      "exploitation",
+      "waste"
+    ],
+    "mnemonic": "SUSTAINABILITY — SUSTAIN + ABILITY; the ABILITY to SUSTAIN over time.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1146",
+    "word": "Syndrome",
+    "meaning_en": "A group of symptoms that consistently occur together",
+    "meaning_hi": "सिंड्रोम / लक्षण समूह",
+    "example": "Burnout syndrome is common in demanding professions.",
+    "antonyms": [],
+    "mnemonic": "SYNDROME — SYN (together) + DROME; symptoms running TOGETHER on a track.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1147",
+    "word": "Synthesis",
+    "meaning_en": "The combination of elements into a coherent whole",
+    "meaning_hi": "संश्लेषण / संयोजन",
+    "example": "The essay offered a synthesis of multiple viewpoints.",
+    "antonyms": [
+      "analysis",
+      "breakdown",
+      "separation"
+    ],
+    "mnemonic": "SYNTHESIS — SYN (together) + THESIS; combining THESES = synthesis.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1148",
+    "word": "Systematic",
+    "meaning_en": "Done according to a fixed plan; methodical",
+    "meaning_hi": "व्यवस्थित / क्रमबद्ध",
+    "example": "A systematic approach ensures consistent results.",
+    "antonyms": [
+      "random",
+      "disorganised",
+      "chaotic"
+    ],
+    "mnemonic": "SYSTEMATIC — SYSTEM + ATIC; following a SYSTEM = systematic.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1149",
+    "word": "Tactic",
+    "meaning_en": "A plan or method for achieving a specific goal",
+    "meaning_hi": "युक्ति / रणनीति",
+    "example": "The team used clever tactics to win the match.",
+    "antonyms": [
+      "chance",
+      "improvisation"
+    ],
+    "mnemonic": "TACTIC — TAC + TIC; TIC TAC TOE is all about tactics and strategy.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1150",
+    "word": "Testimony",
+    "meaning_en": "A formal statement, especially in a court of law",
+    "meaning_hi": "गवाही / साक्ष्य",
+    "example": "Her testimony was crucial to the court's decision.",
+    "antonyms": [
+      "silence",
+      "denial",
+      "refusal"
+    ],
+    "mnemonic": "TESTIMONY — TESTIFY + MONY; what you testify = your testimony.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1151",
+    "word": "Theology",
+    "meaning_en": "The study of religion and the nature of God",
+    "meaning_hi": "धर्मशास्त्र / ईश्वरविज्ञान",
+    "example": "She studied theology at university.",
+    "antonyms": [
+      "atheism",
+      "secularism"
+    ],
+    "mnemonic": "THEOLOGY — THEO (God) + LOGY (study); the study of GOD.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1152",
+    "word": "Threshold",
+    "meaning_en": "A level or point at which something begins or changes",
+    "meaning_hi": "सीमारेखा / दहलीज़",
+    "example": "Pain threshold varies from person to person.",
+    "antonyms": [
+      "interior",
+      "middle",
+      "depth"
+    ],
+    "mnemonic": "THRESHOLD — THRESH + HOLD; the HOLD before you THRESH (enter).",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1153",
+    "word": "Thrive",
+    "meaning_en": "To prosper and grow vigorously",
+    "meaning_hi": "फलना-फूलना / तरक्की करना",
+    "example": "Plants thrive in warm, sunny conditions.",
+    "antonyms": [
+      "wither",
+      "decline",
+      "struggle",
+      "fail"
+    ],
+    "mnemonic": "THRIVE — DRIVE; you DRIVE forward to THRIVE in life.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1154",
+    "word": "Tolerance",
+    "meaning_en": "Willingness to accept different opinions or behaviours",
+    "meaning_hi": "सहनशीलता / सहिष्णुता",
+    "example": "A healthy society is built on tolerance and respect.",
+    "antonyms": [
+      "intolerance",
+      "bigotry",
+      "discrimination"
+    ],
+    "mnemonic": "TOLERANCE — TOLERATE + NCE; the capacity to TOLERATE differences.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1155",
+    "word": "Torture",
+    "meaning_en": "The infliction of severe pain as punishment or coercion",
+    "meaning_hi": "यातना / प्रताड़ना",
+    "example": "Torture is a violation of international human rights law.",
+    "antonyms": [
+      "kindness",
+      "comfort",
+      "mercy"
+    ],
+    "mnemonic": "TORTURE — TORT (wrong in law) + URE; a legal TORT done cruelly = torture.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1156",
+    "word": "Trademark",
+    "meaning_en": "A symbol legally registered to a brand; a distinctive feature",
+    "meaning_hi": "ट्रेडमार्क / पहचान चिह्न",
+    "example": "His dry humour became his trademark.",
+    "antonyms": [
+      "generic",
+      "common",
+      "unbranded"
+    ],
+    "mnemonic": "TRADEMARK — TRADE + MARK; the MARK of a TRADE = trademark.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1157",
+    "word": "Transformation",
+    "meaning_en": "A thorough or dramatic change in form or appearance",
+    "meaning_hi": "रूपांतरण / कायापलट",
+    "example": "The city's transformation over 20 years was remarkable.",
+    "antonyms": [
+      "stagnation",
+      "preservation",
+      "stability"
+    ],
+    "mnemonic": "TRANSFORMATION — TRANSFORM + ATION; the result of transforming.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1158",
+    "word": "Transparency",
+    "meaning_en": "Being open and honest, not hiding information",
+    "meaning_hi": "पारदर्शिता",
+    "example": "The public demands transparency in government spending.",
+    "antonyms": [
+      "opacity",
+      "secrecy",
+      "concealment"
+    ],
+    "mnemonic": "TRANSPARENCY — TRANSPARENT + CY; through which everything is visible.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1159",
+    "word": "Trauma",
+    "meaning_en": "A deeply distressing or disturbing experience",
+    "meaning_hi": "आघात / सदमा",
+    "example": "Soldiers often experience trauma after combat.",
+    "antonyms": [
+      "healing",
+      "comfort",
+      "peace"
+    ],
+    "mnemonic": "TRAUMA — TRAM + A; hit by a TRAM — a traumatic event.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1160",
+    "word": "Treaty",
+    "meaning_en": "A formal agreement between countries",
+    "meaning_hi": "संधि / समझौता",
+    "example": "The two countries signed a peace treaty.",
+    "antonyms": [
+      "war",
+      "conflict",
+      "dispute"
+    ],
+    "mnemonic": "TREATY — TREAT + Y; TREAT each other fairly with a TREATY.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1161",
+    "word": "Triumph",
+    "meaning_en": "A great victory or achievement",
+    "meaning_hi": "जीत / विजय",
+    "example": "Winning the championship was her greatest triumph.",
+    "antonyms": [
+      "defeat",
+      "failure",
+      "loss"
+    ],
+    "mnemonic": "TRIUMPH — TRI + UMPH; the UMPH (energy) of THREE combined = triumph.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1162",
+    "word": "Undermine",
+    "meaning_en": "To weaken or damage something gradually",
+    "meaning_hi": "कमज़ोर करना / खोखला करना",
+    "example": "Corruption undermines public trust in institutions.",
+    "antonyms": [
+      "strengthen",
+      "support",
+      "reinforce"
+    ],
+    "mnemonic": "UNDERMINE — UNDER + MINE; digging a MINE UNDER a structure weakens it.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1163",
+    "word": "Unprecedented",
+    "meaning_en": "Never done or known before",
+    "meaning_hi": "अभूतपूर्व / बेमिसाल",
+    "example": "The pandemic caused unprecedented disruption globally.",
+    "antonyms": [
+      "common",
+      "ordinary",
+      "familiar"
+    ],
+    "mnemonic": "UNPRECEDENTED — UN + PRECEDENT + ED; no PRECEDENT exists = unprecedented.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1164",
+    "word": "Uphold",
+    "meaning_en": "To maintain or support a law, principle, or decision",
+    "meaning_hi": "बनाए रखना / समर्थन करना",
+    "example": "Judges are required to uphold the constitution.",
+    "antonyms": [
+      "overturn",
+      "violate",
+      "reject"
+    ],
+    "mnemonic": "UPHOLD — UP + HOLD; hold UP (maintain) the value or law.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1165",
+    "word": "Vague",
+    "meaning_en": "Not clear or specific; uncertain",
+    "meaning_hi": "अस्पष्ट / धुंधला",
+    "example": "His answer was vague and failed to address the question.",
+    "antonyms": [
+      "precise",
+      "clear",
+      "specific",
+      "definite"
+    ],
+    "mnemonic": "VAGUE — VEIL; a VAGUE statement is like hidden behind a VEIL.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1166",
+    "word": "Valid",
+    "meaning_en": "Based on sound reasoning; legally acceptable",
+    "meaning_hi": "वैध / तर्कसंगत",
+    "example": "She raised several valid points during the discussion.",
+    "antonyms": [
+      "invalid",
+      "void",
+      "unreasonable"
+    ],
+    "mnemonic": "VALID — VALOR; a VALID argument has the VALOR (strength) of truth.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1167",
+    "word": "Vanish",
+    "meaning_en": "To disappear suddenly and completely",
+    "meaning_hi": "गायब होना",
+    "example": "The suspect vanished before police arrived.",
+    "antonyms": [
+      "appear",
+      "emerge",
+      "surface"
+    ],
+    "mnemonic": "VANISH — VAN + ISH; a VAN driving away = vanish.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1168",
+    "word": "Verdict",
+    "meaning_en": "A decision made by a jury or judge; an opinion formed",
+    "meaning_hi": "फ़ैसला / निर्णय",
+    "example": "The jury returned a guilty verdict.",
+    "antonyms": [
+      "charge",
+      "accusation",
+      "indecision"
+    ],
+    "mnemonic": "VERDICT — VER (truth) + DICT (say); saying the TRUTH = verdict.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1169",
+    "word": "Vibrant",
+    "meaning_en": "Full of energy and enthusiasm; bright and striking",
+    "meaning_hi": "जीवंत / ऊर्जावान",
+    "example": "Mumbai is a vibrant city full of life and culture.",
+    "antonyms": [
+      "dull",
+      "lifeless",
+      "drab"
+    ],
+    "mnemonic": "VIBRANT — VIBRATE + ANT; vibrating with energy = vibrant.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1170",
+    "word": "Violation",
+    "meaning_en": "The breaking of a law or failure to respect someone's rights",
+    "meaning_hi": "उल्लंघन",
+    "example": "Detention without trial is a violation of human rights.",
+    "antonyms": [
+      "compliance",
+      "respect",
+      "observance"
+    ],
+    "mnemonic": "VIOLATION — VIOLATE + ION; the act of violating a rule.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1171",
+    "word": "Virtue",
+    "meaning_en": "A good quality or moral behaviour worth admiring",
+    "meaning_hi": "सद्गुण / नेकी",
+    "example": "Patience is a virtue that everyone should cultivate.",
+    "antonyms": [
+      "vice",
+      "sin",
+      "immorality"
+    ],
+    "mnemonic": "VIRTUE — VIRTU (excellence in Italian); excellence of character = virtue.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1172",
+    "word": "Vulnerable",
+    "meaning_en": "Exposed to the possibility of being attacked or harmed",
+    "meaning_hi": "असुरक्षित / कमज़ोर",
+    "example": "Children are among the most vulnerable groups in conflict zones.",
+    "antonyms": [
+      "protected",
+      "resilient",
+      "strong",
+      "safe"
+    ],
+    "mnemonic": "VULNERABLE — VULNER (wound) + ABLE; ABLE to be WOUNDED = vulnerable.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1173",
+    "word": "Warfare",
+    "meaning_en": "Engagement in or the activities of war",
+    "meaning_hi": "युद्ध / लड़ाई",
+    "example": "Cyber warfare poses new threats to national security.",
+    "antonyms": [
+      "peace",
+      "diplomacy",
+      "ceasefire"
+    ],
+    "mnemonic": "WARFARE — WAR + FARE; the FARE (cost) of WAR = warfare.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1174",
+    "word": "Welfare",
+    "meaning_en": "The health, happiness, and fortune of a person or group",
+    "meaning_hi": "कल्याण / भलाई",
+    "example": "Child welfare laws protect children from abuse.",
+    "antonyms": [
+      "neglect",
+      "harm",
+      "suffering"
+    ],
+    "mnemonic": "WELFARE — WELL + FARE; to FARE WELL = welfare.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1175",
+    "word": "Well-being",
+    "meaning_en": "The state of being comfortable, healthy, and happy",
+    "meaning_hi": "सुख-समृद्धि / भलाई",
+    "example": "Mental well-being is as important as physical health.",
+    "antonyms": [
+      "misery",
+      "suffering",
+      "ill-health"
+    ],
+    "mnemonic": "WELL-BEING — WELL + BEING; your state of BEING WELL.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1176",
+    "word": "Withdrawal",
+    "meaning_en": "The act of removing or pulling back; stopping a habit",
+    "meaning_hi": "वापसी / निकासी",
+    "example": "The withdrawal of troops was announced.",
+    "antonyms": [
+      "deployment",
+      "addition",
+      "advance"
+    ],
+    "mnemonic": "WITHDRAWAL — WITH + DRAW + AL; DRAWING back WITH yourself = withdrawal.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1177",
+    "word": "Worthwhile",
+    "meaning_en": "Worth the time, money, or effort spent",
+    "meaning_hi": "सार्थक / मूल्यवान",
+    "example": "Volunteering is a worthwhile use of your time.",
+    "antonyms": [
+      "worthless",
+      "pointless",
+      "futile"
+    ],
+    "mnemonic": "WORTHWHILE — WORTH + WHILE; worth your WHILE = worthwhile.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1178",
+    "word": "Yield",
+    "meaning_en": "To produce or provide; to give way under pressure",
+    "meaning_hi": "उपज / झुकना / देना",
+    "example": "The new policy yielded positive results.",
+    "antonyms": [
+      "resist",
+      "refuse",
+      "withhold"
+    ],
+    "mnemonic": "YIELD — FIELD; a FIELD YIELDS crops when worked hard.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1179",
+    "word": "Acute",
+    "meaning_en": "Very serious or severe; having a sharp perception",
+    "meaning_hi": "तीव्र / गंभीर",
+    "example": "The patient was admitted with acute chest pain.",
+    "antonyms": [
+      "chronic",
+      "mild",
+      "gradual"
+    ],
+    "mnemonic": "ACUTE — A + CUT; an ACUTE problem CUTS sharply into life.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1180",
+    "word": "Analogy",
+    "meaning_en": "A comparison between two things for explanation",
+    "meaning_hi": "उपमा / समानता",
+    "example": "He used an analogy to explain the concept.",
+    "antonyms": [
+      "difference",
+      "contrast",
+      "dissimilarity"
+    ],
+    "mnemonic": "ANALOGY — ANAL + OGY; an ANAL-ysis of OGY (sameness) = analogy.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1181",
+    "word": "Arbitrary",
+    "meaning_en": "Based on random choice rather than reason or system",
+    "meaning_hi": "मनमाना / स्वेच्छाचारी",
+    "example": "The decision seemed arbitrary and unfair.",
+    "antonyms": [
+      "reasoned",
+      "systematic",
+      "justified"
+    ],
+    "mnemonic": "ARBITRARY — ARBITER (judge) + ARY; a judge with no reason = arbitrary.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1182",
+    "word": "Aspiration",
+    "meaning_en": "A strong desire to achieve something great",
+    "meaning_hi": "आकांक्षा / महत्त्वाकांक्षा",
+    "example": "Her aspiration to become a scientist drove her forward.",
+    "antonyms": [
+      "apathy",
+      "indifference",
+      "contentment"
+    ],
+    "mnemonic": "ASPIRATION — ASPIRE + ATION; the state of aspiring to something.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1183",
+    "word": "Atrocity",
+    "meaning_en": "An extremely wicked or cruel act",
+    "meaning_hi": "अत्याचार / जघन्य कार्य",
+    "example": "The world condemned the atrocities committed during the war.",
+    "antonyms": [
+      "kindness",
+      "mercy",
+      "justice"
+    ],
+    "mnemonic": "ATROCITY — ATROCIOUS + ITY; the state of being atrocious.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1184",
+    "word": "Authentic",
+    "meaning_en": "Of undisputed origin; genuine and not a copy",
+    "meaning_hi": "प्रामाणिक / असली",
+    "example": "Collectors pay large sums for authentic artworks.",
+    "antonyms": [
+      "fake",
+      "forged",
+      "artificial",
+      "counterfeit"
+    ],
+    "mnemonic": "AUTHENTIC — AUTHOR + ENTIC; an AUTHOR's original work is authentic.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1185",
+    "word": "Benchmark",
+    "meaning_en": "A standard point against which things may be compared",
+    "meaning_hi": "मानदंड / कसौटी",
+    "example": "This test serves as a benchmark for student performance.",
+    "antonyms": [
+      "irregularity",
+      "unpredictability"
+    ],
+    "mnemonic": "BENCHMARK — BENCH + MARK; the MARK set on a BENCH of standards.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1186",
+    "word": "Bureaucracy",
+    "meaning_en": "A system with complex rules and regulations",
+    "meaning_hi": "नौकरशाही",
+    "example": "Too much bureaucracy slows down business growth.",
+    "antonyms": [
+      "simplicity",
+      "efficiency",
+      "flexibility"
+    ],
+    "mnemonic": "BUREAUCRACY — BUREAU (office) + CRACY (rule); ruled by OFFICES = bureaucracy.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1187",
+    "word": "Capitalism",
+    "meaning_en": "An economic system based on private ownership and profit",
+    "meaning_hi": "पूँजीवाद",
+    "example": "Capitalism encourages competition and innovation.",
+    "antonyms": [
+      "socialism",
+      "communism"
+    ],
+    "mnemonic": "CAPITALISM — CAPITAL + ISM; the ideology (ism) of CAPITAL (money).",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1188",
+    "word": "Cognitive",
+    "meaning_en": "Relating to mental processes of thinking and understanding",
+    "meaning_hi": "संज्ञानात्मक",
+    "example": "Cognitive decline is associated with aging.",
+    "antonyms": [
+      "emotional",
+      "physical"
+    ],
+    "mnemonic": "COGNITIVE — COGNI (know) + TIVE; related to KNOWING = cognitive.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1189",
+    "word": "Complexity",
+    "meaning_en": "The state of having many interconnected parts",
+    "meaning_hi": "जटिलता",
+    "example": "The complexity of the issue requires expert analysis.",
+    "antonyms": [
+      "simplicity",
+      "clarity",
+      "straightforwardness"
+    ],
+    "mnemonic": "COMPLEXITY — COMPLEX + ITY; the state of being COMPLEX.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1190",
+    "word": "Contempt",
+    "meaning_en": "The feeling that someone is worthless; disrespect for law",
+    "meaning_hi": "तिरस्कार / अवमानना",
+    "example": "He showed contempt for the court's ruling.",
+    "antonyms": [
+      "respect",
+      "admiration",
+      "reverence"
+    ],
+    "mnemonic": "CONTEMPT — CON + TEMPT; TEMPT to mock (CONdescend) = contempt.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1191",
+    "word": "Conviction",
+    "meaning_en": "A firmly held belief; a formal declaration of guilt",
+    "meaning_hi": "दृढ़ विश्वास / दोषसिद्धि",
+    "example": "He spoke with great conviction about the need for reform.",
+    "antonyms": [
+      "doubt",
+      "acquittal",
+      "uncertainty"
+    ],
+    "mnemonic": "CONVICTION — CONVINCE + TION; total CONVICTION = being fully convinced.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1192",
+    "word": "Cynical",
+    "meaning_en": "Believing that people only act out of self-interest",
+    "meaning_hi": "निंदक / संशयी",
+    "example": "She became cynical after years of political disappointment.",
+    "antonyms": [
+      "optimistic",
+      "trusting",
+      "idealistic"
+    ],
+    "mnemonic": "CYNICAL — CYN (dog in Greek) + ICAL; snarling like a DOG = cynical.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1193",
+    "word": "Dedicated",
+    "meaning_en": "Devoted to a task or purpose with great commitment",
+    "meaning_hi": "समर्पित",
+    "example": "She is a dedicated teacher who works beyond school hours.",
+    "antonyms": [
+      "uncommitted",
+      "indifferent",
+      "lazy"
+    ],
+    "mnemonic": "DEDICATED — DEDICATE + D; a DEDICATED person gives their ALL.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1194",
+    "word": "Deficit",
+    "meaning_en": "An excess of expenditure over revenue; a shortfall",
+    "meaning_hi": "घाटा / कमी",
+    "example": "The government is trying to reduce the budget deficit.",
+    "antonyms": [
+      "surplus",
+      "profit",
+      "abundance"
+    ],
+    "mnemonic": "DEFICIT — DEFIC + IT; IT is DEFICient — something is missing.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1195",
+    "word": "Deployment",
+    "meaning_en": "Bringing resources or troops into effective action",
+    "meaning_hi": "तैनाती",
+    "example": "The rapid deployment of aid workers saved thousands.",
+    "antonyms": [
+      "withdrawal",
+      "retreat"
+    ],
+    "mnemonic": "DEPLOYMENT — DEPLOY + MENT; the act of deploying.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1196",
+    "word": "Discourse",
+    "meaning_en": "Written or spoken communication on a topic",
+    "meaning_hi": "विमर्श / प्रवचन",
+    "example": "Public discourse on climate change has intensified.",
+    "antonyms": [
+      "silence",
+      "avoidance"
+    ],
+    "mnemonic": "DISCOURSE — DIS + COURSE; running ACROSS (dis) a COURSE of ideas.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1197",
+    "word": "Empirical",
+    "meaning_en": "Based on observation or experiment, not theory",
+    "meaning_hi": "प्रायोगिक / अनुभवजन्य",
+    "example": "The study provided empirical evidence for the theory.",
+    "antonyms": [
+      "theoretical",
+      "speculative",
+      "assumed"
+    ],
+    "mnemonic": "EMPIRICAL — EMPIRE + ICAL; an EMPIRE of tested, proven facts.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1198",
+    "word": "Entity",
+    "meaning_en": "A thing with a distinct and independent existence",
+    "meaning_hi": "इकाई / सत्ता",
+    "example": "A corporation is a legal entity separate from its owners.",
+    "antonyms": [
+      "nothing",
+      "nonentity"
+    ],
+    "mnemonic": "ENTITY — ENT + ITY; the state of having ENTRY into existence.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1199",
+    "word": "Equality",
+    "meaning_en": "The state of being equal in rights, status, or opportunity",
+    "meaning_hi": "समानता",
+    "example": "Equality before the law is a pillar of democracy.",
+    "antonyms": [
+      "inequality",
+      "discrimination",
+      "injustice"
+    ],
+    "mnemonic": "EQUALITY — EQUAL + ITY; the state of being EQUAL.",
+    "level": "C1",
+    "chapter_id": 8
+  },
+  {
+    "id": "w1200",
+    "word": "Explicit",
+    "meaning_en": "Stated clearly and in detail, leaving nothing to guessing",
+    "meaning_hi": "स्पष्ट / खुला",
+    "example": "The instructions were explicit and easy to follow.",
+    "antonyms": [
+      "implicit",
+      "vague",
+      "ambiguous",
+      "unclear"
+    ],
+    "mnemonic": "EXPLICIT — EX + PLICIT; fully UNFOLDED (ex = out) = explicit.",
+    "level": "C1",
+    "chapter_id": 8
+  }
+]
