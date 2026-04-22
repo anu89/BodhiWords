@@ -18,6 +18,7 @@ interface AppContextValue {
   refreshProgress: () => Promise<void>
   signOut: () => Promise<void>
   changeLevel: (level: ESLLevel) => Promise<void>
+  changeMode: (data: { mode: UserMode; examDomain?: ExamDomain | null; dailyGoal?: number }) => Promise<void>
   saveProfile: (data: { name: string; level: ESLLevel; mode: UserMode; examDomain?: ExamDomain | null; dailyGoal: number }) => Promise<void>
   updateTodaySession: (updates: Partial<DailySession>) => void
   updateUserData: (updates: Partial<User>) => void
@@ -38,8 +39,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const supabase = useMemo(() => createClient(), [])
 
   // Returns data — callers set state to keep updates atomic
-  const fetchProgress = useCallback(async (userId: string) => {
-    const { data } = await supabase.from('user_progress').select('*').eq('user_id', userId)
+  const fetchProgress = useCallback(async (userId: string, mode: string) => {
+    const { data } = await supabase.from('user_progress').select('*').eq('user_id', userId).eq('mode', mode)
     const list = (data ?? []) as UserProgress[]
     const map: Record<string, UserProgress> = {}
     list.forEach((p: UserProgress) => { map[p.word_id] = p })
@@ -52,7 +53,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, [supabase])
 
   // Returns session — caller sets state
-  const buildDailySession = useCallback(async (userId: string, levelWords: Word[], progressList: UserProgress[]) => {
+  const buildDailySession = useCallback(async (userId: string, mode: string, levelWords: Word[], progressList: UserProgress[]) => {
     const today = getTodayStr()
 
     const { data: existing } = await supabase
@@ -60,6 +61,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       .select('*')
       .eq('user_id', userId)
       .eq('date', today)
+      .eq('mode', mode)
       .maybeSingle()
 
     if (existing) return existing as DailySession
@@ -72,17 +74,17 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const { data: inserted, error } = await supabase
       .from('daily_sessions')
-      .insert({ user_id: userId, date: today, word_ids: picked, completed: false })
+      .insert({ user_id: userId, date: today, word_ids: picked, completed: false, mode })
       .select()
       .single()
 
     if (error) {
-      // Race: another call already inserted — fetch it
       const { data: raced } = await supabase
         .from('daily_sessions')
         .select('*')
         .eq('user_id', userId)
         .eq('date', today)
+        .eq('mode', mode)
         .maybeSingle()
       return (raced ?? null) as DailySession | null
     }
@@ -129,11 +131,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       }
 
       // Fetch remaining data in parallel
+      const userMode = userData.mode ?? 'esl'
       const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
-        fetchProgress(userId),
+        fetchProgress(userId, userMode),
         fetchWords(userData.level),
       ])
-      const session = await buildDailySession(userId, levelWords, progressList)
+      const session = await buildDailySession(userId, userMode, levelWords, progressList)
 
       // Set all state at once — prevents partial-render flicker
       setUser(userData as User)
@@ -147,7 +150,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       loadingRef.current = false
       setIsLoading(false)
     }
-  }, [supabase, fetchProgress, buildDailySession])
+  }, [supabase, fetchProgress, fetchWords, buildDailySession])
 
   useEffect(() => {
     let mounted = true
@@ -196,7 +199,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const refreshProgress = useCallback(async () => {
     if (!user) return
-    const { map } = await fetchProgress(user.id)
+    const { map } = await fetchProgress(user.id, user.mode)
     setProgress(map)
   }, [user, fetchProgress])
 
@@ -214,9 +217,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const changeLevel = useCallback(async (level: ESLLevel) => {
     if (!user) return
+    const levelWords = await fetchWords(level)
     await supabase.from('users').update({ level }).eq('id', user.id)
     setUser(prev => prev ? { ...prev, level } : null)
-  }, [user, supabase])
+    setWords(levelWords)
+  }, [user, supabase, fetchWords])
 
   const saveProfile = useCallback(async ({ name, level, mode, examDomain, dailyGoal }: {
     name: string; level: ESLLevel; mode: UserMode; examDomain?: ExamDomain | null; dailyGoal: number
@@ -236,15 +241,36 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       last_active_date: user.last_active_date ?? null,
     })
 
-    await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today)
+    await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today).eq('mode', mode)
 
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
-      fetchProgress(user.id),
+      fetchProgress(user.id, mode),
       fetchWords(level),
     ])
-    const session = await buildDailySession(user.id, levelWords, progressList)
+    const session = await buildDailySession(user.id, mode, levelWords, progressList)
 
     setUser(prev => prev ? { ...prev, name, level, mode, exam_domain: examDomain ?? null, daily_goal: dailyGoal } : null)
+    setProgress(progressMap)
+    setWords(levelWords)
+    setTodaySession(session)
+  }, [user, supabase, fetchProgress, fetchWords, buildDailySession])
+
+  const changeMode = useCallback(async ({ mode, examDomain, dailyGoal }: {
+    mode: UserMode; examDomain?: ExamDomain | null; dailyGoal?: number
+  }) => {
+    if (!user) return
+    const updates = {
+      mode,
+      exam_domain: examDomain ?? null,
+      daily_goal: dailyGoal ?? user.daily_goal,
+    }
+    await supabase.from('users').update(updates).eq('id', user.id)
+    const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
+      fetchProgress(user.id, mode),
+      fetchWords(user.level),
+    ])
+    const session = await buildDailySession(user.id, mode, levelWords, progressList)
+    setUser(prev => prev ? { ...prev, ...updates } : null)
     setProgress(progressMap)
     setWords(levelWords)
     setTodaySession(session)
@@ -269,6 +295,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       refreshProgress,
       signOut,
       changeLevel,
+      changeMode,
       saveProfile,
       updateTodaySession,
       updateUserData,

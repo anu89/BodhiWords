@@ -39,6 +39,7 @@ export interface DailySession {
 export interface UserProgress {
   user_id: string
   word_id: string
+  mode: UserMode
   correct_count: number
   incorrect_count: number
   status: 'new' | 'weak' | 'learning' | 'mastered'

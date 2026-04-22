@@ -5,19 +5,40 @@ import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useApp } from '@/context/AppContext'
 import { GRADE_BLOCKS } from '@/lib/gradeBlocks'
-import type { ESLLevel } from '@/types'
-import { Flame, BookOpen, Layers, LogOut, ChevronRight, Check } from 'lucide-react'
+import type { ESLLevel, ExamDomain, UserMode } from '@/types'
+import { Flame, BookOpen, GraduationCap, Layers, LogOut, ChevronRight, Check } from 'lucide-react'
+
+const EXAM_DOMAINS: { key: ExamDomain; label: string; desc: string; defaultGoal: number }[] = [
+  { key: 'gre',     label: 'GRE',     desc: 'Graduate admissions', defaultGoal: 15 },
+  { key: 'toefl',   label: 'TOEFL',   desc: 'English proficiency',  defaultGoal: 10 },
+  { key: 'ssc_cgl', label: 'SSC CGL', desc: 'Staff Selection',      defaultGoal: 20 },
+  { key: 'cat',     label: 'CAT',     desc: 'MBA entrance',         defaultGoal: 10 },
+  { key: 'banking', label: 'Banking', desc: 'IBPS / SBI PO',        defaultGoal: 15 },
+  { key: 'rrb',     label: 'RRB',     desc: 'Railway recruitment',  defaultGoal: 20 },
+]
+
+const DAILY_GOALS = [5, 10, 15, 20]
 
 export default function ProfilePage() {
-  const { user, progress, leafCount, isLoading, signOut, changeLevel } = useApp()
+  const { user, progress, leafCount, isLoading, signOut, changeLevel, changeMode } = useApp()
   const router = useRouter()
+
   const [selectedLevel, setSelectedLevel] = useState<ESLLevel | null>(null)
-  const [saving, setSaving] = useState(false)
+  const [selectedMode, setSelectedMode] = useState<UserMode>('esl')
+  const [selectedDomain, setSelectedDomain] = useState<ExamDomain>('gre')
+  const [dailyGoal, setDailyGoal] = useState(15)
+  const [savingLevel, setSavingLevel] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [switchingMode, setSwitchingMode] = useState(false)
 
   useEffect(() => {
     if (!isLoading && !user) router.push('/auth/login')
-    if (user) setSelectedLevel(user.level)
+    if (user) {
+      setSelectedLevel(user.level)
+      setSelectedMode(user.mode ?? 'esl')
+      setSelectedDomain((user.exam_domain ?? 'gre') as ExamDomain)
+      setDailyGoal(user.daily_goal ?? 15)
+    }
   }, [user, isLoading, router])
 
   const masteredCount = Object.values(progress).filter(p => p.status === 'mastered').length
@@ -26,14 +47,35 @@ export default function ProfilePage() {
 
   const handleSaveLevel = async () => {
     if (!selectedLevel) return
-    setSaving(true)
+    setSavingLevel(true)
     await changeLevel(selectedLevel)
-    setSaving(false)
+    setSavingLevel(false)
     setSaved(true)
     setTimeout(() => setSaved(false), 2000)
   }
 
-  const handleSignOut = () => signOut()
+  const handleDomainSelect = (domain: ExamDomain) => {
+    const d = EXAM_DOMAINS.find(d => d.key === domain)
+    setSelectedDomain(domain)
+    if (d) setDailyGoal(d.defaultGoal)
+  }
+
+  const modeChanged = selectedMode !== (user?.mode ?? 'esl')
+  const examParamsChanged = selectedMode === 'exam' && (
+    selectedDomain !== (user?.exam_domain ?? 'gre') ||
+    dailyGoal !== (user?.daily_goal ?? 15)
+  )
+
+  const handleSaveMode = async () => {
+    if (!modeChanged && !examParamsChanged) return
+    setSwitchingMode(true)
+    await changeMode({
+      mode: selectedMode,
+      examDomain: selectedMode === 'exam' ? selectedDomain : null,
+      dailyGoal: selectedMode === 'exam' ? dailyGoal : 5,
+    })
+    setSwitchingMode(false)
+  }
 
   if (isLoading || !user) return null
 
@@ -94,7 +136,7 @@ export default function ProfilePage() {
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
-          className="bg-amber-50 border border-amber-100 rounded-xl p-4 mb-6 flex items-center justify-between"
+          className="bg-amber-50 border border-amber-100 rounded-xl p-4 mb-6 flex items-center justify-between cursor-pointer"
           onClick={() => router.push('/practice')}
         >
           <div>
@@ -105,21 +147,95 @@ export default function ProfilePage() {
         </motion.div>
       )}
 
+      {/* Mode switcher */}
+      <div className="bg-white border border-bodhi-border rounded-2xl p-5 mb-4">
+        <h2 className="text-sm font-bold text-bodhi-text mb-1">Learning Mode</h2>
+        <p className="text-xs text-bodhi-text-muted mb-3">Switch modes anytime — each mode keeps its own progress.</p>
+        <div className="grid grid-cols-2 gap-2 mb-3">
+          {([
+            { key: 'esl' as UserMode,  label: 'ESL Journey',  desc: 'Build fluency',  Icon: BookOpen },
+            { key: 'exam' as UserMode, label: 'Exam Prep',    desc: 'Ace your test',  Icon: GraduationCap },
+          ] as const).map(({ key, label, desc, Icon }) => (
+            <button
+              key={key}
+              onClick={() => setSelectedMode(key)}
+              className={`flex flex-col items-center gap-1 py-3 rounded-xl border text-center transition-all ${
+                selectedMode === key
+                  ? 'border-bodhi-green bg-green-50 shadow-sm'
+                  : 'border-bodhi-border bg-white hover:border-bodhi-green/40'
+              }`}
+            >
+              <Icon size={18} className={selectedMode === key ? 'text-bodhi-green' : 'text-bodhi-text-muted'} />
+              <p className="text-sm font-bold text-bodhi-text">{label}</p>
+              <p className="text-xs text-bodhi-text-muted">{desc}</p>
+            </button>
+          ))}
+        </div>
+
+        {selectedMode === 'exam' && (
+          <>
+            <p className="text-xs font-semibold text-bodhi-text-muted uppercase tracking-wider mb-2">Which exam?</p>
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              {EXAM_DOMAINS.map(d => (
+                <button
+                  key={d.key}
+                  onClick={() => handleDomainSelect(d.key)}
+                  className={`flex items-center justify-between px-3 py-2.5 rounded-lg border text-left transition-all ${
+                    selectedDomain === d.key
+                      ? 'border-bodhi-green bg-green-50 shadow-sm'
+                      : 'border-bodhi-border bg-white hover:border-bodhi-green/40'
+                  }`}
+                >
+                  <div>
+                    <p className="text-sm font-bold text-bodhi-text">{d.label}</p>
+                    <p className="text-xs text-bodhi-text-muted">{d.desc}</p>
+                  </div>
+                  {selectedDomain === d.key && <Check size={14} className="text-bodhi-green shrink-0" />}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs font-semibold text-bodhi-text-muted uppercase tracking-wider mb-2">Daily goal</p>
+            <div className="flex gap-2">
+              {DAILY_GOALS.map(g => (
+                <button
+                  key={g}
+                  onClick={() => setDailyGoal(g)}
+                  className={`flex-1 py-2 rounded-lg border text-sm font-semibold transition-all ${
+                    dailyGoal === g
+                      ? 'border-bodhi-green bg-green-50 text-bodhi-green'
+                      : 'border-bodhi-border text-bodhi-text-muted hover:border-bodhi-green/40'
+                  }`}
+                >
+                  {g}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs text-bodhi-text-muted mt-1">words per day</p>
+          </>
+        )}
+
+        {(modeChanged || examParamsChanged) && (
+          <button
+            onClick={handleSaveMode}
+            disabled={switchingMode}
+            className="w-full mt-4 py-3 rounded-xl font-semibold text-white text-sm transition-all disabled:opacity-60"
+            style={{ background: 'linear-gradient(135deg, #1B5E20, #2E7D32)' }}
+          >
+            {switchingMode ? 'Switching…' : `Switch to ${selectedMode === 'exam' ? 'Exam Prep' : 'ESL Journey'}`}
+          </button>
+        )}
+      </div>
+
       {/* Level selector */}
       <div className="bg-white border border-bodhi-border rounded-2xl p-5 mb-4">
-        <h2 className="text-sm font-bold text-bodhi-text mb-1">Choose Your Level</h2>
+        <h2 className="text-sm font-bold text-bodhi-text mb-1">ESL Level</h2>
         <p className="text-xs text-bodhi-text-muted mb-4">
-          5 words per day from your level. Changes take effect from tomorrow.
+          Changes take effect from tomorrow.
         </p>
         <div className="space-y-3">
           {GRADE_BLOCKS.map(block => (
-            <div
-              key={block.grade}
-              className={`rounded-xl border p-3 ${block.bg}`}
-            >
-              <p className={`text-xs font-bold uppercase tracking-wider mb-0.5 ${block.color}`}>
-                {block.grade}
-              </p>
+            <div key={block.grade} className={`rounded-xl border p-3 ${block.bg}`}>
+              <p className={`text-xs font-bold uppercase tracking-wider mb-0.5 ${block.color}`}>{block.grade}</p>
               <p className="text-xs text-bodhi-text-muted mb-2">{block.subtitle}</p>
               <div className="grid grid-cols-2 gap-2">
                 {block.levels.map(lvl => (
@@ -136,9 +252,7 @@ export default function ProfilePage() {
                       <p className="text-sm font-bold text-bodhi-text">{lvl.label}</p>
                       <p className="text-xs text-bodhi-text-muted">{lvl.desc}</p>
                     </div>
-                    {selectedLevel === lvl.key && (
-                      <Check size={14} className="text-bodhi-green shrink-0" />
-                    )}
+                    {selectedLevel === lvl.key && <Check size={14} className="text-bodhi-green shrink-0" />}
                   </button>
                 ))}
               </div>
@@ -148,18 +262,18 @@ export default function ProfilePage() {
         {selectedLevel !== user.level && (
           <button
             onClick={handleSaveLevel}
-            disabled={saving}
+            disabled={savingLevel}
             className="w-full mt-4 py-3 rounded-xl font-semibold text-white text-sm transition-all disabled:opacity-60 flex items-center justify-center gap-2"
             style={{ background: 'linear-gradient(135deg, #1B5E20, #2E7D32)' }}
           >
-            {saved ? <><Check size={14} /> Saved!</> : saving ? 'Saving…' : 'Save Level'}
+            {saved ? <><Check size={14} /> Saved!</> : savingLevel ? 'Saving…' : 'Save Level'}
           </button>
         )}
       </div>
 
       {/* Sign out */}
       <button
-        onClick={handleSignOut}
+        onClick={() => signOut()}
         className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl border border-red-200 text-red-500 font-semibold text-sm hover:bg-red-50 transition-all"
       >
         <LogOut size={15} />
