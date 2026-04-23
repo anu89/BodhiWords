@@ -61,17 +61,31 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const fetchWords = useCallback(async (level: ESLLevel, mode?: string, examDomain?: string | null): Promise<Word[]> => {
     console.log('[fetchWords]', { level, mode, examDomain, hasExamChapters: examDomain && EXAM_CHAPTERS[examDomain] })
-    if (mode === 'exam' && examDomain && EXAM_CHAPTERS[examDomain]) {
+    if (mode === 'exam' && examDomain) {
+      // For exam mode, we need to fetch exam words (levels T1, T2, T3)
+      // First try to get words from exam-specific chapters if mapping exists
       const chapters = EXAM_CHAPTERS[examDomain]
-      console.log('[fetchWords] exam mode, chapters:', chapters)
+      if (chapters && chapters.length > 0) {
+        console.log('[fetchWords] exam mode, chapters:', chapters)
+        const { data } = await supabase
+          .from('words')
+          .select('*')
+          .in('chapter_id', chapters)
+        console.log('[fetchWords] fetched exam words by chapter count:', data?.length)
+        if (data && data.length > 0) {
+          return (data ?? []) as Word[]
+        }
+      }
+      // Fallback: get all exam words (levels T1, T2, T3)
+      console.log('[fetchWords] falling back to exam level filter (T1, T2, T3)')
       const { data } = await supabase
         .from('words')
         .select('*')
-        .in('chapter_id', chapters)
-      console.log('[fetchWords] fetched exam words count:', data?.length)
+        .in('level', ['T1', 'T2', 'T3'])
+      console.log('[fetchWords] fetched exam words by level count:', data?.length)
       return (data ?? []) as Word[]
     }
-    console.log('[fetchWords] falling back to level filter', level)
+    console.log('[fetchWords] ESL mode, level filter', level)
     const { data } = await supabase.from('words').select('*').eq('level', level)
     console.log('[fetchWords] fetched ESL words count:', data?.length)
     return (data ?? []) as Word[]
@@ -107,10 +121,23 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     const masteredIds = new Set(progressList.filter(p => p.status === 'mastered').map(p => p.word_id))
     const available = levelWords.filter(w => !masteredIds.has(w.id))
     console.log('[buildDailySession] available words after filtering mastered:', available.length)
-    const picked = [...available].sort(() => Math.random() - 0.5).slice(0, dailyGoal).map(w => w.id)
+    
+    let picked: string[]
+    if (available.length > 0) {
+      picked = [...available].sort(() => Math.random() - 0.5).slice(0, dailyGoal).map(w => w.id)
+    } else {
+      // All words are mastered - include some mastered words for review
+      console.log('[buildDailySession] all words mastered, picking from mastered words for review')
+      const masteredWords = levelWords.filter(w => masteredIds.has(w.id))
+      picked = [...masteredWords].sort(() => Math.random() - 0.5).slice(0, dailyGoal).map(w => w.id)
+    }
+    
     console.log('[buildDailySession] picked word ids:', picked)
 
-    if (picked.length === 0) return null
+    if (picked.length === 0) {
+      console.log('[buildDailySession] no words available at all')
+      return null
+    }
 
     const { data: inserted, error } = await supabase
       .from('daily_sessions')
@@ -232,8 +259,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   // --- Derived state ---
 
   const todayWords = useMemo(() => {
-    if (!todaySession) return []
-    return words.filter(w => todaySession.word_ids.includes(w.id))
+    console.log('[todayWords]', { hasTodaySession: !!todaySession, todaySession, wordsCount: words.length })
+    if (!todaySession) {
+      console.log('[todayWords] no todaySession')
+      return []
+    }
+    const filtered = words.filter(w => todaySession.word_ids.includes(w.id))
+    console.log('[todayWords] filtered count:', filtered.length, 'word_ids:', todaySession.word_ids)
+    return filtered
   }, [todaySession, words])
 
   const leafCount = useMemo(() =>

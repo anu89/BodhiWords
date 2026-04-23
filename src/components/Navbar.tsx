@@ -19,16 +19,35 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const pathname = usePathname()
-  const { user, leafCount, progress, todaySession, signOut } = useApp()
+  const { user, leafCount, progress, todaySession, signOut, allWords } = useApp()
 
   const isExam = user?.mode === 'exam'
   const streak = user?.streak ?? 0
   const todayWordIds = useMemo(() => new Set(todaySession?.word_ids ?? []), [todaySession])
-  const examMastered = isExam
+  
+  // Calculate overall exam progress (like forest page)
+  const examProgress = useMemo(() => {
+    if (!isExam || !user) return { mastered: 0, total: 0, pct: 0 }
+    
+    const EXAM_LEVELS = new Set(['T1', 'T2', 'T3'])
+    const examWords = allWords.filter(w => EXAM_LEVELS.has(w.level as string))
+    const mastered = examWords.filter(w => {
+      const p = progress[w.id]
+      return p && (p.status === 'mastered' || p.status === 'learning')
+    }).length
+    const total = examWords.length
+    const pct = total > 0 ? Math.round(mastered / total * 100) : 0
+    
+    return { mastered, total, pct }
+  }, [isExam, user, allWords, progress])
+  
+  // Keep today's session progress for reference (optional)
+  const todayExamMastered = isExam
     ? Object.entries(progress).filter(([wid, p]) => todayWordIds.has(wid) && p.status === 'mastered').length
     : 0
-  const examTotal = todaySession?.word_ids.length ?? 0
-  const examPct = isExam && examTotal > 0 ? Math.round(examMastered / examTotal * 100) : 0
+  const todayExamTotal = todaySession?.word_ids.length ?? 0
+  const todayExamPct = isExam && todayExamTotal > 0 ? Math.round(todayExamMastered / todayExamTotal * 100) : 0
+  
   const [open, setOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -98,9 +117,9 @@ export default function Navbar() {
             </div>
           )}
           {isExam && (
-            <div className="flex items-center gap-1" title={`${examMastered}/${examTotal} mastered`}>
-              <CircleProgress value={examPct} size={28} stroke={3} />
-              <span className="text-xs font-medium text-bodhi-text">{examPct}%</span>
+            <div className="flex items-center gap-1" title={`${examProgress.mastered}/${examProgress.total} mastered (overall)`}>
+              <CircleProgress value={examProgress.pct} size={28} stroke={3} />
+              <span className="text-xs font-medium text-bodhi-text">{examProgress.pct}%</span>
             </div>
           )}
           <div className="h-4 w-px bg-bodhi-border" />
