@@ -74,8 +74,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, [supabase])
 
   const fetchAllWords = useCallback(async (): Promise<Word[]> => {
-    const { data } = await supabase.from('words').select('*').range(0, 4999)
-    return (data ?? []) as Word[]
+    const [{ data: p1 }, { data: p2 }] = await Promise.all([
+      supabase.from('words').select('*').order('id').range(0, 999),
+      supabase.from('words').select('*').order('id').range(1000, 1999),
+    ])
+    return [...(p1 ?? []), ...(p2 ?? [])] as Word[]
   }, [supabase])
 
   // Returns session — caller sets state
