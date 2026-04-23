@@ -292,26 +292,34 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }) => {
     if (!user) return
     const today = getTodayStr()
-    const updates = {
+    const toExam = mode === 'exam'
+    const effectiveGoal = toExam ? (dailyGoal ?? user.daily_goal ?? 5) : 5
+    // Don't clear exam_domain when switching to ESL — needed to restore exam session later
+    const dbUpdates = {
       mode,
-      exam_domain: examDomain ?? null,
-      daily_goal: dailyGoal ?? user.daily_goal,
+      daily_goal: effectiveGoal,
+      ...(toExam ? { exam_domain: examDomain ?? null } : {}),
     }
-    await supabase.from('users').update(updates).eq('id', user.id)
-    // Only wipe today's session when exam settings actually changed — prevents re-generation on same-day mode toggle
-    const examSettingsChanged = mode === 'exam' && (
+    await supabase.from('users').update(dbUpdates).eq('id', user.id)
+    const examSettingsChanged = toExam && (
       (examDomain ?? null) !== (user.exam_domain ?? null) ||
       (dailyGoal !== undefined && dailyGoal !== (user.daily_goal ?? 5))
     )
     if (examSettingsChanged) {
       await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today).eq('mode', mode)
     }
+    const effectiveDomain = toExam ? (examDomain ?? user.exam_domain) : null
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
       fetchProgress(user.id, mode),
-      fetchWords(user.level, mode, examDomain ?? user.exam_domain),
+      fetchWords(user.level, mode, effectiveDomain),
     ])
-    const session = await buildDailySession(user.id, mode, levelWords, progressList, dailyGoal ?? user.daily_goal ?? 5)
-    setUser(prev => prev ? { ...prev, ...updates } : null)
+    const session = await buildDailySession(user.id, mode, levelWords, progressList, effectiveGoal)
+    setUser(prev => prev ? {
+      ...prev,
+      mode,
+      daily_goal: effectiveGoal,
+      ...(toExam ? { exam_domain: examDomain ?? null } : {}),
+    } : null)
     setProgress(progressMap)
     setWords(levelWords)
     setTodaySession(session)

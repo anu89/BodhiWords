@@ -6,7 +6,9 @@ import { motion } from 'framer-motion'
 import { useApp } from '@/context/AppContext'
 import { GRADE_BLOCKS } from '@/lib/gradeBlocks'
 import type { ESLLevel, ExamDomain, UserMode } from '@/types'
-import { Flame, BookOpen, GraduationCap, Layers, LogOut, ChevronRight, Check } from 'lucide-react'
+import { Flame, BookOpen, GraduationCap, Layers, LogOut, ChevronRight, Check, Lock } from 'lucide-react'
+import { createClient } from '@/lib/supabase'
+import { getTodayStr } from '@/lib/utils'
 
 const EXAM_DOMAINS: { key: ExamDomain; label: string; desc: string; defaultGoal: number }[] = [
   { key: 'gre',     label: 'GRE',     desc: 'Graduate admissions', defaultGoal: 15 },
@@ -30,6 +32,8 @@ export default function ProfilePage() {
   const [savingLevel, setSavingLevel] = useState(false)
   const [saved, setSaved] = useState(false)
   const [switchingMode, setSwitchingMode] = useState(false)
+  const [examLockedToday, setExamLockedToday] = useState(false)
+  const [lockedWordCount, setLockedWordCount] = useState<number | null>(null)
 
   useEffect(() => {
     if (!isLoading && !user) router.push('/auth/login')
@@ -40,6 +44,21 @@ export default function ProfilePage() {
       setDailyGoal(user.daily_goal ?? 15)
     }
   }, [user, isLoading, router])
+
+  useEffect(() => {
+    if (!user) return
+    const supabase = createClient()
+    supabase
+      .from('daily_sessions').select('word_ids')
+      .eq('user_id', user.id).eq('date', getTodayStr()).eq('mode', 'exam')
+      .maybeSingle()
+      .then(({ data }) => {
+        if (data) {
+          setExamLockedToday(true)
+          setLockedWordCount((data.word_ids as string[]).length)
+        }
+      })
+  }, [user?.id])
 
   const masteredCount = Object.values(progress).filter(p => p.status === 'mastered').length
   const learningCount = Object.values(progress).filter(p => p.status === 'learning').length
@@ -55,13 +74,14 @@ export default function ProfilePage() {
   }
 
   const handleDomainSelect = (domain: ExamDomain) => {
+    if (examLockedToday) return
     const d = EXAM_DOMAINS.find(d => d.key === domain)
     setSelectedDomain(domain)
     if (d) setDailyGoal(d.defaultGoal)
   }
 
   const modeChanged = selectedMode !== (user?.mode ?? 'esl')
-  const examParamsChanged = selectedMode === 'exam' && (
+  const examParamsChanged = !examLockedToday && selectedMode === 'exam' && (
     selectedDomain !== (user?.exam_domain ?? 'gre') ||
     dailyGoal !== (user?.daily_goal ?? 15)
   )
@@ -69,11 +89,24 @@ export default function ProfilePage() {
   const handleSaveMode = async () => {
     if (!modeChanged && !examParamsChanged) return
     setSwitchingMode(true)
-    await changeMode({
-      mode: selectedMode,
-      examDomain: selectedMode === 'exam' ? selectedDomain : null,
-      dailyGoal: selectedMode === 'exam' ? dailyGoal : 5,
-    })
+    const examDomainToUse = selectedMode === 'exam'
+      ? (examLockedToday ? (user?.exam_domain as ExamDomain) : selectedDomain)
+      : undefined
+    const goalToUse = selectedMode === 'exam'
+      ? (examLockedToday ? (lockedWordCount ?? undefined) : dailyGoal)
+      : undefined
+    await changeMode({ mode: selectedMode, examDomain: examDomainToUse, dailyGoal: goalToUse })
+    if (selectedMode === 'exam' && !examLockedToday) {
+      const supabase = createClient()
+      const { data } = await supabase
+        .from('daily_sessions').select('word_ids')
+        .eq('user_id', user!.id).eq('date', getTodayStr()).eq('mode', 'exam')
+        .maybeSingle()
+      if (data) {
+        setExamLockedToday(true)
+        setLockedWordCount((data.word_ids as string[]).length)
+      }
+    }
     setSwitchingMode(false)
   }
 
@@ -174,8 +207,14 @@ export default function ProfilePage() {
 
         {selectedMode === 'exam' && (
           <>
+            {examLockedToday && (
+              <div className="flex items-center gap-1.5 mb-3 px-3 py-2 bg-amber-50 border border-amber-100 rounded-lg text-xs text-amber-700 font-medium">
+                <Lock size={11} className="shrink-0" />
+                Locked for today — {lockedWordCount} words · resets tomorrow
+              </div>
+            )}
             <p className="text-xs font-semibold text-bodhi-text-muted uppercase tracking-wider mb-2">Which exam?</p>
-            <div className="grid grid-cols-2 gap-2 mb-3">
+            <div className={`grid grid-cols-2 gap-2 mb-3 ${examLockedToday ? 'opacity-50 pointer-events-none' : ''}`}>
               {EXAM_DOMAINS.map(d => (
                 <button
                   key={d.key}
@@ -195,22 +234,28 @@ export default function ProfilePage() {
               ))}
             </div>
             <p className="text-xs font-semibold text-bodhi-text-muted uppercase tracking-wider mb-2">Daily goal</p>
-            <div className="flex gap-2">
-              {DAILY_GOALS.map(g => (
-                <button
-                  key={g}
-                  onClick={() => setDailyGoal(g)}
-                  className={`flex-1 py-2 rounded-lg border text-sm font-semibold transition-all ${
-                    dailyGoal === g
-                      ? 'border-bodhi-green bg-green-50 text-bodhi-green'
-                      : 'border-bodhi-border text-bodhi-text-muted hover:border-bodhi-green/40'
-                  }`}
-                >
-                  {g}
-                </button>
-              ))}
-            </div>
-            <p className="text-xs text-bodhi-text-muted mt-1">words per day</p>
+            {examLockedToday ? (
+              <p className="text-sm font-semibold text-bodhi-text-muted opacity-50">{lockedWordCount} words per day</p>
+            ) : (
+              <>
+                <div className="flex gap-2">
+                  {DAILY_GOALS.map(g => (
+                    <button
+                      key={g}
+                      onClick={() => setDailyGoal(g)}
+                      className={`flex-1 py-2 rounded-lg border text-sm font-semibold transition-all ${
+                        dailyGoal === g
+                          ? 'border-bodhi-green bg-green-50 text-bodhi-green'
+                          : 'border-bodhi-border text-bodhi-text-muted hover:border-bodhi-green/40'
+                      }`}
+                    >
+                      {g}
+                    </button>
+                  ))}
+                </div>
+                <p className="text-xs text-bodhi-text-muted mt-1">words per day</p>
+              </>
+            )}
           </>
         )}
 
