@@ -294,12 +294,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     mode: UserMode; examDomain?: ExamDomain | null; dailyGoal?: number
   }) => {
     if (!user) return
+    const today = getTodayStr()
     const updates = {
       mode,
       exam_domain: examDomain ?? null,
       daily_goal: dailyGoal ?? user.daily_goal,
     }
     await supabase.from('users').update(updates).eq('id', user.id)
+    await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today).eq('mode', mode)
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
       fetchProgress(user.id, mode),
       fetchWords(user.level, mode, examDomain ?? user.exam_domain),
