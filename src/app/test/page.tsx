@@ -8,7 +8,6 @@ import TestQuestionComponent from '@/components/TestQuestion'
 import LeafParticle from '@/components/LeafParticle'
 import BodhiTree from '@/components/BodhiTree'
 import { generateTestQuestions, getTodayStr, getYesterdayStr } from '@/lib/utils'
-import { WORDS } from '@/lib/words'
 import { createClient } from '@/lib/supabase'
 import type { TestQuestion } from '@/types'
 import { CheckCircle2, XCircle, RotateCcw, Home, ChevronLeft, ChevronRight } from 'lucide-react'
@@ -16,7 +15,7 @@ import { CheckCircle2, XCircle, RotateCcw, Home, ChevronLeft, ChevronRight } fro
 type AnswerRecord = { answer: string; correct: boolean }
 
 export default function TestPage() {
-  const { user, todayWords, todaySession, leafCount, refreshProgress, isLoading, updateTodaySession, updateUserData } = useApp()
+  const { user, todayWords, todaySession, leafCount, allWords, refreshProgress, isLoading, updateTodaySession, updateUserData } = useApp()
   const router = useRouter()
   const [questions, setQuestions] = useState<TestQuestion[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -31,7 +30,7 @@ export default function TestPage() {
 
   useEffect(() => {
     if (todayWords.length > 0) {
-      setQuestions(generateTestQuestions(todayWords, WORDS))
+      setQuestions(generateTestQuestions(todayWords, allWords))
     }
   }, [todayWords])
 
@@ -55,15 +54,15 @@ export default function TestPage() {
     })
     const { data: existing } = await supabase
       .from('user_progress').select('correct_count, incorrect_count')
-      .eq('user_id', user.id).eq('word_id', q.word.id).maybeSingle()
+      .eq('user_id', user.id).eq('word_id', q.word.id).eq('mode', user.mode).maybeSingle()
     const newCorrect   = (existing?.correct_count   ?? 0) + (correct ? 1 : 0)
     const newIncorrect = (existing?.incorrect_count ?? 0) + (correct ? 0 : 1)
     const status = newCorrect >= 3 ? 'mastered' : correct ? 'learning' : 'weak'
     await supabase.from('user_progress').upsert({
-      user_id: user.id, word_id: q.word.id,
+      user_id: user.id, word_id: q.word.id, mode: user.mode,
       correct_count: newCorrect, incorrect_count: newIncorrect,
       status, last_seen: new Date().toISOString(),
-    }, { onConflict: 'user_id,word_id' })
+    }, { onConflict: 'user_id,word_id,mode' })
 
     if (correct) {
       setLeafTrigger(t => !t)
@@ -78,25 +77,29 @@ export default function TestPage() {
     const today = getTodayStr()
     const yesterday = getYesterdayStr()
 
-    // Compute streak:
-    //   - same day → no change (defensive guard against double-submit)
-    //   - last_active_date = yesterday → consecutive day, increment
-    //   - anything else (missed days, first test ever) → fresh start at 1
+    const isExam = user.mode === 'exam'
+    const lastActive = isExam ? user.exam_last_active_date : user.last_active_date
+    const currentStreak = isExam ? user.exam_streak : user.streak
+
     let newStreak: number
-    if (user.last_active_date === today) {
-      newStreak = user.streak
-    } else if (user.last_active_date === yesterday) {
-      newStreak = user.streak + 1
+    if (lastActive === today) {
+      newStreak = currentStreak
+    } else if (lastActive === yesterday) {
+      newStreak = currentStreak + 1
     } else {
       newStreak = 1
     }
 
     const supabase = createClient()
     await supabase.from('daily_sessions').update({ completed: true }).eq('id', todaySession.id)
-    await supabase.from('users').update({ streak: newStreak, last_active_date: today }).eq('id', user.id)
+
+    const streakUpdate = isExam
+      ? { exam_streak: newStreak, exam_last_active_date: today }
+      : { streak: newStreak, last_active_date: today }
+    await supabase.from('users').update(streakUpdate).eq('id', user.id)
 
     updateTodaySession({ completed: true })
-    updateUserData({ streak: newStreak, last_active_date: today })
+    updateUserData(streakUpdate)
 
     await refreshProgress()
     setFinished(true)

@@ -143,7 +143,7 @@ export default function PracticePage() {
       if (existing) {
         await supabase.from('user_progress')
           .update({ correct_count: newCount, status: newStatus, last_seen: now })
-          .eq('user_id', user.id).eq('word_id', wordId)
+          .eq('user_id', user.id).eq('word_id', wordId).eq('mode', user.mode)
       } else {
         await supabase.from('user_progress').insert(entry)
       }

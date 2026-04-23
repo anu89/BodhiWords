@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { useApp } from '@/context/AppContext'
 import { Home, BookOpen, FlaskConical, Repeat2, Trees, User, Flame, ChevronDown, LogOut } from 'lucide-react'
+import CircleProgress from '@/components/CircleProgress'
 
 const NAV_ITEMS = [
   { href: '/',          label: 'Home',     icon: Home },
@@ -18,7 +19,12 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const pathname = usePathname()
-  const { user, leafCount, signOut } = useApp()
+  const { user, leafCount, progress, words, signOut } = useApp()
+
+  const isExam = user?.mode === 'exam'
+  const streak = isExam ? (user?.exam_streak ?? 0) : (user?.streak ?? 0)
+  const examMastered = isExam ? Object.values(progress).filter(p => p.status === 'mastered').length : 0
+  const examPct = isExam && words.length > 0 ? Math.round(examMastered / words.length * 100) : 0
   const [open, setOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -75,16 +81,22 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right — streak + leaves + user dropdown */}
+        {/* Right — streak + leaves + (exam: circle progress) + user dropdown */}
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1 text-sm text-bodhi-text-muted">
             <Flame size={14} className="text-orange-500" />
-            <span className="font-medium text-bodhi-text">{user.streak}</span>
+            <span className="font-medium text-bodhi-text">{streak}</span>
           </div>
           <div className="flex items-center gap-1 text-sm">
             <span className="text-bodhi-green">🍃</span>
             <span className="font-medium text-bodhi-text">{leafCount}</span>
           </div>
+          {isExam && (
+            <div className="flex items-center gap-1" title={`${examMastered}/${words.length} mastered`}>
+              <CircleProgress value={examPct} size={28} stroke={3} />
+              <span className="text-xs font-medium text-bodhi-text">{examPct}%</span>
+            </div>
+          )}
           <div className="h-4 w-px bg-bodhi-border" />
 
           {/* User dropdown */}

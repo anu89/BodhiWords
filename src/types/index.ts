@@ -1,4 +1,6 @@
 export type ESLLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
+export type ExamLevel = 'T1' | 'T2' | 'T3'
+export type WordLevel = ESLLevel | ExamLevel
 export type UserMode = 'esl' | 'exam'
 export type ExamDomain = 'banking' | 'cat' | 'gre' | 'rrb' | 'ssc_cgl' | 'toefl'
 
@@ -10,7 +12,7 @@ export interface Word {
   example: string
   antonyms: string[]
   mnemonic: string
-  level: ESLLevel
+  level: WordLevel
   chapter_id: number
 }
 
@@ -21,6 +23,8 @@ export interface User {
   level: ESLLevel
   streak: number
   last_active_date: string | null
+  exam_streak: number
+  exam_last_active_date: string | null
   created_at: string
   mode: UserMode
   exam_domain: ExamDomain | null
@@ -61,7 +65,7 @@ export interface TestResult {
 export interface Chapter {
   id: number
   title: string
-  level: ESLLevel
+  level: WordLevel
   word_count: number
   mastered_count: number
 }
@@ -82,7 +86,7 @@ export type TreeStage = 'seed' | 'sapling' | 'growing' | 'full' | 'complete'
 export interface ChapterTree {
   chapter_id: number
   title: string
-  level: ESLLevel
+  level: WordLevel
   stage: TreeStage
   mastered: number
   total: number

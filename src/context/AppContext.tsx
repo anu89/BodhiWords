@@ -79,7 +79,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, [supabase])
 
   // Returns session — caller sets state
-  const buildDailySession = useCallback(async (userId: string, mode: string, levelWords: Word[], progressList: UserProgress[]) => {
+  const buildDailySession = useCallback(async (userId: string, mode: string, levelWords: Word[], progressList: UserProgress[], dailyGoal = 5) => {
     const today = getTodayStr()
 
     const { data: existing } = await supabase
@@ -94,7 +94,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const masteredIds = new Set(progressList.filter(p => p.status === 'mastered').map(p => p.word_id))
     const available = levelWords.filter(w => !masteredIds.has(w.id))
-    const picked = [...available].sort(() => Math.random() - 0.5).slice(0, 5).map(w => w.id)
+    const picked = [...available].sort(() => Math.random() - 0.5).slice(0, dailyGoal).map(w => w.id)
 
     if (picked.length === 0) return null
 
@@ -147,23 +147,32 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
       if (!userData) return
 
-      // Streak reset
+      // Streak reset — per-mode
       const yesterday = getYesterdayStr()
       let didLoseStreak = false
-      if (userData.last_active_date && userData.last_active_date < yesterday && userData.streak > 0) {
-        await supabase.from('users').update({ streak: 0 }).eq('id', userId)
-        userData = { ...userData, streak: 0 }
-        didLoseStreak = true
+      const userMode = userData.mode ?? 'esl'
+      if (userMode === 'exam') {
+        if (userData.exam_last_active_date && userData.exam_last_active_date < yesterday && (userData.exam_streak ?? 0) > 0) {
+          await supabase.from('users').update({ exam_streak: 0 }).eq('id', userId)
+          userData = { ...userData, exam_streak: 0 }
+          didLoseStreak = true
+        }
+      } else {
+        if (userData.last_active_date && userData.last_active_date < yesterday && userData.streak > 0) {
+          await supabase.from('users').update({ streak: 0 }).eq('id', userId)
+          userData = { ...userData, streak: 0 }
+          didLoseStreak = true
+        }
       }
 
       // Fetch remaining data in parallel
-      const userMode = userData.mode ?? 'esl'
+      const dailyGoal = userData.daily_goal ?? 5
       const [{ list: progressList, map: progressMap }, levelWords, allWordsData] = await Promise.all([
         fetchProgress(userId, userMode),
         fetchWords(userData.level, userMode, userData.exam_domain),
         fetchAllWords(),
       ])
-      const session = await buildDailySession(userId, userMode, levelWords, progressList)
+      const session = await buildDailySession(userId, userMode, levelWords, progressList, dailyGoal)
 
       // Set all state at once — prevents partial-render flicker
       setUser(userData as User)
@@ -271,9 +280,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
       fetchProgress(user.id, mode),
-      fetchWords(level, mode, examDomain ?? null),  // use new level & new examDomain
+      fetchWords(level, mode, examDomain ?? null),
     ])
-    const session = await buildDailySession(user.id, mode, levelWords, progressList)
+    const session = await buildDailySession(user.id, mode, levelWords, progressList, dailyGoal)
 
     setUser(prev => prev ? { ...prev, name, level, mode, exam_domain: examDomain ?? null, daily_goal: dailyGoal } : null)
     setProgress(progressMap)
@@ -295,7 +304,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       fetchProgress(user.id, mode),
       fetchWords(user.level, mode, examDomain ?? user.exam_domain),
     ])
-    const session = await buildDailySession(user.id, mode, levelWords, progressList)
+    const session = await buildDailySession(user.id, mode, levelWords, progressList, dailyGoal ?? user.daily_goal ?? 5)
     setUser(prev => prev ? { ...prev, ...updates } : null)
     setProgress(progressMap)
     setWords(levelWords)

@@ -23,6 +23,9 @@
 /scripts
 
 
+# wordlists (data lives in Supabase)
+src/wordlist/
+
 # misc
 .DS_Store
 *.pem
