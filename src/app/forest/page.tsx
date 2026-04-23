@@ -6,21 +6,21 @@ import { motion } from 'framer-motion'
 import { useApp } from '@/context/AppContext'
 import ForestGrid from '@/components/ForestGrid'
 import { getTreeStage } from '@/lib/utils'
-import type { ChapterTree } from '@/types'
+import type { ChapterTree, WordLevel } from '@/types'
+
+const EXAM_LEVELS = new Set(['T1', 'T2', 'T3'])
 
 export default function ForestPage() {
   const { user, progress, isLoading, allWords } = useApp()
   const router = useRouter()
   const [trees, setTrees] = useState<ChapterTree[]>([])
 
-  // Static chapter titles (UI labels only — word data comes from the DB)
   const CHAPTER_TITLES: Record<number, string> = {
     1: 'First Steps', 2: 'Building Blocks', 3: 'Expanding Horizons',
     4: 'Rising Fluency', 5: 'Upper Ground', 6: 'Advanced Territory',
     7: 'Mastery I', 8: 'Mastery II', 9: 'Pinnacle I', 10: 'Pinnacle II',
   }
 
-  // Derive chapter list dynamically from the DB words
   const CHAPTERS = useMemo(() => {
     const chapterMap = new Map<number, { title: string; level: string }>()
     allWords.forEach(w => {
@@ -53,7 +53,7 @@ export default function ForestPage() {
       return {
         chapter_id: chapter.id,
         title: chapter.title,
-        level: chapter.level as import('@/types').ESLLevel,
+        level: chapter.level as WordLevel,
         stage,
         mastered,
         total: chapterWords.length,
@@ -64,20 +64,27 @@ export default function ForestPage() {
 
   if (isLoading || !user) return null
 
-  const totalMastered = trees.reduce((a, t) => a + t.mastered, 0)
-  const completeTrees = trees.filter(t => t.stage === 'complete').length
+  const isExamMode = user.mode === 'exam'
 
-  // Overall progress is scoped to the user's current level
-  const levelWords = allWords.filter(w => w.level === user.level)
-  const levelTotal = levelWords.length
-  const levelMastered = levelWords.filter(w => {
+  const relevantTrees = trees.filter(t =>
+    isExamMode ? EXAM_LEVELS.has(t.level as string) : !EXAM_LEVELS.has(t.level as string)
+  )
+
+  const totalMastered = relevantTrees.reduce((a, t) => a + t.mastered, 0)
+  const completeTrees = relevantTrees.filter(t => t.stage === 'complete').length
+
+  const progressWords = isExamMode
+    ? allWords.filter(w => EXAM_LEVELS.has(w.level as string))
+    : allWords.filter(w => w.level === user.level)
+  const levelTotal = progressWords.length
+  const levelMastered = progressWords.filter(w => {
     const p = progress[w.id]
     return p && (p.status === 'mastered' || p.status === 'learning')
   }).length
+  const progressLabel = isExamMode ? 'exam' : user.level
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
-      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -87,7 +94,6 @@ export default function ForestPage() {
         <p className="text-sm text-bodhi-text-muted mt-1">Each chapter is a tree in your knowledge forest</p>
       </motion.div>
 
-      {/* Summary stats */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -99,7 +105,7 @@ export default function ForestPage() {
           <p className="text-xs text-bodhi-text-muted mt-0.5">words learned</p>
         </div>
         <div className="bg-white border border-bodhi-border rounded-2xl p-4 text-center">
-          <p className="text-2xl font-bold text-bodhi-text">{trees.length}</p>
+          <p className="text-2xl font-bold text-bodhi-text">{relevantTrees.length}</p>
           <p className="text-xs text-bodhi-text-muted mt-0.5">chapters</p>
         </div>
         <div className="bg-white border border-bodhi-border rounded-2xl p-4 text-center">
@@ -108,11 +114,10 @@ export default function ForestPage() {
         </div>
       </motion.div>
 
-      {/* Overall progress */}
       <div className="bg-white border border-bodhi-border rounded-2xl p-5 mb-6">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-semibold text-bodhi-text">Overall Progress</span>
-          <span className="text-sm text-bodhi-text-muted">{levelMastered}/{levelTotal} {user.level} words</span>
+          <span className="text-sm text-bodhi-text-muted">{levelMastered}/{levelTotal} {progressLabel} words</span>
         </div>
         <div className="h-2 bg-bodhi-bg-card rounded-full overflow-hidden">
           <motion.div
@@ -124,14 +129,12 @@ export default function ForestPage() {
           />
         </div>
         <p className="text-xs text-bodhi-text-muted mt-2">
-          {levelTotal > 0 ? Math.round((levelMastered / levelTotal) * 100) : 0}% of {user.level} vocabulary mastered
+          {levelTotal > 0 ? Math.round((levelMastered / levelTotal) * 100) : 0}% of {progressLabel} vocabulary mastered
         </p>
       </div>
 
-      {/* Forest grid */}
-      <ForestGrid trees={trees} />
+      <ForestGrid trees={relevantTrees} />
 
-      {/* Legend */}
       <div className="mt-6 flex flex-wrap gap-4 justify-center text-xs text-bodhi-text-muted">
         {[
           { icon: '🌱', label: 'Seed — not started' },

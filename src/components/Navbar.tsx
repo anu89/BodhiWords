@@ -87,10 +87,12 @@ export default function Navbar() {
             <Flame size={14} className="text-orange-500" />
             <span className="font-medium text-bodhi-text">{streak}</span>
           </div>
-          <div className="flex items-center gap-1 text-sm">
-            <span className="text-bodhi-green">🍃</span>
-            <span className="font-medium text-bodhi-text">{leafCount}</span>
-          </div>
+          {!isExam && (
+            <div className="flex items-center gap-1 text-sm">
+              <span className="text-bodhi-green">🍃</span>
+              <span className="font-medium text-bodhi-text">{leafCount}</span>
+            </div>
+          )}
           {isExam && (
             <div className="flex items-center gap-1" title={`${examMastered}/${words.length} mastered`}>
               <CircleProgress value={examPct} size={28} stroke={3} />

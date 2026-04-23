@@ -74,7 +74,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, [supabase])
 
   const fetchAllWords = useCallback(async (): Promise<Word[]> => {
-    const { data } = await supabase.from('words').select('*')
+    const { data } = await supabase.from('words').select('*').range(0, 4999)
     return (data ?? []) as Word[]
   }, [supabase])
 
