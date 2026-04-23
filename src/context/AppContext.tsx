@@ -306,7 +306,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       (dailyGoal !== undefined && dailyGoal !== (user.daily_goal ?? 5))
     )
     if (examSettingsChanged) {
-      await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today).eq('mode', mode)
+      // Only delete if no locked session exists for today — locked session must survive mode switches
+      const { data: lockedSession } = await supabase
+        .from('daily_sessions').select('id')
+        .eq('user_id', user.id).eq('date', today).eq('mode', 'exam')
+        .maybeSingle()
+      if (!lockedSession) {
+        await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today).eq('mode', mode)
+      }
     }
     const effectiveDomain = toExam ? (examDomain ?? user.exam_domain) : null
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
@@ -19,12 +19,16 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const pathname = usePathname()
-  const { user, leafCount, progress, words, signOut } = useApp()
+  const { user, leafCount, progress, todaySession, signOut } = useApp()
 
   const isExam = user?.mode === 'exam'
   const streak = user?.streak ?? 0
-  const examMastered = isExam ? Object.values(progress).filter(p => p.status === 'mastered').length : 0
-  const examPct = isExam && words.length > 0 ? Math.round(examMastered / words.length * 100) : 0
+  const todayWordIds = useMemo(() => new Set(todaySession?.word_ids ?? []), [todaySession])
+  const examMastered = isExam
+    ? Object.entries(progress).filter(([wid, p]) => todayWordIds.has(wid) && p.status === 'mastered').length
+    : 0
+  const examTotal = todaySession?.word_ids.length ?? 0
+  const examPct = isExam && examTotal > 0 ? Math.round(examMastered / examTotal * 100) : 0
   const [open, setOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -94,7 +98,7 @@ export default function Navbar() {
             </div>
           )}
           {isExam && (
-            <div className="flex items-center gap-1" title={`${examMastered}/${words.length} mastered`}>
+            <div className="flex items-center gap-1" title={`${examMastered}/${examTotal} mastered`}>
               <CircleProgress value={examPct} size={28} stroke={3} />
               <span className="text-xs font-medium text-bodhi-text">{examPct}%</span>
             </div>
