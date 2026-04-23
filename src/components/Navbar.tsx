@@ -22,7 +22,7 @@ export default function Navbar() {
   const { user, leafCount, progress, words, signOut } = useApp()
 
   const isExam = user?.mode === 'exam'
-  const streak = isExam ? (user?.exam_streak ?? 0) : (user?.streak ?? 0)
+  const streak = user?.streak ?? 0
   const examMastered = isExam ? Object.values(progress).filter(p => p.status === 'mastered').length : 0
   const examPct = isExam && words.length > 0 ? Math.round(examMastered / words.length * 100) : 0
   const [open, setOpen] = useState(false)

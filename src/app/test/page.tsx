@@ -64,7 +64,7 @@ export default function TestPage() {
       status, last_seen: new Date().toISOString(),
     }, { onConflict: 'user_id,word_id,mode' })
 
-    if (correct) {
+    if (correct && user.mode !== 'exam') {
       setLeafTrigger(t => !t)
       setLocalLeafCount(c => c + 1)
     }
@@ -77,9 +77,9 @@ export default function TestPage() {
     const today = getTodayStr()
     const yesterday = getYesterdayStr()
 
-    const isExam = user.mode === 'exam'
-    const lastActive = isExam ? user.exam_last_active_date : user.last_active_date
-    const currentStreak = isExam ? user.exam_streak : user.streak
+    // Unified streak — both modes share streak + last_active_date, increments once per day
+    const lastActive = user.last_active_date
+    const currentStreak = user.streak
 
     let newStreak: number
     if (lastActive === today) {
@@ -93,9 +93,7 @@ export default function TestPage() {
     const supabase = createClient()
     await supabase.from('daily_sessions').update({ completed: true }).eq('id', todaySession.id)
 
-    const streakUpdate = isExam
-      ? { exam_streak: newStreak, exam_last_active_date: today }
-      : { streak: newStreak, last_active_date: today }
+    const streakUpdate = { streak: newStreak, last_active_date: today }
     await supabase.from('users').update(streakUpdate).eq('id', user.id)
 
     updateTodaySession({ completed: true })
@@ -214,10 +212,12 @@ export default function TestPage() {
             </div>
           </div>
 
-          <div className="bg-green-50 border border-green-100 rounded-xl p-4 mb-6 flex items-center justify-between">
-            <span className="text-sm font-medium text-bodhi-green">Leaves earned today</span>
-            <span className="text-lg font-bold text-bodhi-green">+{correctCount} 🍃</span>
-          </div>
+          {user.mode !== 'exam' && (
+            <div className="bg-green-50 border border-green-100 rounded-xl p-4 mb-6 flex items-center justify-between">
+              <span className="text-sm font-medium text-bodhi-green">Leaves earned today</span>
+              <span className="text-lg font-bold text-bodhi-green">+{correctCount} 🍃</span>
+            </div>
+          )}
 
           <div className="grid grid-cols-2 gap-3">
             <button
@@ -251,10 +251,12 @@ export default function TestPage() {
           <h1 className="text-lg font-bold text-bodhi-text">Daily Test</h1>
           <p className="text-xs text-bodhi-text-muted">{correctCount}/{answeredCount} correct so far</p>
         </div>
-        <div className="flex items-center gap-1.5 text-sm">
-          <span className="text-bodhi-green">🍃</span>
-          <span className="font-medium text-bodhi-text">{localLeafCount}</span>
-        </div>
+        {user.mode !== 'exam' && (
+          <div className="flex items-center gap-1.5 text-sm">
+            <span className="text-bodhi-green">🍃</span>
+            <span className="font-medium text-bodhi-text">{localLeafCount}</span>
+          </div>
+        )}
       </div>
 
       <AnimatePresence mode="wait">

@@ -98,7 +98,7 @@ export default function ProfilePage() {
             <Flame size={18} className="text-orange-500" />
           </div>
           <div>
-            <p className="text-xl font-bold text-bodhi-text">{user.mode === 'exam' ? (user.exam_streak ?? 0) : user.streak}</p>
+            <p className="text-xl font-bold text-bodhi-text">{user.streak}</p>
             <p className="text-xs text-bodhi-text-muted">day streak</p>
           </div>
         </div>

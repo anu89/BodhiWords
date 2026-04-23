@@ -147,22 +147,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
       if (!userData) return
 
-      // Streak reset — per-mode
+      // Streak reset — unified single streak regardless of mode
       const yesterday = getYesterdayStr()
       let didLoseStreak = false
       const userMode = userData.mode ?? 'esl'
-      if (userMode === 'exam') {
-        if (userData.exam_last_active_date && userData.exam_last_active_date < yesterday && (userData.exam_streak ?? 0) > 0) {
-          await supabase.from('users').update({ exam_streak: 0 }).eq('id', userId)
-          userData = { ...userData, exam_streak: 0 }
-          didLoseStreak = true
-        }
-      } else {
-        if (userData.last_active_date && userData.last_active_date < yesterday && userData.streak > 0) {
-          await supabase.from('users').update({ streak: 0 }).eq('id', userId)
-          userData = { ...userData, streak: 0 }
-          didLoseStreak = true
-        }
+      if (userData.last_active_date && userData.last_active_date < yesterday && userData.streak > 0) {
+        await supabase.from('users').update({ streak: 0 }).eq('id', userId)
+        userData = { ...userData, streak: 0 }
+        didLoseStreak = true
       }
 
       // Fetch remaining data in parallel
@@ -229,8 +221,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, [todaySession, words])
 
   const leafCount = useMemo(() =>
-    Object.values(progress).filter(p => p.status === 'learning' || p.status === 'mastered').length
-  , [progress])
+    user?.mode === 'esl'
+      ? Object.values(progress).filter(p => p.status === 'learning' || p.status === 'mastered').length
+      : 0
+  , [progress, user?.mode])
 
   // --- Actions ---
 
@@ -301,7 +295,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       daily_goal: dailyGoal ?? user.daily_goal,
     }
     await supabase.from('users').update(updates).eq('id', user.id)
-    await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today).eq('mode', mode)
+    // Only wipe today's session when exam settings actually changed — prevents re-generation on same-day mode toggle
+    const examSettingsChanged = mode === 'exam' && (
+      (examDomain ?? null) !== (user.exam_domain ?? null) ||
+      (dailyGoal !== undefined && dailyGoal !== (user.daily_goal ?? 5))
+    )
+    if (examSettingsChanged) {
+      await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today).eq('mode', mode)
+    }
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
       fetchProgress(user.id, mode),
       fetchWords(user.level, mode, examDomain ?? user.exam_domain),
