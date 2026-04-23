@@ -60,15 +60,20 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }
 
   const fetchWords = useCallback(async (level: ESLLevel, mode?: string, examDomain?: string | null): Promise<Word[]> => {
+    console.log('[fetchWords]', { level, mode, examDomain, hasExamChapters: examDomain && EXAM_CHAPTERS[examDomain] })
     if (mode === 'exam' && examDomain && EXAM_CHAPTERS[examDomain]) {
       const chapters = EXAM_CHAPTERS[examDomain]
+      console.log('[fetchWords] exam mode, chapters:', chapters)
       const { data } = await supabase
         .from('words')
         .select('*')
         .in('chapter_id', chapters)
+      console.log('[fetchWords] fetched exam words count:', data?.length)
       return (data ?? []) as Word[]
     }
+    console.log('[fetchWords] falling back to level filter', level)
     const { data } = await supabase.from('words').select('*').eq('level', level)
+    console.log('[fetchWords] fetched ESL words count:', data?.length)
     return (data ?? []) as Word[]
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [supabase])
@@ -83,6 +88,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   // Returns session — caller sets state
   const buildDailySession = useCallback(async (userId: string, mode: string, levelWords: Word[], progressList: UserProgress[], dailyGoal = 5) => {
+    console.log('[buildDailySession]', { userId, mode, levelWordsCount: levelWords.length, dailyGoal })
     const today = getTodayStr()
 
     const { data: existing } = await supabase
@@ -93,11 +99,16 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       .eq('mode', mode)
       .maybeSingle()
 
-    if (existing) return existing as DailySession
+    if (existing) {
+      console.log('[buildDailySession] existing session found:', existing)
+      return existing as DailySession
+    }
 
     const masteredIds = new Set(progressList.filter(p => p.status === 'mastered').map(p => p.word_id))
     const available = levelWords.filter(w => !masteredIds.has(w.id))
+    console.log('[buildDailySession] available words after filtering mastered:', available.length)
     const picked = [...available].sort(() => Math.random() - 0.5).slice(0, dailyGoal).map(w => w.id)
+    console.log('[buildDailySession] picked word ids:', picked)
 
     if (picked.length === 0) return null
 
@@ -108,6 +119,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       .single()
 
     if (error) {
+      console.log('[buildDailySession] insert error:', error)
       const { data: raced } = await supabase
         .from('daily_sessions')
         .select('*')
@@ -118,6 +130,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       return (raced ?? null) as DailySession | null
     }
 
+    console.log('[buildDailySession] new session created:', inserted)
     return inserted as DailySession
   }, [supabase])
 
@@ -290,21 +303,26 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const changeMode = useCallback(async ({ mode, examDomain, dailyGoal }: {
     mode: UserMode; examDomain?: ExamDomain | null; dailyGoal?: number
   }) => {
+    console.log('[changeMode] called', { mode, examDomain, dailyGoal, user })
     if (!user) return
     const today = getTodayStr()
     const toExam = mode === 'exam'
     const effectiveGoal = toExam ? (dailyGoal ?? user.daily_goal ?? 5) : 5
+    // Determine final exam domain (guaranteed non‑null when switching to exam mode)
+    const finalExamDomain = toExam ? (examDomain ?? user.exam_domain ?? 'toefl') : null
     // Don't clear exam_domain when switching to ESL — needed to restore exam session later
     const dbUpdates = {
       mode,
       daily_goal: effectiveGoal,
-      ...(toExam ? { exam_domain: examDomain ?? null } : {}),
+      ...(toExam ? { exam_domain: finalExamDomain } : {}),
     }
+    console.log('[changeMode] dbUpdates:', dbUpdates)
     await supabase.from('users').update(dbUpdates).eq('id', user.id)
     const examSettingsChanged = toExam && (
-      (examDomain ?? null) !== (user.exam_domain ?? null) ||
+      (finalExamDomain ?? null) !== (user.exam_domain ?? null) ||
       (dailyGoal !== undefined && dailyGoal !== (user.daily_goal ?? 5))
     )
+    console.log('[changeMode] examSettingsChanged:', examSettingsChanged)
     if (examSettingsChanged) {
       // Only delete if no locked session exists for today — locked session must survive mode switches
       const { data: lockedSession } = await supabase
@@ -315,17 +333,20 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         await supabase.from('daily_sessions').delete().eq('user_id', user.id).eq('date', today).eq('mode', mode)
       }
     }
-    const effectiveDomain = toExam ? (examDomain ?? user.exam_domain) : null
+    const effectiveDomain = finalExamDomain
+    console.log('[changeMode] effectiveDomain:', effectiveDomain, 'user.level:', user.level)
     const [{ list: progressList, map: progressMap }, levelWords] = await Promise.all([
       fetchProgress(user.id, mode),
       fetchWords(user.level, mode, effectiveDomain),
     ])
+    console.log('[changeMode] levelWords count:', levelWords.length)
     const session = await buildDailySession(user.id, mode, levelWords, progressList, effectiveGoal)
+    console.log('[changeMode] session:', session)
     setUser(prev => prev ? {
       ...prev,
       mode,
       daily_goal: effectiveGoal,
-      ...(toExam ? { exam_domain: examDomain ?? null } : {}),
+      ...(toExam ? { exam_domain: effectiveDomain } : {}),
     } : null)
     setProgress(progressMap)
     setWords(levelWords)
