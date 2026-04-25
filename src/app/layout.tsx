@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { AppProvider } from '@/context/AppContext'
 import Navbar from '@/components/Navbar'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: 'BodhiWords — Learn 5 Words Daily',
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
         </AppProvider>
+        <Analytics />
       </body>
     </html>
   )
